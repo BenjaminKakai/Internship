@@ -1,0 +1,67 @@
+/* Portfolio Section Styling */
+#portfolio {
+  background: #0A2940;
+}
+
+.portfolio h3 {
+  color: #95A2BB;
+  font-size: 14px;
+  padding-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.portfolio h2 {
+  font-size: 40px;
+  font-weight: 600;
+  color: #95A2BB;
+  margin-bottom: 20px;
+}
+
+.portfolio h2 span {
+  font-weight: 500;
+}
+
+.portfolio p {
+  color: #95A2BB;
+  line-height: 1.6;
+  margin-bottom: 100px;
+}
+
+.item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.item img {
+  display: block;
+  width: 700px;
+  height: 300px;
+  border: 2px solid #95A2BB;
+  object-fit: cover;
+}
+
+.slick-dots {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.slick-dots li {
+  height: 13px;
+  width: 13px;
+  margin: 0 5px;
+  outline: none !important;
+  border-radius: 50%;
+  border: 2px solid #55BA53 !important;
+}
+
+.slick-dots li.slick-active {
+  width: 35px;
+  border-radius: 14px;
+}
+
+.slick-dots li.slick-active,
+.slick-dots li:hover {
+  background: #55BA53 !important;
+}
+

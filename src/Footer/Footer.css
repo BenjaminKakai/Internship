@@ -1,0 +1,76 @@
+.footer {
+  background-color: #0A2940; /* You can change this to your preferred background color */
+  color: #fff;
+  padding: 20px;
+}
+
+.footer__container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.footer__col {
+  flex: 1;
+  padding: 20px;
+}
+
+.footer__col h3,
+.footer__col h4 {
+  margin-bottom: 10px;
+}
+
+.footer__col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer__col ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer__subscribe-input-8 {
+  display: flex;
+}
+
+.footer__subscribe-input-8 input {
+  flex: 1;
+  padding: 10px;
+  margin-right: 10px;
+  border: none;
+}
+
+.footer__subscribe-input-8 button {
+  padding: 10px 20px;
+  background-color: #55BA53;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.footer-bottom {
+  background-color: #f6f6f6; /* This color is for the copyright section */
+  color: #0A2940;
+  padding: 10px 0;
+  text-align: center;
+}
+
+/* You can add more styling as per your requirements */
+
+.icon-wrapper {
+  display: inline-block;
+  width: 24px; /* Adjust the width as needed */
+  text-align: center;
+}
+
+.text-wrapper {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.resources-image {
+  width: auto; /* Adjust as needed */
+  height: 40px; /* Adjust to match the size of the text */
+}
+

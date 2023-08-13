@@ -1,0 +1,68 @@
+/* Services Section Styling */
+#services .items {
+  display: flex;
+  padding-bottom: 20px;
+}
+
+#services .items .item {
+  text-align: center;
+  padding: 10px;
+  margin: 10px;
+  background: #0A2940;
+  border-radius: 5px;
+  box-shadow: 5px 5px 20px rgba(0,0,0,0.3), -5px -5px 20px rgba(0, 0, 0, 0.3);
+  transition: all 0.5s ease;
+}
+
+#services .items .item h3 {
+  color: #55BA53;
+  font-size: 16px;
+  margin: 5px;
+}
+#services .items .item p {
+  line-height: 1.4;
+  color: #95A2BB;
+}
+#services .items .item i {
+  color: #95A2BB;
+}
+#services .items .item:hover i {
+  color: #55BA53;
+}
+#services .items .item:hover {
+  background: #0A2940;
+  transform: scale(1.05);
+}
+#services .items .item:hover h3 {
+  color: #f4f4f4;
+}
+
+#services {
+  background-color: lightgray;
+}
+
+.services-heading {
+  color: orange;
+  text-align: left;
+  padding: 10px;
+  animation: colorFade 30s infinite;
+}
+
+@keyframes colorFade {
+  0% { color: #FFA07A; }
+  33% { color: #FF4500; }
+  66% { color: darkblue; }
+  100% { color: #FFA07A; }
+}
+
+.services-clicked {
+  margin-top: 100px; /* Adjust this value based on the height of your header */
+}
+
+#services:target::before {
+  content: "";
+  display: block;
+  height: 100px; /* Adjust this value to match the height of your navigation bar */
+  margin: -100px 0 0; /* Negative value of the height */
+}
+

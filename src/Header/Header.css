@@ -1,0 +1,135 @@
+/* Top Navbar */
+.showcase .navbar-top {
+  width: 100%;
+  display: flex;
+  padding: 0 0px; /* Reduced padding from 80px to 20px */
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0A2940;
+  top: 0;
+  left: 0;
+  position: fixed; /* Fix the top navbar */
+  z-index: 1000; /* Ensure the navbar is above other content */
+}
+
+.showcase .left,
+.showcase .right {
+  display: flex;
+  list-style: none;
+}
+
+.showcase .left li a,
+.showcase .right li a {
+  display: inline-block;
+  font-size: 13px;
+  text-decoration: none;
+  color: #95A2BB;
+  padding: 5px 15px;
+  transition: all 0.5s ease;
+}
+
+.showcase .left li a:hover,
+.showcase .right li a:hover {
+  color: #55BA53;
+}
+
+.showcase .left li:first-child {
+  font-weight: 700;
+  border-right: 1px solid #536DAF;
+}
+
+/* Add this to give space below the fixed header */
+.showcase {
+  padding-top: 60px; /* Adjust based on the total height of your fixed header */
+}
+
+/* Bottom Navbar */
+.showcase .navbar-bottom {
+  width: 100%;
+  background: #cfcfcf;
+  padding: 20px 10px; /* Reduced padding from 95px to 20px */
+  align-items: center;
+  margin: auto;
+  display: flex;
+  position: fixed; /* Keep this line to fix the bottom navbar */
+  justify-content: space-between;
+  overflow: hidden;
+  z-index: 1000; /* Ensure the navbar is above other content */
+}
+
+.showcase .navbar-bottom .brand-left {
+  color: #55BA53;
+  font-size: 20px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.5s ease;
+}
+
+.showcase .navbar-bottom .menu-right {
+  display: flex;
+  list-style: none;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.showcase .navbar-bottom .menu-right a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 0 20px;
+  color: #1A1B1E;
+  transition: all 0.5s ease;
+}
+
+.showcase .navbar-bottom .menu-right a:hover {
+  color: #55BA53;
+}
+
+/* Navbar Bottom Search Form */
+.navbar-bottom .search-form {
+  position: absolute;
+  top: 60%;
+  right: 10%;
+  background: #f4f4f4;
+  width: 350px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: all 0.5s ease;
+}
+
+.navbar-bottom .search-form.active {
+  transform: scaleY(1);
+}
+
+.navbar-bottom .search-form input {
+  width: 100%;
+  height: 100%;
+  font-size: 20px;
+  border: none;
+  background: #f4f4f4;
+  color: #1A1B1E;
+  padding: 14px;
+  text-transform: none;
+  outline: none;
+}
+
+.navbar-bottom .search-form label {
+  cursor: pointer;
+  font-size: 30px;
+  border: none;
+  margin-right: 12px;
+}
+
+.navbar-bottom .search-form label:hover {
+  color: #55BA53;
+}
+
+.brand-logo {
+  /* Adjust height and width as needed */
+  height: auto; /* Maintain aspect ratio */
+  width: 150px;/* width corresponding to the original text size */;
+}
+
