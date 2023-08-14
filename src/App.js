@@ -10,6 +10,7 @@ import Contact from './Contact/Contact';
 import Footer from './Footer/Footer';
 import Home from './Home/Home'; // Imported Home component
 import NavigationBar from './NavigationBar/NavigationBar';
+import './index.css';
 
 function App() {
   const [isNavbarSticky, setNavbarSticky] = useState(false);

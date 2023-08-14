@@ -63,6 +63,27 @@
   content: "";
   display: block;
   height: 100px; /* Adjust this value to match the height of your navigation bar */
-  margin: -100px 0 0; /* Negative value of the height */
+  margin: -70px 0 0; /* Negative value of the height */
 }
+
+.animated-word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateX(1em);
+  animation: appear 10s infinite;
+  animation-timing-function: linear;
+  font-style: italic; /* Add this line */
+}
+
+@keyframes appear {
+  0%, 100% {
+    opacity: 0;
+    transform: translateX(1em);
+  }
+  10% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 

@@ -65,3 +65,39 @@
   background: #55BA53 !important;
 }
 
+#portfolio:target::before {
+  content: "";
+  display: block;
+  height: 100px; /* Adjust this value to match the height of your navigation bar */
+  margin: -100px 0 0; /* Negative value of the height */
+}
+
+.slick-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  padding: 5px 10px;
+  border-radius: 25px; /* Oval edges */
+  background-color: #f4f4f4; /* Background color for the container */
+  width: fit-content; /* Adjust the width to fit the content */
+}
+
+.slick-dots li {
+  width: 13px;
+  height: 13px;
+  margin: 0 5px;
+  outline: none;
+  border-radius: 13px;
+  border: 1px solid #ccc;
+}
+
+.slick-dots li.slick-active {
+  width: 35px;
+  border-radius: 14px;
+}
+
+.slick-dots li.slick-active, .slick-dots li:hover {
+  background-color: #55BA53;
+}
+

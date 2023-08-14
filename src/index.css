@@ -14,3 +14,7 @@ body {
   overflow-x: hidden;
 }
 
+.app-container {
+  overflow-x: auto;
+}
+

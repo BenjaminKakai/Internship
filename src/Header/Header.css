@@ -2,15 +2,15 @@
 .showcase .navbar-top {
   width: 100%;
   display: flex;
-  padding: 0 0px; /* Reduced padding from 80px to 20px */
+  padding: 0 0px;
   margin: 0 auto;
   justify-content: space-between;
   align-items: center;
   background-color: #0A2940;
   top: 0;
   left: 0;
-  position: fixed; /* Fix the top navbar */
-  z-index: 1000; /* Ensure the navbar is above other content */
+  position: fixed;
+  z-index: 2000; /* Higher value than the showcase content */
 }
 
 .showcase .left,
@@ -39,23 +39,22 @@
   border-right: 1px solid #536DAF;
 }
 
-/* Add this to give space below the fixed header */
 .showcase {
-  padding-top: 60px; /* Adjust based on the total height of your fixed header */
+  padding-top: 60px;
 }
 
 /* Bottom Navbar */
 .showcase .navbar-bottom {
   width: 100%;
   background: #cfcfcf;
-  padding: 20px 10px; /* Reduced padding from 95px to 20px */
+  padding: 20px 10px;
   align-items: center;
   margin: auto;
   display: flex;
-  position: fixed; /* Keep this line to fix the bottom navbar */
+  position: fixed;
   justify-content: space-between;
   overflow: hidden;
-  z-index: 1000; /* Ensure the navbar is above other content */
+  z-index: 2000; /* Higher value than the showcase content */
 }
 
 .showcase .navbar-bottom .brand-left {
@@ -128,8 +127,75 @@
 }
 
 .brand-logo {
-  /* Adjust height and width as needed */
-  height: auto; /* Maintain aspect ratio */
-  width: 150px;/* width corresponding to the original text size */;
+  height: auto;
+  width: 150px;
+}
+
+.services-dropdown {
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 9999; /* Very high z-index value */
+  width: 400px; /* Width of the dropdown */
+  max-height: 400px; /* Maximum height of the dropdown */
+  overflow-y: auto;
+  top: 100%;
+  left: 0;
+}
+
+.row {
+  padding: 5px 10px;
+}
+
+.subcategories {
+  padding-left: 20px;
+}
+
+.row a,
+.subcategories a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+}
+
+.row a:hover,
+.subcategories a:hover {
+  color: #007bff;
+}
+
+.menu-right > li {
+  position: relative;
+  z-index: 1;
+}
+
+.services-dropdown {
+  position: fixed;
+  top: 150px;
+  left: 900px;
+  background: white;
+  z-index: 1000;
+  border: 1px solid transparent;
+  display: none; /* Initially hidden */
+}
+
+.services-dropdown a {
+  color: darkred;
+  text-decoration: none;
+}
+
+.services-dropdown.expanded {
+  display: block; /* Show immediately when expanded */
+  animation: fadeOut 20s forwards; /* 10-second fade-out animation */
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1; /* Start fully visible */
+  }
+  to {
+    opacity: 0; /* End fully transparent */
+  }
 }
 

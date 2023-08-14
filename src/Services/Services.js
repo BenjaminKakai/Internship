@@ -2,29 +2,39 @@ import React from 'react';
 import './Services.css';
 
 function Services() {
+  const words = "Our Teams Work Hard to Offer Clients these Services".split(' ');
   return (
     <section id="services" className="bg-light py-3">
       <div className="wrapper">
-        <h2 className="services-heading"><b>Our <br />Teams Work Hard to <br />Offer Clients the Services Below</b></h2>
+        <br />
+        <br />
+        <br />
+        <h2 className="services-heading">
+          {words.map((word, index) => (
+            <span key={index} style={{ animationDelay: `${0.3 * index}s` }} className="animated-word">
+              {word} {index < words.length - 1 && <>&nbsp;</>}
+            </span>
+          ))}
+        </h2>
         <div className="items">
           <div className="item">
             <i className="bx bxs-badge-dollar bx-lg"></i>
-            <h3>Drive Changes Through AI & Data.</h3>
-            <p>Empowering innovation with AI.</p>
+            <h3>Artificial Intelligence & ML.</h3>
+            <p>AI Consulting<br /><br />MLOps Consulting</p>
           </div>
           <div className="item">
             <i className="bx bxs-building-house bx-lg"></i>
-            <h3>Build Enterprise Ready AI Solutions.</h3>
-            <p>Your path to AI success.</p>
+            <h3>Data Engineering</h3>
+            <p>Data Engineering Services<br /><br />Big Data Consulting</p>
           </div>
           <div className="item">
             <i className="bx bxs-credit-card-front bx-lg"></i>
-            <h3>Data Analysis for Effective Decision Making.</h3>
-            <p>Analytics for smart decisions.</p>
+            <h3>Generative AI</h3>
+            <p>Generative AI Development</p>
           </div>
           <div className="item">
             <i className="bx bxs-plane-alt bx-lg"></i>
-            <h3>Including Artificial Intelligence in Businesses.</h3>
+            <h3>Enterprise Ready AI Solutions</h3>
             <p>AI tailored for business.</p>
           </div>
         </div>
