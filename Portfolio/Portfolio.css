@@ -1,0 +1,149 @@
+/* Portfolio Section Styling */
+#portfolio {
+  background: #0A2940;
+}
+
+.portfolio h3 {
+  color: White;
+  font-size: 20px;
+  padding-bottom: 20px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.portfolio h2 {
+  font-size: 40px;
+  font-weight: 600;
+  color: #95A2BB;
+  margin-bottom: 20px;
+}
+
+.portfolio h2 span {
+  font-weight: 500;
+}
+
+.portfolio p {
+  color: #Red;
+  line-height: 1.6;
+  margin-bottom: 100px;
+}
+
+.item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.item img {
+  display: block;
+  width: 500px;
+  height: 250px;
+  border: 2px solid #95A2BB;
+  object-fit: cover;
+}
+
+.slick-dots {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.slick-dots li {
+  height: 13px;
+  width: 13px;
+  margin: 0 5px;
+  outline: none !important;
+  border-radius: 50%;
+  border: 2px solid #55BA53 !important;
+}
+
+.slick-dots li.slick-active {
+  width: 35px;
+  border-radius: 14px;
+}
+
+.slick-dots li.slick-active,
+.slick-dots li:hover {
+  background: #55BA53 !important;
+}
+
+#portfolio:target::before {
+  content: "";
+  display: block;
+  height: 100px; /* Adjust this value to match the height of your navigation bar */
+  margin: -100px 0 0; /* Negative value of the height */
+}
+
+.slick-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  padding: 5px 10px;
+  border-radius: 25px; /* Oval edges */
+  background-color: #f4f4f4; /* Background color for the container */
+  width: fit-content; /* Adjust the width to fit the content */
+}
+
+.slick-dots li {
+  width: 13px;
+  height: 13px;
+  margin: 0 5px;
+  outline: none;
+  border-radius: 13px;
+  border: 1px solid #ccc;
+}
+
+.slick-dots li.slick-active {
+  width: 35px;
+  border-radius: 14px;
+}
+
+.slick-dots li.slick-active, .slick-dots li:hover {
+  background-color: #55BA53;
+}
+
+/* Additional styles */
+
+.image-container {
+  position: relative;
+}
+
+.image-heading {
+  color: #95A2BB;
+  font-weight: bold; /* Making the heading bolder */
+  text-align: center;
+}
+
+.image-description {
+  position: absolute;
+  color: green; /* Green color for the description */
+  bottom: 10px; /* Positioning the description at the bottom of the image */
+  left: 10px; /* Left margin */
+  background: rgba(255, 255, 255, 0.6); /* Background to make the text more visible */
+  padding: 5px;
+  border-radius: 5px; /* Rounded corners */
+  font-weight: bold; /* Making the font heavier and bolder */
+}
+
+.item a {
+  display: block; /* Making the anchor tag a block element to include the entire image */
+}
+
+.read-more-button {
+  position: absolute;
+  top: 80%;
+  right: 10px; /* Positioning at the far right */
+  transform: translateY(-50%);
+  background: #006400; /* Dark Green background */
+  color: white; /* White text */
+  padding: 10px 20px;
+  border-radius: 5px; /* Rounded corners */
+  text-decoration: none; /* Remove underline */
+  display: none; /* Hidden by default */
+  font-weight: bold; /* Bold text */
+}
+
+.image-container:hover .read-more-button {
+  display: block; /* Show on hover */
+}
+
