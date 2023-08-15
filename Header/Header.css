@@ -1,0 +1,468 @@
+/* Top Navbar */
+.showcase .navbar-top {
+  width: 100%;
+  display: flex;
+  padding: 0 0px;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0A2940;
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 2000; /* Higher value than the showcase content */
+}
+
+.showcase .left,
+.showcase .right {
+  display: flex;
+  list-style: none;
+}
+
+.showcase .left li a,
+.showcase .right li a {
+  display: inline-block;
+  font-size: 13px;
+  text-decoration: none;
+  color: #95A2BB;
+  padding: 5px 15px;
+  transition: all 0.5s ease;
+}
+
+.showcase .left li a:hover,
+.showcase .right li a:hover {
+  color: #55BA53;
+}
+
+.showcase .left li:first-child {
+  font-weight: 700;
+  border-right: 1px solid #536DAF;
+}
+
+.showcase {
+  padding-top: 60px;
+}
+
+/* Bottom Navbar */
+.showcase .navbar-bottom {
+  width: 100%;
+  background: #cfcfcf;
+  padding: 20px 10px;
+  align-items: center;
+  margin: auto;
+  display: flex;
+  position: fixed;
+  justify-content: space-between;
+  overflow: hidden;
+  z-index: 2000; /* Higher value than the showcase content */
+}
+
+.showcase .navbar-bottom .brand-left {
+  color: #55BA53;
+  font-size: 20px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.5s ease;
+}
+
+.showcase .navbar-bottom .menu-right {
+  display: flex;
+  list-style: none;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.showcase .navbar-bottom .menu-right a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 0 20px;
+  color: #1A1B1E;
+  transition: all 0.5s ease;
+}
+
+.showcase .navbar-bottom .menu-right a:hover {
+  color: #55BA53;
+}
+
+/* Navbar Bottom Search Form */
+.navbar-bottom .search-form {
+  position: absolute;
+  top: 60%;
+  right: 10%;
+  background: #f4f4f4;
+  width: 350px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: all 0.5s ease;
+}
+
+.navbar-bottom .search-form.active {
+  transform: scaleY(1);
+}
+
+.navbar-bottom .search-form input {
+  width: 100%;
+  height: 100%;
+  font-size: 20px;
+  border: none;
+  background: #f4f4f4;
+  color: #1A1B1E;
+  padding: 14px;
+  text-transform: none;
+  outline: none;
+}
+
+.navbar-bottom .search-form label {
+  cursor: pointer;
+  font-size: 30px;
+  border: none;
+  margin-right: 12px;
+}
+
+.navbar-bottom .search-form label:hover {
+  color: #55BA53;
+}
+
+.brand-logo {
+  height: auto;
+  width: 150px;
+}
+
+.services-dropdown {
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 9999; /* Very high z-index value */
+  width: 400px; /* Width of the dropdown */
+  max-height: 400px; /* Maximum height of the dropdown */
+  overflow-y: auto;
+  top: 100%;
+  left: 0;
+}
+
+.row {
+  padding: 5px 10px;
+}
+
+.subcategories {
+  padding-left: 20px;
+}
+
+.row a,
+.subcategories a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+}
+
+.row a:hover,
+.subcategories a:hover {
+  color: #007bff;
+}
+
+.menu-right > li {
+  position: relative;
+  z-index: 1;
+}
+
+/* Common Dropdown Styles for all dropdowns */
+.dropdown {
+  position: fixed;
+  top: 150px;
+  background: white;
+  z-index: 1000;
+  border: 1px solid transparent;
+  display: none; /* Initially hidden */
+}
+
+.dropdown a {
+  color: darkred;
+  text-decoration: none;
+}
+
+.dropdown.expanded {
+  display: block; /* Show immediately when expanded */
+  animation: fadeOut 5s forwards; /* 10-second fade-out animation */
+}
+
+/* Individual Dropdown Positioning */
+.services-dropdown { left: 900px; }
+.home-dropdown { left: 890px; }
+.portfolio-dropdown { left: 880px; }
+.teams-dropdown { left: 870px; }
+.blog-dropdown { left: 860px; }
+.contact-dropdown { left: 850px; }
+
+/* Fade Out Animation */
+@keyframes fadeOut {
+  from {
+    opacity: 1; /* Start fully visible */
+  }
+  to {
+    opacity: 0; /* End fully transparent */
+  }
+}
+
+/* Other styles */
+.row {
+  padding: 5px 10px;
+}
+
+.subcategories {
+  padding-left: 20px;
+}
+
+.row a,
+.subcategories a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+}
+
+.row a:hover,
+.subcategories a:hover {
+  color: #007bff;
+}
+
+.menu-right > li {
+  position: relative;
+  z-index: 1;
+}
+
+.services-dropdown {
+  position: fixed;
+  top: 150px;
+  left: 900px;
+  background: white;
+  z-index: 1000;
+  border: 1px solid transparent;
+  display: none; /* Initially hidden */
+}
+
+.services-dropdown a {
+  color: darkred;
+  text-decoration: none;
+}
+
+.services-dropdown.expanded {
+  display: block; /* Show immediately when expanded */
+  animation: fadeOut 20s forwards; /* 10-second fade-out animation */
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1; /* Start fully visible */
+  }
+  to {
+    opacity: 0; /* End fully transparent */
+  }
+}
+
+.services-dropdown {
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 9999; /* Very high z-index value */
+  width: 400px; /* Width of the dropdown */
+  max-height: 400px; /* Maximum height of the dropdown */
+  overflow-y: auto;
+  top: 100%;
+  left: 0;
+}
+
+.row {
+  padding: 5px 10px;
+}
+
+.subcategories {
+  padding-left: 20px;
+}
+
+.row a,
+.subcategories a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+}
+
+.row a:hover,
+.subcategories a:hover {
+  color: #007bff;
+}
+
+.menu-right > li {
+  position: relative;
+  z-index: 1;
+}
+
+.services-dropdown {
+  position: fixed;
+  top: 150px;
+  left: 900px;
+  background: white;
+  z-index: 1000;
+  border: 1px solid transparent;
+  display: none; /* Initially hidden */
+}
+
+.services-dropdown a {
+  color: darkred;
+  text-decoration: none;
+}
+
+.services-dropdown.expanded {
+  display: block; /* Show immediately when expanded */
+  animation: fadeOut 20s forwards; /* 10-second fade-out animation */
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1; /* Start fully visible */
+  }
+  to {
+    opacity: 0; /* End fully transparent */
+  }
+}
+
+/* Services Dropdown CSS */
+.services-dropdown {
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 9999;
+  width: 400px;
+  max-height: 400px;
+  overflow-y: auto;
+  top: 100%;
+  left: 0;
+}
+
+/* Home Dropdown CSS */
+.home-dropdown {
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 9999;
+  width: 400px;
+  max-height: 400px;
+  overflow-y: auto;
+  top: 100%;
+  left: 0;
+}
+
+/* Portfolio Dropdown CSS */
+.portfolio-dropdown {
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 9999;
+  width: 400px;
+  max-height: 400px;
+  overflow-y: auto;
+  top: 100%;
+  left: 0;
+}
+
+/* Teams Dropdown CSS */
+.teams-dropdown {
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 9999;
+  width: 400px;
+  max-height: 400px;
+  overflow-y: auto;
+  top: 100%;
+  left: 0;
+}
+
+/* Blog Dropdown CSS */
+.blog-dropdown {
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 9999;
+  width: 400px;
+  max-height: 400px;
+  overflow-y: auto;
+  top: 100%;
+  left: 0;
+}
+
+/* Contact Dropdown CSS */
+.contact-dropdown {
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 9999;
+  width: 400px;
+  max-height: 400px;
+  overflow-y: auto;
+  top: 100%;
+  left: 0;
+}
+
+/* Common Styles for All Dropdowns */
+.row {
+  padding: 5px 10px;
+}
+
+.subcategories {
+  padding-left: 20px;
+}
+
+.row a,
+.subcategories a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+}
+
+.row a:hover,
+.subcategories a:hover {
+  color: #007bff;
+}
+
+.menu-right > li {
+  position: relative;
+  z-index: 1;
+}
+
+/* Expanded Animation for All Dropdowns */
+.services-dropdown.expanded,
+.home-dropdown.expanded,
+.portfolio-dropdown.expanded,
+.teams-dropdown.expanded,
+.blog-dropdown.expanded,
+.contact-dropdown.expanded {
+  display: block;
+  animation: fadeOut 20s forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
