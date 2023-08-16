@@ -19,7 +19,16 @@ document.querySelectorAll('.submenu-link').forEach(link => {
         e.preventDefault();
         e.stopPropagation(); // Stop the event from bubbling up to the parent
         let submenu = e.target.nextElementSibling;
+        let arrow = e.target.querySelector('.arrow');
+
+        // Toggle submenu display
         submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
+
+        // Toggle arrow symbol
+        arrow.textContent = arrow.textContent === '>' ? '-' : '>';
+
+        // Toggle text color
+        e.target.style.color = e.target.style.color === 'red' ? 'black' : 'red';
     });
 });
 
