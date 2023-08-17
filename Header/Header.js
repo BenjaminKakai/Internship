@@ -1,31 +1,65 @@
-import React, { useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../boxicons-2.0.9/css/boxicons.min.css';
 import './Header.css';
 
+
+
 function Header() {
+  const logoPath = '/images/logo.png';
   const [searchFormActive, setSearchFormActive] = useState(false);
-  const [hoverMenu, setHoverMenu] = useState(null);
-  const fadeOutTimeout = useRef(null);
 
   const toggleSearchForm = () => {
     setSearchFormActive(!searchFormActive);
   };
 
-  const handleMouseEnter = (menu) => {
-    setHoverMenu(menu);
-    if (fadeOutTimeout.current) {
-      clearTimeout(fadeOutTimeout.current);
-    }
-  };
+  useEffect(() => {
+    // Add click event to dropbtn to toggle dropdown content
+    document.querySelectorAll('.dropdown').forEach((dropdown) => {
+      dropdown.querySelector('.dropbtn').addEventListener('click', (e) => {
+        let dropdownContent = dropdown.querySelector('.dropdown-content');
+        dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
+        e.stopPropagation();
+      });
 
-  const handleMouseLeave = () => {
-    fadeOutTimeout.current = setTimeout(() => {
-      setHoverMenu(null);
-    }, 10000);
-  };
+      // Hide dropdown content when cursor leaves the dropdown area
+      dropdown.addEventListener('mouseleave', (e) => {
+        let dropdownContent = dropdown.querySelector('.dropdown-content');
+        dropdownContent.style.display = 'none';
+      });
+    });
 
-  // Define the path to the logo image
-  const logoPath = '/images/logo.png';
+    // Add click event to submenu-link to toggle submenu
+    document.querySelectorAll('.submenu-link').forEach((link) => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        let submenu = link.nextElementSibling;
+        while (submenu && !submenu.classList.contains('submenu')) {
+          submenu = submenu.nextElementSibling;
+        }
+        let arrow = e.target.querySelector('.arrow');
+
+        // Check if submenu and arrow are found
+        if (submenu && arrow) {
+          // Toggle submenu display
+          submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
+
+          // Toggle arrow symbol
+          arrow.textContent = arrow.textContent === '>' ? '-' : '>';
+
+          // Toggle text color
+          e.target.style.color = e.target.style.color === 'red' ? 'black' : 'red';
+        }
+      });
+    });
+
+    // Hide dropdown content when clicking outside of the dropdown area
+    document.addEventListener('click', () => {
+      document.querySelectorAll('.dropdown-content').forEach((dropdownContent) => {
+        dropdownContent.style.display = 'none';
+      });
+    });
+  }, []);
 
   return (
     <div className="showcase">
@@ -43,121 +77,115 @@ function Header() {
           <li><a href="#"><i className="bx bxl-instagram-alt bx-xs"></i></a></li>
         </ul>
       </div>
+      
       <div className="navbar-bottom">
         <a className="brand-left" href="#home">
           <img src={logoPath} alt="INTELIVERSE" className="brand-logo" />
         </a>
         <ul className="menu-right">
-          <li onMouseEnter={() => handleMouseEnter('home')} onMouseLeave={handleMouseLeave}>
-            <a href="#home">Home</a>
-            {hoverMenu === 'home' && (
-              <div className="dropdown home expanded">
-                {/* Home Dropdown Content */}
-                <a href="#services">Services</a><br />
-                <a href="#portfolio">Portfolio</a><br />
-                <a href="#teams">Teams</a><br />
-                <a href="#blog">Blog</a><br />
-                <a href="#contact">Contact</a><br />
+          <li>
+            <div className="dropdown">
+              <button className="dropbtn" style={{ backgroundColor: 'lightgrey', color: 'black' }}>Home</button>
+
+              <div className="dropdown-content">
+                <a href="#" className="submenu-link">Services <span className="arrow">&gt;</span></a><br />
+                <a href="#" className="submenu-link">Portfolio <span className="arrow">&gt;</span></a><br />
+                <a href="#" className="submenu-link">Teams <span className="arrow">&gt;</span></a><br />
+                <a href="#" className="submenu-link">Blog <span className="arrow">&gt;</span></a><br />
+                <a href="#" className="submenu-link">Contact <span className="arrow">&gt;</span></a>
               </div>
-            )}
+            </div>
           </li>
-          <li onMouseEnter={() => handleMouseEnter('services')} onMouseLeave={handleMouseLeave}>
-            <a href="#services">Services</a>
-            {hoverMenu === 'services' && (
-              <div className="dropdown services expanded">
-                {/* Services Dropdown Content */}
-                <a href="#">Artificial Intelligence & Machine Learning</a>
-                <div className="subcategories">
-                  <a href="#">AI Consulting</a><br />
-                  <a href="#">MLOps Consulting</a>
+          <li>
+          
+            <div className="dropdown">
+              <button className="dropbtn" style={{ backgroundColor: 'lightgrey', color: 'black' }}>Services</button>
+              <div className="dropdown-content">
+                <a href="#" className="submenu-link">Artificial Intelligence & Machine Learning <span className="arrow">&gt;</span></a>
+                <div className="submenu">
+                    <a href="#">AI Consulting</a>
+                    <br /><a href="#">MLOps Consulting</a>
                 </div>
-                <a href="#">Data Engineering</a>
-                <div className="subcategories">
-                  <a href="#">Data Engineering Services</a><br />
-                  <a href="#">Big Data Consulting</a>
+                <div><a href="#" className="submenu-link">Data Engineering <span className="arrow">&gt;</span></a>
+                <div className="submenu">
+                    <a href="#">Data Engineering Services<br /></a>
+                    <br /><a href="#">Big Data Consulting<br /></a>
                 </div>
-                <a href="#">Generative AI</a>
-                <div className="subcategories">
-                  <a href="#">AI Development</a>
                 </div>
-                <a href="#">Enterprise Ready Solutions</a>
-              </div>
-            )}
-          </li>
-          <li onMouseEnter={() => handleMouseEnter('portfolio')} onMouseLeave={handleMouseLeave}>
-            <a href="#portfolio">Portfolio</a>
-            {hoverMenu === 'portfolio' && (
-              <div className="dropdown portfolio expanded">
-                {/* Portfolio Dropdown Content */}
-                <div className="row">
-                  <a href="#">Solutions</a>
-                  <div className="subcategories">
-                    <a href="#">Manufacturing</a><br />
-                    <a href="#">Retail</a><br />
-                    <a href="#">Technology Companies</a><br />
-                    <a href="#">Finance Insurance</a>
-                  </div>
-                </div>
-                <div className="row">
-                  <a href="#">Technologies</a><br />
-                  <div className="subcategories">
-                    <a href="#">Computer Vision Solutions</a><br />
-                    <a href="#">NLP</a>
-                  </div>
+                <a href="#" className="submenu-link">Generative AI <span className="arrow">&gt;</span></a>
+                <div className="submenu">
+                    <a href="#">AI Development</a>
+                    <br /><a href="#">Enterprise Ready Solutions</a>
                 </div>
               </div>
-            )}
+            </div>
           </li>
-          <li onMouseEnter={() => handleMouseEnter('teams')} onMouseLeave={handleMouseLeave}>
-            <a href="#teams">Teams</a>
-            {hoverMenu === 'teams' && (
-              <div className="dropdown teams expanded">
-                {/* Teams Dropdown Content */}
-                <div className="row">
-                  <a href="#">Careers</a>
-                  <div className="subcategories">
+          
+          <li>
+            <div className="dropdown">
+              <button className="dropbtn" style={{ backgroundColor: 'lightgrey', color: 'black' }}>Portfolio</button>
+
+              <div className="dropdown-content">
+                <div><a href="#" className="submenu-link">Solutions<span className="arrow">&gt;</span></a>
+                <div className="submenu">
+                    <a href="#">Manufacturing</a>
+                    <br /><a href="#">Retail</a>
+                    <br /><a href="#">Technology Companies</a>
+                    <br /><a href="#">Finance Insurance</a>
+                </div>
+                </div>
+               <div> <a href="#" className="submenu-link">Technologies <span className="arrow">&gt;</span></a>
+                <div className="submenu">
+                    <a href="#">Computer Vision Solutions</a>
+                    <br /><a href="#">NLP</a>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          
+          <li>
+            <div className="dropdown">
+              <button className="dropbtn" style={{ backgroundColor: 'lightgrey', color: 'black' }}>Teams</button>
+
+              <div className="dropdown-content">
+                <a href="#" className="submenu-link">Careers <span className="arrow">&gt;</span></a>
+                <div className="submenu">
                     <a href="#">Check Job Opportunities and Join Us</a>
-                    <a href="#">Learn More About How It Is to Work with Inteliverse</a>
-                  </div>
+                    <br /><a href="#">Learn More About How It Is to Work with Inteliverse</a>
                 </div>
-                <div className="row">
-                  <a href="#">Professionals at Inteliverse</a>
-                  <div className="subcategories">
+                <div><a href="#" className="submenu-link">Professionals at Inteliverse <span className="arrow">&gt;</span></a>
+                <div className="submenu">
                     <a href="#">Software Development Teams</a>
-                    <a href="#">Data Engineering Teams</a>
-                    <a href="#">Machine Learning Team</a>
-                    <a href="#">DevOps Team</a>
-                    <a href="#">Security Team</a>
-                    <a href="#">User Experience and User Interface Design Team</a>
-                  </div>
+                    <br /><a href="#">Data Engineering Teams</a>
+                    <br /><a href="#">Machine Learning Team</a>
+                    <br /><a href="#">DevOps Team</a>
+                    <br /><a href="#">Security Team</a>
+                    <br /><a href="#">User Experience and User Interface Design Team</a>
+                    </div>
                 </div>
               </div>
-            )}
-          </li>
-          <li onMouseEnter={() => handleMouseEnter('blog')} onMouseLeave={handleMouseLeave}>
-            <a href="#blog">Blog</a>
-            {hoverMenu === 'blog' && (
-              <div className="dropdown blog expanded">
-                {/* Blog Dropdown Content */}
-                <a href="#">Data Analytics</a>
-                <a href="#">Data-Driven Revenue</a>
-                <a href="#">Growth Insights for the Retail Industry</a>
+            </div>
+        </li>
+          
+                    <li>
+            <div className="dropdown">
+              <button className="dropbtn" style={{ backgroundColor: 'lightgrey', color: 'black' }}>Blog</button>
+
+              <div className="dropdown-content">
+                <a href="#" className="submenu-link">Data Analytics <span className="arrow">&gt;</span></a>
+                <a href="#" className="submenu-link">Data-Driven Revenue <span className="arrow">&gt;</span></a>
+                <a href="#" className="submenu-link">Data-Driven Revenue <span className="arrow">&gt;</span></a>
+                <a href="#" className="submenu-link">Growth Insights for the Retail Industry <span className="arrow">&gt;</span></a>
+                <div className="submenu">
+                  <a href="#"></a>
+                </div>
               </div>
-            )}
+            </div>
           </li>
-          <li onMouseEnter={() => handleMouseEnter('contact')} onMouseLeave={handleMouseLeave}>
-            <a href="#contact">Contact</a>
-            {hoverMenu === 'contact' && (
-              <div className="dropdown contact expanded">
-                {/* Contact Dropdown Content */}
-                <a href="#">Email</a>
-                <a href="#">Phone Number</a>
-              </div>
-            )}
-          </li>
-          <li><a href="#" onClick={toggleSearchForm}><i className="bx bx-search bx-sm" id="search-btn"></i></a></li>
+          <li><a href="#" onClick={toggleSearchForm}><i className="bx bx-search bx-sm" id="search-btn"></i></a></li> {/* Added search button */}
         </ul>
-        <div className={`search-form ${searchFormActive ? 'active' : ''}`}>
+        <div className={`search-form ${searchFormActive ? 'active' : ''}`}> {/* Added search form */}
           <input id="search-box" name="search-box" placeholder="search here..." type="search" />
           <label className="bx bx-search bx-sm" htmlFor="search-box"></label>
         </div>
