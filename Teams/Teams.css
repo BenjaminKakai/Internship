@@ -84,3 +84,12 @@
   margin: -100px 0 0; /* Negative value of the height */
 }
 
+#portfolio, #teams {
+  background: #0A2940; /* Dark blue color */
+}
+
+#teams {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+

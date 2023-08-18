@@ -71,6 +71,7 @@
   display: block;
   height: 100px; /* Adjust this value to match the height of your navigation bar */
   margin: -100px 0 0; /* Negative value of the height */
+  background: #0A2940;
 }
 
 .slick-dots {
@@ -115,23 +116,30 @@
 }
 
 .image-description {
-  position: absolute;
-  color: green; /* Green color for the description */
-  bottom: 10px; /* Positioning the description at the bottom of the image */
-  left: 10px; /* Left margin */
-  background: rgba(255, 255, 255, 0.6); /* Background to make the text more visible */
-  padding: 5px;
-  border-radius: 5px; /* Rounded corners */
-  font-weight: bold; /* Making the font heavier and bolder */
-}
+  color: white; /* Green color for the description */
+  font-size: 14px; /* Adjust the font size */
+  padding: 10px; /* Padding around the text */
+  }
 
 .item a {
   display: block; /* Making the anchor tag a block element to include the entire image */
 }
 
 .read-more-button {
+  display: block;
+  background: #006400; /* Dark Green background */
+  color: white; /* White text */
+  padding: 10px 20px;
+  border-radius: 5px; /* Rounded corners */
+  text-decoration: none; /* Remove underline */
+  font-weight: bold; /* Bold text */
+  text-align: center; /* Center the text */
+  margin: 10px auto; /* Center the button and give space above and below */
+  width: fit-content; /* Fit the width to the content */
+}
+.read-more-button {
   position: absolute;
-  top: 80%;
+  top: 60%;
   right: 10px; /* Positioning at the far right */
   transform: translateY(-50%);
   background: #006400; /* Dark Green background */
@@ -139,9 +147,9 @@
   padding: 10px 20px;
   border-radius: 5px; /* Rounded corners */
   text-decoration: none; /* Remove underline */
-  display: none; /* Hidden by default */
   font-weight: bold; /* Bold text */
 }
+
 
 .image-container:hover .read-more-button {
   display: block; /* Show on hover */
