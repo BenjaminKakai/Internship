@@ -2,15 +2,16 @@
 .showcase .navbar-top {
   width: 100%;
   display: flex;
-  padding: 0 0px;
+  padding: 10px 0; /* Adjust padding here to reduce the height of the strip */
   margin: 0 auto;
   justify-content: space-between;
   align-items: center;
-  background-color: #0A2940;
+  background-color: transparent; /* Change to white background */
   top: 0;
   left: 0;
   position: fixed;
   z-index: 2000; /* Higher value than the showcase content */
+  justify-content: center;
 }
 
 .showcase .left,
@@ -18,15 +19,19 @@
   display: flex;
   list-style: none;
 }
+.showcase .left a {
+  font-weight: normal; /* Set font weight to normal */
+}
 
 .showcase .left li a,
 .showcase .right li a {
-  display: inline-block;
-  font-size: 13px;
+  display: block;
+  font-size: 15px;
   text-decoration: none;
-  color: #95A2BB;
+  color: #000000; /* Change to black text color */
   padding: 5px 15px;
   transition: all 0.5s ease;
+  text-align: center;
 }
 
 .showcase .left li a:hover,
@@ -44,9 +49,10 @@
 }
 
 /* Bottom Navbar */
+
 .showcase .navbar-bottom {
   width: 100%;
-  background: lightgray;
+  background: transparent;
   padding: 20px 10px;
   align-items: center;
   margin: auto;
@@ -57,8 +63,9 @@
   z-index: 2000; /* Higher value than the showcase content */
 }
 
+
 .showcase .navbar-bottom .brand-left {
-  color: lightgray;
+  color: #ffffff;
   font-size: 20px;
   font-weight: 700;
   text-decoration: none;
@@ -67,16 +74,35 @@
 
 .showcase .navbar-bottom .menu-right {
   display: flex;
+  justify-content: center; /* Center the menu items */
+  align-items: center;
   list-style: none;
   font-size: 14px;
   font-weight: 600;
-  display: inline-block; /* Added this line */
-  margin-right: 10px; /* Adjust as needed */
+  width: 100%;
+  margin-left: 250px;
+}
+
+
+.showcase .navbar-bottom .menu-right {
+  display: flex;
+  justify-content: center; /* Center the menu items */
+  align-items: center;
+  list-style: none;
+  font-size: 14px;
+  font-weight: 600;
+  width: 100%;
+  margin-left: 250px;
 }
 
 .showcase .navbar-bottom .menu-right li {
-  display: inline-block; /* Added this line */
-  margin-right: 10px; /* Adjust as needed */
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.showcase .navbar-bottom .menu-right .contact-us-button {
+  margin-left: auto; /* Push to the right */
+  margin-right: 200px; /* Keep 100px from the right */
 }
 
 .showcase .navbar-bottom .menu-right a {
@@ -97,7 +123,7 @@
   position: absolute;
   top: 60%;
   right: 10%;
-  background: lightgray;
+  background: #ffffff;
   width: 350px;
   height: 28px;
   display: flex;
@@ -111,51 +137,15 @@
   transform: scaleY(1);
 }
 
-.navbar-bottom .search-form input {
-  width: 100%;
-  height: 100%;
-  font-size: 20px;
-  border: none;
-  background: #f4f4f4;
-  color: #1A1B1E;
-  padding: 14px;
-  text-transform: none;
-  outline: none;
-}
 
-.navbar-bottom .search-form label {
-  cursor: pointer;
-  font-size: 30px;
-  border: none;
-  margin-right: 12px;
-}
-
-.navbar-bottom .search-form label:hover {
-  color: #55BA53;
-}
 
 .brand-logo {
   height: auto;
-  width: 150px;
+  width: 100px;
+  margin-left: 200px;
 }
 
 /* Common Dropdown Styles for all dropdowns */
-
-.showcase .navbar-bottom {
-  width: 100%;
-  background-color: lightgray; /* Updated background color */
-  padding: 20px 10px;
-  align-items: center;
-  margin: auto;
-  display: flex;
-  position: fixed;
-  justify-content: space-between;
-  /*overflow: hidden; */
-  z-index: 8000; /* Higher value than the showcase content */
-  /* Removed bottom: 300; */
-}
-
-
 
 .dropdown {
   display: flex;
@@ -166,9 +156,9 @@
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: lightgray;
+  background-color: #ffffff;
   min-width: 250px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  /* box-shadow removed */
   z-index: 8001;
   top: 80px;
   transition: transform 0.3s ease; /* transition effect */
@@ -188,18 +178,17 @@
 }
 
 .dropdown-content a {
-  display: block;
+  display: none;
   color: black;
   padding: 12px 16px;
   text-decoration: none;
   white-space: nowrap;
-  transition: padding-left 0.3s ease; /*
+  transition: padding-left 0.3s ease; 
 }
 
 .dropdown-content a:hover {
   padding-left: 20px;
-  background-color: #f1f1f1;
-  color: #FF8C00;
+  color: ;
    padding-left: 40px; /* Increase padding-left to 40px on hover */
 }
 
@@ -238,8 +227,8 @@
 }
 
 .button-light-grey {
-  background-color: #f0f0f0;
-  color: #f0f0f0;
+  background-color: #ffffff;
+  color: #ffffff;
 }
 
 .showcase .navbar-bottom .dropdown .dropbtn.button-light-grey {
@@ -250,9 +239,6 @@
   z-index: 2000; /* Higher value than the showcase content */
 }
 
-.showcase .navbar-bottom {
-  z-index: 2000; /* Higher value than the showcase content */
-}
 
 .services-dropdown {
   z-index: 9999; /* Very high z-index value */
@@ -359,3 +345,111 @@
     display: inline-block;
   }
   
+  .navbar-bottom {
+  /* Existing styles... */
+  transition: height 2s ease, width 2s ease; /* 1-second transition for height and width */
+  transition: background-color 0.5s ease; /* Smooth transition for background color */
+  z-index: 2000; /* Higher than the extended dropdown */
+}
+
+.services-dropdown .dropdown-content {
+  width: 100%;
+  left: 0;
+  position: absolute;
+  display: none;
+  /* Other styles as needed */
+}
+
+
+.services-dropdown:hover .extended-dropdown {
+  display: block; /* Show the extended content on hover */
+}
+
+.services-dropdown:hover .navbar-bottom {
+  background-color: #ffffff; /* Change color to white */
+  height: calc(100% + 200px); /* Extend below by 200px */
+}
+
+.services-dropdown:hover .dropdown-content {
+  display: none; /* Show the Services dropdown content on hover */
+}
+
+.services-dropdown:hover ~ .navbar-bottom {
+  background-color: #ffffff; /* Change color to white */
+}
+.services-dropdown:hover ~ .navbar-bottom,
+.services-dropdown:hover .extended-dropdown {
+  background-color: #ffffff; /* Change color to white */
+}
+
+.services-dropdown:hover ~ .navbar-bottom,
+.portfolio-dropdown:hover ~ .navbar-bottom,
+.teams-dropdown:hover ~ .navbar-bottom {
+  background-color: #ffffff; /* Change color to white */
+}
+.dropdown:hover ~ .navbar-bottom,
+.services-dropdown:hover ~ .navbar-bottom {
+  background-color: #ffffff; /* Change color to white */
+}
+
+
+.navbar-extension {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.3s ease;
+  background-color: white; /* Or any desired color */
+}
+
+.navbar-bottom:hover .navbar-extension {
+  height: 200px;
+}
+
+.showcase .navbar-bottom {
+  transition: height 0.3s ease; /* Add transition for height */
+}
+
+.showcase .navbar-bottom .dropdown-content {
+  background-color: #ffffff; /* Set the background color to white */
+  top: 100%; /* Position it right under the navbar */
+  min-height: 200px; /* Set a minimum height to extend the navbar */
+  overflow: hidden; /* Hide overflow content */
+}
+
+.services-dropdown:hover .navbar-bottom {
+  height: calc(100% + 200px); /* Extend the height of the navbar */
+}
+
+.services-dropdown:hover .dropdown-content {
+  display: none; /* Show the dropdown content */
+}
+
+
+
+
+.services-dropdown .dropdown-content {
+  width: 100%;
+  left: 0;
+  position: absolute;
+  display: none;
+  /* Other styles as needed */
+}
+
+.services-dropdown:hover .extended-dropdown {
+  display: block; /* Show the extended content on hover */
+}
+
+.services-dropdown:hover .navbar-bottom {
+  background-color: #ffffff; /* Change color to white */
+  height: calc(100% + 200px); /* Extend below by 200px */
+}
+
+.services-dropdown:hover .dropdown-content {
+  display: none; /* Show the Services dropdown content on hover */
+}
+
+.showcase .navbar-bottom .dropdown-content {
+  background-color: #ffffff; /* Set the background color to white */
+  top: 100%; /* Position it right under the navbar */
+  min-height: 200px; /* Set a minimum height to extend the navbar */
+  overflow: hidden; /* Hide overflow content */
+}
