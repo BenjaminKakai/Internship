@@ -353,6 +353,9 @@
 }
 
 .services-dropdown .dropdown-content {
+  top: 100%;
+  left: 0;
+  right: 0;
   width: 100%;
   left: 0;
   position: absolute;
@@ -427,6 +430,9 @@
 
 
 .services-dropdown .dropdown-content {
+  top: 100%;
+  left: 0;
+  right: 0;
   width: 100%;
   left: 0;
   position: absolute;
@@ -453,3 +459,54 @@
   min-height: 200px; /* Set a minimum height to extend the navbar */
   overflow: hidden; /* Hide overflow content */
 }
+
+.extended-dropdown {
+  position: absolute; /* Absolute positioning */
+  top: 100%; /* Positioned right below the navbar */
+  left: 0; /* Align to the left edge */
+  right: 0; /* Align to the right edge */
+  width: 100%; /* Full width */
+  /* Other styles as needed */
+}
+
+.navbar-container {
+  position: relative;
+}
+
+.extended-dropdown {
+  position: absolute; /* Absolute positioning */
+  top: 100%; /* Positioned right below the navbar */
+  left: 0; /* Align to the left edge */
+  right: 0; /* Align to the right edge */
+  width: 100%; /* Full width */
+  display: none; /* Hide initially */
+  transition: all 2s ease; /* 2-second transition */
+}
+
+.services-dropdown:hover .extended-dropdown {
+  display: block; /* Show the extended content on hover */
+}
+
+
+
+.navbar-container {
+  position: relative;
+}
+
+.extended-dropdown {
+  position: absolute; /* Absolute positioning */
+  top: 100%; /* Positioned right below the navbar */
+  left: 0; /* Align to the left edge */
+  right: 0; /* Align to the right edge */
+  width: 100%; /* Full width */
+  display: none; /* Hide initially */
+  transition: all 2s ease; /* 2-second transition */
+}
+
+.services-dropdown:hover .extended-dropdown {
+  display: block; /* Show the extended content on hover */
+}
+.visible {
+  display: grid; /* or any other display value you prefer */
+}
+
