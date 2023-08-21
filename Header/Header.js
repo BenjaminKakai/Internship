@@ -7,10 +7,13 @@ import './headerservices.css';
 
 function Header() {
   const logoPath = '/images/logo.png';
-  let hideDropdownTimeout;
+  const [activeDropdown, setActiveDropdown] = useState(null);
 
   const handleMouseEnter = (contentType) => {
-    clearTimeout(hideDropdownTimeout); // Clear timeout if exists
+    // Hide previously active dropdown
+    if (activeDropdown) {
+      document.querySelector(`.${activeDropdown}-content`).style.display = 'none';
+    }
 
     const navbarBottom = document.querySelector('.navbar-bottom');
     navbarBottom.style.backgroundColor = '#ffffff';
@@ -33,38 +36,21 @@ function Header() {
     if (dropdownContent) {
       dropdownContent.style.display = 'grid'; // Show as grid
     }
+
+    setActiveDropdown(contentType); // Set the new active dropdown
   };
 
   const handleMouseLeave = (e, contentType) => {
-    hideDropdownTimeout = setTimeout(() => {
-      const navbarBottom = document.querySelector('.navbar-bottom');
-      navbarBottom.style.backgroundColor = 'transparent';
-
-      let dropdownContent;
-      switch (contentType) {
-        case 'services':
-          dropdownContent = document.querySelector('.services-content');
-          break;
-        case 'portfolio':
-          dropdownContent = document.querySelector('.portfolio-content');
-          break;
-        case 'teams':
-          dropdownContent = document.querySelector('.teams-content');
-          break;
-        default:
-          return;
-      }
-
-      if (dropdownContent) {
-        dropdownContent.style.display = 'none'; // Hide
-        // Hide the extended dropdown as well
-        const extendedDropdown = document.querySelector('.extended-dropdown');
-        if (extendedDropdown) {
-          extendedDropdown.style.display = 'none'; // Hide
-        }
-      }
-    }, 3000); // 3 seconds delay
+    // Do nothing on mouse leave
   };
+
+  const handleNavbarMouseLeave = () => {
+    if (activeDropdown) {
+      document.querySelector(`.${activeDropdown}-content`).style.display = 'none';
+      setActiveDropdown(null); // Reset the active dropdown
+    }
+  };
+  
     
   return (
     <div className="showcase">
@@ -79,6 +65,7 @@ function Header() {
         </a>
         <ul className="menu-right">
           {/* ... other menu items ... */}
+          
           <div className="navbar-wrapper">
             <li>
               <div
@@ -117,6 +104,9 @@ function Header() {
 
 
 
+
+
+<div className="navbar-wrapper">
  <li>
               <div
                 className="dropdown portfolio-dropdown"
@@ -150,10 +140,11 @@ function Header() {
                 </div>
               </div>
             </li>
+            </div> {/* Closing div tag for navbar-wrapper */}
             
           
           
-          
+<div className="navbar-wrapper">          
 <li>
   <div className="dropdown">
     <button className="dropbtn" style={{ backgroundColor: '', color: 'black' }}>Resources</button>
@@ -164,8 +155,10 @@ function Header() {
     </div>
   </div>
 </li>
+</div> {/* Closing div tag for navbar-wrapper */}
 
 
+<div className="navbar-wrapper">
 <li>
   <div className="dropdown">
     <button className="dropbtn" style={{ backgroundColor: '', color: 'black' }}>Blog</button>
@@ -176,9 +169,11 @@ function Header() {
     </div>
   </div>
 </li>
+</div> {/* Closing div tag for navbar-wrapper */}
 
 
 
+<div className="navbar-wrapper">
  <li>
               <div className="dropdown teams-dropdown"
                     onMouseEnter={() => handleMouseEnter('teams')}
@@ -206,11 +201,13 @@ function Header() {
                 </div>
               </div>
             </li>
+            </div> {/* Closing div tag for navbar-wrapper */}
             
             
 
 
 
+<div className="navbar-wrapper">
 <li className="contact-us-button">
   <div className="dropdown">
     <button className="dropbtn" style={{ backgroundColor: '', color: 'black' }}>Contact Us</button>
@@ -221,6 +218,7 @@ function Header() {
     </div>
   </div>
 </li>
+</div> {/* Closing div tag for navbar-wrapper */}
 
 
 {/* Commented out search form and button
