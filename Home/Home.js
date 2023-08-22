@@ -6,7 +6,23 @@ const Home = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [showChat, setShowChat] = useState(false);
   const [messageSent, setMessageSent] = useState(false);
+  const [currentImage, setCurrentImage] = useState(0);
+
+  const images = [
+    "/images/logo.png",
+    "/images/IBMlogo.jpg",
+    "/images/Jumialogo.jpg",
+    "/images/ciscologo.jpg",
+    "/images/googlelogo.jpg",
+    "/images/amazonlogo.jpg",
+    "/images/Nielsenlogo.jpg",
+    "/images/microsoftlogo.jpg",
+    "/images/donebydonelogo.jpg",
+  ];
+
   const inputRef = useRef(null);
+  const imageContainerRef = useRef(null); // Declare the imageContainerRef
+  const totalImages = images.length; // Declare the totalImages
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);
@@ -21,7 +37,6 @@ const Home = () => {
 
   const sendMessage = () => {
     setMessageSent(true);
-    // Optionally clear the text area
     if (inputRef.current) {
       inputRef.current.value = '';
     }
@@ -29,37 +44,74 @@ const Home = () => {
 
   const closeMenu = () => setShowMenu(false);
 
-  // Set up a timer to hide the chat after 20 seconds of showing the thank you note
   useEffect(() => {
     let timer;
     if (messageSent) {
       timer = setTimeout(() => {
         setShowChat(false);
         setMessageSent(false);
-      }, 5000); // Hide after 20 seconds
+      }, 5000);
     }
     return () => clearTimeout(timer);
   }, [messageSent]);
 
+  useEffect(() => {
+    const carouselTimer = setInterval(() => {
+      setCurrentImage((prevImage) => (prevImage + 1) % images.length);
+    }, 5000); // Change image every 5 seconds
+    return () => clearInterval(carouselTimer);
+  }, []);
+
+
+  // Return statement inside the function
   return (
     <div className="home-slider" id="home">
-      <div className="slider-slide">
+    
         <video className="background-video" id="background-video" autoPlay loop muted>
           <source src={homeVideo} type="video/mp4" />
         </video>
         <div className="home-content">
           <h1>
-            Driving changes <br /> through AI &amp; Data <span><br />Solutions</span>
+            Driving changes through <br />AI &amp; Data Solutions 
           </h1>
-          <p>
-            <b>We help enterprises build custom AI Solutions<br /> and Growth Stage Companies seeking to maximize results</b>
-          </p>
-          <button className="btn btn-primary" onClick={toggleMenu}>
-            EXPLORE MORE
+          <button className="btn btn-case-studies" onClick={toggleMenu}>
+            Read Case Studies
           </button>
           <button className="btn btn-secondary" onClick={toggleChat}>
-            GET IN TOUCH
+            Let's talk
           </button>
+          
+
+          <div style={{ 
+              width: '130%', 
+              height: '250px', 
+              display: 'flex', 
+              marginTop: '20px', 
+              marginLeft: '-10%', 
+              background: 'linear-gradient(to right, #003c1e, #002414)', 
+              color: 'white', 
+              alignItems: 'center',
+          }}>
+            <div style={{ flex: 1 }}></div>
+            <div style={{ width: '1px', backgroundColor: 'white', height: '80%', margin: 'auto 0' }}></div>
+            <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'flex-start', paddingLeft: '15px' }}>
+              <h2 style={{ fontWeight: 'bold' }}>Artificial Intelligence</h2>
+              <p>Building AI-powered solutions</p>
+            </div>
+            <div style={{ width: '1px', backgroundColor: 'white', height: '80%', margin: 'auto 0' }}></div>
+            <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'flex-start', paddingLeft: '15px' }}>
+              <h2 style={{ fontWeight: 'bold' }}>Advanced Analytics</h2>
+              <p>Drive insights from your data</p>
+            </div>
+            
+            <div style={{ width: '1px', backgroundColor: 'white', height: '80%', margin: 'auto 0' }}></div>
+            <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'flex-start', paddingLeft: '15px' }}>
+
+              <h2 style={{ fontWeight: 'bold' }}>Consulting</h2>
+              <p>Bringing capabilities and<br /> consultative approach</p>
+            </div>
+          </div>
+
           {showMenu && (
             <div className="dropdown-menu">
               <span className="dropdown-close" onClick={closeMenu}>X</span>
@@ -71,6 +123,7 @@ const Home = () => {
               <a href="#contact">Contact</a>
             </div>
           )}
+
           {showChat && (
             <div className="chat-dialogue">
               <p>Hello, how can I be of help today?</p>
@@ -81,8 +134,54 @@ const Home = () => {
               )}
             </div>
           )}
+
+
+
+
+<div
+        style={{
+          width: '100vw',
+          height: '100px',
+          marginLeft: '-10%',
+          backgroundColor: 'white',
+          display: 'flex',
+          alignItems: 'center',
+          paddingLeft: '270px',
+          overflow: 'hidden'
+        }}
+      >
+        <span style={{ color: 'black', zIndex: 2 }}>Our Clients</span>
+        <div
+          className="image-container"
+          ref={imageContainerRef}
+          style={{
+            display: 'flex',
+            animation: 'slide 15s linear infinite'
+          }}
+        >
+          {images.map((image, index) => (
+            <img
+              key={index}
+              src={image}
+              alt="client logo"
+              style={{
+              width: '80px',
+          height: '60px',
+          marginLeft: 'calc(100vw + 150px)', // Disappear 150px away from the left
+          animation: 'slide-in 15s linear infinite',
+          animationDelay: `${(index * 3)}s`, // Adjust the delay accordingly
+        
+                width: '80px',
+                height: '60px',
+                marginLeft: '50px',
+                animation: 'slide 15s linear infinite',
+                animationDelay: `${(index % totalImages) * 3}s`, // Adjust the delay accordingly
+              }}
+            />
+          ))}
         </div>
       </div>
+    </div>
     </div>
   );
 };

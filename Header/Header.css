@@ -10,7 +10,7 @@
   top: 0;
   left: 0;
   position: fixed;
-  z-index: 2000; /* Higher value than the showcase content */
+  z-index: 11000; /* Higher value than the showcase content */
   justify-content: center;
 }
 
@@ -108,9 +108,9 @@
 .showcase .navbar-bottom .menu-right a {
   text-decoration: none;
   display: inline-block;
-  padding: 0 20px;
+  padding: 20 20px;
   color: #1A1B1E;
-  transition: all 0.5s ease;
+  transition: all 1s ease;
   
 }
 
@@ -118,31 +118,10 @@
   color: #55BA53;
 }
 
-/* Navbar Bottom Search Form */
-.navbar-bottom .search-form {
-  position: absolute;
-  top: 60%;
-  right: 10%;
-  background: #ffffff;
-  width: 350px;
-  height: 28px;
-  display: flex;
-  align-items: center;
-  transform: scaleY(0);
-  transform-origin: top;
-  transition: all 0.5s ease;
-}
-
-.navbar-bottom .search-form.active {
-  transform: scaleY(1);
-}
-
-
-
 .brand-logo {
   height: auto;
   width: 100px;
-  margin-left: 200px;
+  margin-left: 100px;
 }
 
 /* Common Dropdown Styles for all dropdowns */
@@ -171,7 +150,7 @@
 .dropbtn {
   background-color: transparent;
   color: black;
-  padding: 16px;
+  padding: 20px;
   font-size: 16px;
   border: none;
   cursor: pointer;
@@ -217,46 +196,36 @@
   transition: transform 0.3s ease;
 }
 
+/* Default styles for submenu links */
 .submenu-link {
-  background-color: #f0f0f0;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  color: black; /* Default color */
-  transition: color 0.3s;
+    background: transparent; /* Transparent background */
+    border-radius: 5px; /* Curved corners */
+    transition: padding-left 0.8s ease, background 0.8s ease, color 0.8s ease; /* Transition for smooth hover effect and text slide */
+    padding: 30px 10px; /* Padding around text for better aesthetics */
+    display: inline-block; /* Making it block-level for full width and easier hover */
+    color: black; /* Default color */
+    font-size: 16px;
+    margin-bottom:20px;
+    white-space: nowrap;
 }
 
-.button-light-grey {
-  background-color: #ffffff;
-  color: #ffffff;
+/* Styles when hovering over submenu links */
+.submenu-link:hover {
+    background: #f5f5f5; /* Smoke white background (80% opacity) */
+    color: lightgreen; /* Light green text */
+    padding-right: 30px; /* Slide text to the left on hover */
 }
 
-.showcase .navbar-bottom .dropdown .dropbtn.button-light-grey {
-  color: black;
-}
+
 
 .showcase .navbar-top {
-  z-index: 2000; /* Higher value than the showcase content */
+  z-index: 8000; /* Higher value than the showcase content */
+  position: fixed;
 }
 
 
 .services-dropdown {
   z-index: 9999; /* Very high z-index value */
-}
-
-.submenu-link:hover {
-  padding-left: 20px;
-  color: orange !important;
-}
-
-.submenu-link:active {
-  color: orange !important;
-}
-
-.down-arrow {
-  margin-left: auto;
-  transform: rotate(0deg);
-  transition: transform 0.3s;
 }
 
 .dropdown-content.active .down-arrow {
@@ -305,18 +274,7 @@
   left: -5px; /* Adjust the value to control the amount of slide */
 }
 
-.slide-left::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: -20px; /* Adjust the value for the space between text and arrow */
-  transform: translateY(-50%);
-  width: 10px;
-  height: 2px;
-  background-color: black; /* Maintain the original text color */
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out, left 0.3s ease-in-out;
-}
+
 
 .slide-left:hover {
   left: -5px; /* Adjust the value to control the amount of slide */
@@ -332,18 +290,9 @@
     position: relative;
     overflow: hidden;
     transition: max-width 0.3s ease-in-out;
-    max-width: 0;
+    
   }
 
-  .slide-left {
-    max-width: 200px; /* Adjust the width as needed */
-    display: inline-block;
-  }
-  
-  .professionals-dropdown .submenu-link.slide-left {
-    max-width: 300px; /* Adjust the width as needed */
-    display: inline-block;
-  }
   
   .navbar-bottom {
   /* Existing styles... */
@@ -469,9 +418,21 @@
   /* Other styles as needed */
 }
 
-.navbar-container {
-  position: relative;
+.showcase .navbar-top {
+  width: 100%;
+  display: flex;
+  padding: 10px 0;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+  top: 0;
+  left: 0;
+  position: fixed; /* Fixed position */
+  z-index: 20000; /* High z-index */
+  justify-content: center;
 }
+
 
 .extended-dropdown {
   position: absolute; /* Absolute positioning */
@@ -509,4 +470,31 @@
 .visible {
   display: grid; /* or any other display value you prefer */
 }
+
+
+.services-content {
+  height: 220px; /* Example height for services */
+}
+
+.portfolio-content {
+  height: 450px; /* Example height for portfolio */
+}
+
+.teams-content {
+  height: 300px; /* Example height for teams */
+}
+
+.sticky-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Ensures the navbar stays above other content */
+}
+
+.extended-dropdown {
+    padding-left: 120px;
+    padding-right: 100px; 
+}
+
 
