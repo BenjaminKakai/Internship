@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+
 import Slider from 'react-slick';
 import './Portfolio.css';
 import "slick-carousel/slick/slick.css";
@@ -14,39 +15,34 @@ const images = [
   { name: 'images/NLP.jpg', label: 'NLP', description: 'Inteliverse provides comprehensive Natural Language Processing solutions.', url: 'https://intelliverseai.com/nlp-solutions/' },
 ];
 
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    autoplay: true,
-    responsive: [
-      { breakpoint: 1000, settings: { slidesToShow: 3 } },
-      { breakpoint: 600, settings: { slidesToShow: 2 } },
-      { breakpoint: 0, settings: { slidesToShow: 1 } }
-    ]
-  };
+  const [selectedImage, setSelectedImage] = useState(images[0]); 
 
- return (
-    <section id="portfolio" className="portfolio py-3" style={{ textAlign: 'center', margin: '0 auto' }}>
-      <br /><br /><br /><br /><br />
-      <h3 className="text-center">Click on Different Company Portfolios to Learn More.....</h3>
-      
-      <Slider {...settings}>
+  return (
+    <section id="portfolio" className="portfolio py-3">
+     
+     <h3 className="text-center">
+  <span className="industry-expertise">Industry Expertise </span>
+  <span className="industry-query">Your industry is not here? That's not a problem! </span>
+  <button className="lets-talk-btn">Let's talk</button>
+</h3>
+      <div className="portfolio-content">
+        <div className="image-section">
+          <img src={`/${selectedImage.name}`} alt={selectedImage.label} />
+        </div>
+        <div className="content-section">
+          <h4 className="image-heading">{selectedImage.label}</h4>
+          <p className="image-description">{selectedImage.description}</p>
+          <a href={selectedImage.url} className="read-more-button" target="_blank" rel="noopener noreferrer">Read More</a>
+        </div>
+      </div>
+
+      <div className="carousel-boxes">
         {images.map((image, index) => (
-          <div className="item" key={index}>
-            <div className="image-container">
-              <h4 className="image-heading">{image.label}</h4> {/* Moved above the anchor tag */}
-              <a href={image.url} target="_blank" rel="noopener noreferrer">
-                <img src={`/${image.name}`} alt={`Portfolio item ${index}`} />
-              </a>
-              <p className="image-description">{image.description}</p> {/* Moved below the image */}
-              <a href={image.url} className="read-more-button" target="_blank" rel="noopener noreferrer">Read More</a>
-            </div>
-          </div>
+          <button className="carousel-box" key={index} onClick={() => setSelectedImage(image)}>
+            <span>{image.label}</span>
+          </button>
         ))}
-      </Slider>
+      </div>
     </section>
   );
 }

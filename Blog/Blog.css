@@ -1,36 +1,43 @@
 /* Blog Section Styling */
 #blog {
-    background: #0A2940;
+    background: linear-gradient(to right, #000 33%, #F5F5F5 33%, #F5F5F5 100%);
 }
+
 #blog .wrapper .header {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
 }
+
 #blog .wrapper .header span {
     height: 1px;
     width: 4%;
     background: #95A2BB;
 }
+
 #blog .wrapper .header h4 {
     color: #95A2BB;
     padding-left: 15px;
     text-transform: uppercase;
 }
+
 #blog .wrapper .blog-info {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 20px;
 }
+
 #blog .wrapper .blog-info h2 {
     font-size: 40px;
     color: #95A2BB;
     font-weight: 600;
 }
+
 #blog .wrapper .blog-info h2 span {
     font-weight: 500;
 }
+
 #blog .wrapper .blog-info a {
     text-decoration: none;
     padding: 10px 20px;
@@ -41,43 +48,51 @@
     font-size: 14px;
     border: 2px solid #55BA53;
     border-radius: 5px;
-    transition: 0.5s;
+    transition: 5s; /* Adjusted transition time */
 }
+
 #blog .wrapper .blog-info a:hover {
     background: none;
     color: #95A2BB;
 }
+
 #blog .wrapper .blog-card {
     display: flex;
+    justify-content: flex-end; /* Start cards from the right */
     margin-top: -50px;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    width: 100%;
 }
+
 #blog .wrapper .card,
 #blog .wrapper .large-card {
     margin: 70px 5px;
     background-color: #cfcfcf;
     border-radius: 5px;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
-    width: 430px;
+    width: calc(33.33% - 10px); /* Minus 10px to account for the margin */
     overflow: hidden;
     z-index: 1;
-    transition: all 0.5s ease;
+    transition: all 5.0s ease;
     opacity: 0;
-    transform: translateY(50px);
+    transform: translateX(100%);  
 }
+
 #blog .wrapper .large-card {
-    width: 860px;
+    width: calc(66.66% - 10px); /* Minus 10px to account for the margin */
 }
+
 #blog .wrapper .card.show,
 #blog .wrapper .large-card.show {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);  
+    transition: all 1s ease;
 }
+
 #blog .wrapper .card:hover,
 #blog .wrapper .large-card:hover {
     transform: scale(1.05);
 }
+
 #blog .wrapper .card .card-header img,
 #blog .wrapper .large-card .card-header img {
     width: 100%;
@@ -86,7 +101,7 @@
     display: block;
     margin-bottom: 10px;
 }
-#blog .wrapper .card .card-body .tag,
+
 #blog .wrapper .large-card .card-body .tag {
     background: #ccc;
     border-radius: 50px;
@@ -97,63 +112,119 @@
     text-transform: uppercase;
     cursor: pointer;
 }
-#blog .wrapper .card .card-body .tag-purple {
-    background-color: #5C76BF;
-}
-#blog .wrapper .card .card-body h4,
-#blog .wrapper .large-card .card-body h4 {
-    margin: 10px 30px;
-    font-weight: 600;
-    font-size: 24px;
-    letter-spacing: 1px;
-    line-height: 1.4;
-    color: #0A2940;
-}
-#blog .wrapper .card .card-body .footer,
-#blog .wrapper .large-card .card-body .footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 50px 10px 2px 30px;
-    border-top: 1px solid #536DAF;
-    padding: 5px 0;
-}
-#blog .wrapper .card .card-body .footer small,
-#blog .wrapper .large-card .card-body .footer small {
-    color: #ffffff;
-    font-weight: 600;
-}
-#blog .wrapper .card .card-body .footer a,
-#blog .wrapper .large-card .card-body .footer a {
-    padding: 5px 10px;
-    background: #55BA53;
-    border-radius: 4px;
-    color: #0A2940;
+
+
+/* ... your existing styles ... */
+
+#blog .blog-info h2 {
+  font-size: 24px;
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 10px;
 }
 
-#Blog {
-  margin-bottom: 0;
-  padding-bottom: 0;
+#blog .blog-info a {
+  text-decoration: none;
+  padding: 10px 20px;
+  background: #55BA53;
+  color: #0A2940;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 14px;
+  border: 2px solid #55BA53;
+  border-radius: 5px;
+  transition: 0.5s;
+  display: inline-block;
+  margin-right: 10px;
 }
 
-/* Add the following CSS rules to your existing styles */
-
-#blog .wrapper .card.shrink,
-#blog .wrapper .large-card.shrink {
-  opacity: 0;
-  transform: scale(0) translate(50%, 50%) rotate(360deg);
+#blog .blog-info a:hover {
+  background: none;
+  color: #95A2BB;
+  text-decoration: underline;
 }
 
-#blog .wrapper .card.show,
-#blog .wrapper .large-card.show {
-  opacity: 1;
-  transform: translateY(0);
-  transition: all 1s ease;
+/* Blog Section Styling */
+#blog {
+  background: linear-gradient(to right, #000 33%, #F5F5F5 33%, #F5F5F5 100%);
 }
 
-#blog .wrapper .card.shrink,
-#blog .wrapper .large-card.shrink {
-  transform-origin: center;
-  transition: all 1s ease;
+#blog .wrapper .header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
+#blog .wrapper .header span {
+  height: 1px;
+  width: 4%;
+  background: #95A2BB;
+}
+
+#blog .wrapper .header h4 {
+  color: #95A2BB;
+  padding-left: 15px;
+  text-transform: uppercase;
+}
+
+#blog .wrapper .blog-info {
+  display: flex;
+  align-items: flex-start; /* Adjusted alignment */
+  justify-content: flex-start; /* Adjusted alignment */
+  flex-direction: column; /* Added flex-direction */
+  margin-bottom: 20px;
+}
+
+#blog .wrapper .blog-info h2 {
+  font-size: 40px;
+  color: #95A2BB;
+  font-weight: 600;
+}
+
+#blog .wrapper .blog-info h2 span {
+  font-weight: 500;
+}
+
+#blog .wrapper .blog-info p.white-paragraph {
+  color: white;
+  margin-top: 20px; /* Added margin to separate from the title */
+}
+
+#blog .wrapper .resources {
+  margin-top: 10px; /* Added margin to separate from the paragraph */
+}
+
+#blog .wrapper .resource {
+  text-decoration: none;
+  color: #ccc;
+  transition: color 0.3s, border-bottom 0.3s;
+  margin-right: 20px;
+}
+
+#blog .wrapper .resource:hover {
+  color: #fff;
+  border-bottom: 2px solid #55BA53;
+}
+
+#blog .wrapper .white-link {
+  text-decoration: none;
+  color: #fff;
+  padding: 10px 20px;
+  background: #55BA53;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 14px;
+  border: 2px solid #55BA53;
+  border-radius: 5px;
+  transition: 0.5s;
+  display: inline-block;
+  margin-top: 10px; /* Added margin to separate from the resources */
+}
+
+#blog .wrapper .white-link:hover {
+  background: none;
+  color: #95A2BB;
+  text-decoration: underline;
+}
+
+/* ... your existing styles ... */

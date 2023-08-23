@@ -8,14 +8,21 @@ function Teams() {
   };
 
   return (
-    <div id="teams" className="bg-light py-3">
-      <div style={centerStyle}>
+<div id="teams" className="bg-light py-3">
+      <div className="text-left">
         <br />
-        <h2>Meet Our Professional Teams</h2>
-        <p>We help you see the world differently, discover opportunities you may never have imagined and achieve results that bridge what is with what can be</p>
+       
+<div className="d-flex align-items-center">
+  <h2>Meet Our Professional Teams</h2>
+  <button className="lets-talk-btn">let's work together</button>
+</div>
+
+
       </div>
       <div className="wrapper">
+      
         <div className="card-items-row">
+        
           {/* Software Development Team */}
           <div className="card">
             <div className="card-header">

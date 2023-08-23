@@ -1,109 +1,63 @@
-/* Services Section Styling */
-#services .items {
-  display: flex;
-  padding-bottom: 20px;
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    grid-auto-rows: 200px;
 }
 
-#services .items .item {
-  text-align: center;
-  padding: 10px;
-  margin: 10px;
-  background: #0A2940;
-  border-radius: 5px;
-  box-shadow: 5px 5px 20px rgba(0,0,0,0.3), -5px -5px 20px rgba(0, 0, 0, 0.3);
-  transition: all 0.5s ease;
+.item {
+    position: relative;  /* This will serve as the position context */
+    padding-right: 10px;
+    text-align: right;
+    
+   /* border: 2px solid black; 
+    background-color: #f5f5f5;Adding a light gray background */
+
+    /* Adding display flex for centering the content */
+    display: flex;
+    flex-direction: column;  /* Stack children vertically */
+    justify-content: center; /* Vertically center content */
+    align-items: center;     /* Horizontally center content */
 }
 
-#services .items .item h3 {
-  color: #55BA53;
-  font-size: 16px;
-  margin: 5px;
-}
-#services .items .item p {
-  line-height: 1.4;
-  color: #95A2BB;
-}
-#services .items .item i {
-  color: #95A2BB;
-}
-#services .items .item:hover i {
-  color: #55BA53;
-}
-#services .items .item:hover {
-  background: #0A2940;
-  transform: scale(1.05);
-  filter: brightness(1.2); /* Brighten the item on hover */
-}
-#services .items .item:hover h3 {
-  color: #f4f4f4;
+.text-content {
+    /* Resetting the margins */
+    margin: 0;
+    padding: 30px 0px;
 }
 
-#services {
-  background-color: lightgray;
+.text-content h3 {
+    margin-top: 0;
+    padding-top: -10px;
 }
 
-.services-heading {
-  color: orange;
-  text-align: left;
-  padding: 10px;
-  animation: colorFade 30s infinite;
+.item-title, .item-description {
+  font-size: 12px;
 }
 
-@keyframes colorFade {
-  0% { color: #FFA07A; }
-  33% { color: #FF4500; }
-  66% { color: darkblue; }
-  100% { color: #FFA07A; }
+.grid-container .hoverable:hover {
+    background-color: lightgreen;
 }
 
-.services-clicked {
-  margin-top: 100px; /* Adjust this value based on the height of your header */
+.grid-container .hoverable .text-content p {
+    display: none; /* Hide the description by default */
 }
 
-#services:target::before {
-  content: "";
-  display: block;
-  height: 100px; /* Adjust this value to match the height of your navigation bar */
-  margin: -70px 0 0; /* Negative value of the height */
+.grid-container .hoverable:hover .text-content p {
+    display: block; /* Show the description on hover */
 }
 
-.animated-word {
-  display: inline-block;
-  opacity: 0;
-  transform: translateX(1em);
-  animation: appear 10s infinite;
-  animation-timing-function: linear;
-  font-style: italic; /* Add this line */
+/* ... (rest of your styles) */
+
+.check {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    color: blue;
+    display: none; /* Initially hidden */
+    font-weight: bold;
 }
 
-@keyframes appear {
-  0%, 100% {
-    opacity: 0;
-    transform: translateX(1em);
-  }
-  10% {
-    opacity: 1;
-    transform: translateX(0);
-  }
+.hoverable:hover .check {
+    display: block; /* Show on hover */
 }
-
-.icon-image {
-  width: 50px; /* Set the width */
-  height: 50px; /* Set the height */
-}
-
-@keyframes slideInFromRight {
-  0%, 100% {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-  10%, 90% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-.slide-in-item {
-  animation: slideInFromRight 10s linear infinite; /* Updated to repeat every 10 seconds */
-}
-

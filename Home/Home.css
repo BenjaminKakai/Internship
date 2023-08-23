@@ -193,7 +193,7 @@
   height: 200px;
   background-color: grey; /* or any other color you'd like */
   display: flex;
-  margin-top: 40px; /* Add some space above the strip */
+  margin-top: 80px; /* Add some space above the strip */
   margin-left: 0; /* Start from the far left margin */
   position: relative; /* This ensures child positioning is relative to this container */
 }
@@ -211,23 +211,36 @@
 }
 
 
+
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-100% * 9)); /* Move all logos to the left */
+  }
+}
+
 .client-logos {
   width: 100vw;
   height: 100px;
   background-color: white;
   display: flex;
   align-items: center;
-  flex-direction: column;
+  position: relative;
   overflow: hidden;
 }
 
 .client-logos span {
-  padding-left: 270px;
+  padding-left: 270px; /* Adjust as needed */
+  position: absolute;
+  z-index: 2;
 }
 
 .logo-slider {
   display: flex;
-  animation: slide 5s linear infinite;
+  animation: slide 24000s linear infinite; /* Adjust duration to 300s */
 }
 
 .client-logo {
@@ -235,15 +248,4 @@
   height: 60px;
   margin-left: 50px;
 }
-
-@keyframes slide {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-400px); /* 80px * 7 images */
-  }
-}
-
-
 
