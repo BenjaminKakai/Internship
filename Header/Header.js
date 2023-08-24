@@ -5,10 +5,29 @@ import './Header.css';
 import './headerservices.css'; 
 
 // Rest of the code...
-
 function Header() {
   const logoPath = '/images/logo.png';
   const [activeDropdown, setActiveDropdown] = useState(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const navbarBottom = document.querySelector('.navbar-bottom');
+      const navbarTop = document.querySelector('.navbar-top');  // Select the top navbar
+
+      navbarTop.style.backgroundColor = '#ffffff';  // Always set top navbar's background to white
+
+      if (window.scrollY > 0) {
+        navbarBottom.style.backgroundColor = '#ffffff';
+      } else {
+        navbarBottom.style.backgroundColor = 'transparent';
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const handleMouseEnter = (contentType) => {
     // Hide previously active dropdown
@@ -45,16 +64,16 @@ function Header() {
     // Do nothing on mouse leave
   };
 
-const handleNavbarMouseLeave = () => {
-  if (activeDropdown) {
-    document.querySelector(`.${activeDropdown}-content`).style.display = 'none';
-    const navbarBottom = document.querySelector('.navbar-bottom');
-    navbarBottom.style.backgroundColor = 'transparent'; // Reset to transparent
-    setActiveDropdown(null); // Reset the active dropdown
-  }
-};
+  const handleNavbarMouseLeave = () => {
+    if (activeDropdown) {
+      document.querySelector(`.${activeDropdown}-content`).style.display = 'none';
+      const navbarBottom = document.querySelector('.navbar-bottom');
+      navbarBottom.style.backgroundColor = 'transparent'; // Reset to transparent
+      setActiveDropdown(null); // Reset the active dropdown
+    }
+  };
   
-    
+  
   return (
 <div className="showcase">
   <div className="navbar-container" onMouseLeave={handleNavbarMouseLeave}>

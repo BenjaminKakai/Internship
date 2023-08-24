@@ -1,114 +1,202 @@
-/* Services Section Bottom */
 #goal {
   display: flex;
   padding-top: 20px;
-  background-color: lightgray;
-}
-
-#goal div {
-  flex: 1;
+  background: linear-gradient(to right, black 33%, #F5F5F5 33%);
+  align-items: center;  /* Vertically align the text and image */
+  min-height: 500px;  /* Set the minimum height. Adjust this value as needed */
 }
 
 #goal .goal-img {
-  display: inline-block;
-  position: relative;
-  width: 600px;
-  height: 380px;
+  flex: 1;
+  width: 50%;  /* You can adjust this as needed */
+  height: auto;
   overflow: hidden;
+  margin-left: 15%;  /* Move the image to the right */
+  animation: slideInFromRight 3s forwards;
 }
 
 #goal .goal-img img {
-  width: auto;
-  height: 100%;
+  width: 100%;
+  height: auto;
   object-fit: cover;
+  border-radius: 10px;  /* Optional: for rounded corners */
+  position: relative;
+  left: -15%;  /* Shift the image back to the left, allowing more of it to appear in the black region */
+  animation: slideInFromRight 3s forwards;
 }
+
 
 #goal .goal-text {
+  flex: 2;
   margin: 0 40px;
-  text-align: center; /* Center-aligning the "Read More" link */
-}
-
-#goal .goal-text a {
-  color: #f4f4f4;
-  background: #55BA53;
-  text-decoration: none;
-  font-size: 12px;
-  border: 1px solid #55BA53;
-  border-radius: 25px;
-  padding: 3px 10px;
-  transition: 0.5s;
-}
-
-#goal .goal-text a:hover {
-  color: #55BA53;
-  background: #0A2940;
-}
-
-#goal .goal-text .contents .content .title-with-icon {
-  display: flex;
-  align-items: center;
-}
-
-#goal .goal-text .contents .content .title-with-icon i {
-  color: #55BA53;
-  padding: 3px;
-  background: #0A2940;
-  align-self: flex-start;
-  border-radius: 5px;
-  margin-right: 5px;
-}
-
-#goal .goal-text .contents .content .title-with-icon h3 {
-  font-size: 16px;
-  padding-bottom: 5px;
-  color: #55BA53;
-  margin: 0;
-}
-
-#goal .goal-text .contents .content button {
-  display: block; /* Vertically arranged buttons */
-  color: #f4f4f4;
-  background: #55BA53;
-  text-decoration: none;
-  font-size: 12px;
-  border: 1px solid #55BA53;
-  border-radius: 25px;
-  padding: 3px 10px;
-  margin: 5px 0;
-  cursor: pointer;
-  transition: 0.5s;
-}
-
-#goal .goal-text .contents .content button:hover {
-  color: #55BA53;
-  background: #0A2940;
+  color: black;  /* Adjust the text color to make it visible against the black background */
+  animation: slideInFromRight 3s forwards;
 }
 
 #goal .goal-text h2 {
-  margin: 20px 0;
-  color: #0A2940;
+  margin-bottom: 20px;
 }
 
-#goal .goal-text .contents .content p {
-  color: #1A1B1E;
-}
 
-/* Other CSS rules remain the same */
-
-#goal .goal-text .contents .content button {
-  display: block; /* Vertically arranged buttons */
-  color: #f4f4f4;
-  background: #55BA53;
-  text-decoration: none;
-  font-size: 12px;
-  border: 1px solid #55BA53;
-  border-radius: 25px;
-  padding: 3px 10px;
-  margin: 5px 0;
+.read-more-btn {
+  padding: 10px 20px;
+  border: 2px solid lightgreen;
+  background-color: transparent;
+  color: black;
   cursor: pointer;
-  transition: 0.5s;
-  margin-left: 50px; /* Add left margin to create the indentation */
+  transition: 0.3s;
+  border-radius: 5px;
+  margin-top: 15px;
+  position: absolute; /* Set the button to an absolute position within its relative parent */
+  right: 150px;       /* Place the button 150px from the right edge of its parent */
+  font-weight: bold;
 }
 
-/* Other CSS rules remain the same */
+.read-more-btn:hover {
+  background-color: lightgreen;
+  color: black;
+}
+
+.goal-container {
+  position: relative;
+  /* ... other existing styles ... */
+  overflow: hidden;  /* Ensures that the sliding content doesn't overflow */
+}
+
+.slides-container {
+  display: flex;
+  transition: transform 1s ease-out; /* Animate the position change */
+  width: 400%; /* 4 slides, each of 100% width */
+}
+
+.goal {
+  flex: 0 0 25%; /* Since there are 4 slides, each slide should occupy 25% of the .slides-container width */
+  /* ... other existing styles ... */
+}
+
+.customer-stories {
+  position: absolute; /* Position this over the static background */
+  top: 10px; /* Adjust as needed */
+  left: 10px; /* Adjust as needed */
+  z-index: 2; /* Ensure it stays on top */
+}
+
+
+
+#goal {
+  display: flex;
+  padding-top: 20px;
+  background: linear-gradient(to right, black 33%, #F5F5F5 33%);
+  align-items: center;
+  min-height: 500px;
+}
+
+#goal .goal-img {
+  flex: 1;
+  width: 50%;
+  height: auto;
+  overflow: hidden;
+  margin-left: 15%;
+  animation: slideInFromRight 3s forwards;
+}
+
+#goal .goal-img img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  position: relative;
+  left: -15%;
+  animation: slideInFromRight 3s forwards;
+}
+
+#goal .goal-text {
+  flex: 2;
+  margin: 0 40px;
+  color: black;
+  animation: slideInFromRight 3s forwards;
+}
+
+.read-more-btn {
+  padding: 10px 20px;
+  border: 2px solid lightgreen;
+  background-color: transparent;
+  color: black;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 5px;
+  margin-top: 15px;
+  position: absolute;
+  right: 150px;
+  font-weight: bold;
+}
+
+.read-more-btn:hover {
+  background-color: lightgreen;
+  color: black;
+}
+
+.goal-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.slides-container {
+  display: flex;
+  width: 400%;  /* 4 slides, each of 100% width */
+  animation: slideCarousel 20s infinite;  /* 3s per slide * 4 slides */
+}
+
+.goal {
+  flex: 0 0 25%; /* Each slide takes up 25% of the width */
+}
+
+.customer-stories {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+}
+
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideCarousel {
+  0%, 20% {
+    transform: translateX(0);
+  }
+  30%, 50% {
+    transform: translateX(-25%);
+  }
+  60%, 80% {
+    transform: translateX(-50%);
+  }
+  90%, 100% {
+    transform: translateX(-75%);
+  }
+}
+
+
+.nav-arrows {
+  display: flex;
+  justify-content: center; /* Center the arrows horizontally */
+  margin-top: 10px; /* Space above the arrows. Adjust as needed. */
+}
+
+.arrow {
+  font-size: 24px; /* Adjust as needed */
+  color: blue;
+  margin: 0 10px; /* Space between the arrows. Adjust as needed. */
+  cursor: pointer; /* Make it look clickable */
+}
+
+.arrow:hover {
+  opacity: 0.7; /* Add a hover effect */
+}
 

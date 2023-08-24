@@ -26,22 +26,22 @@ function Footer() {
         <div className="footer__col">
           <h3>Quick Links</h3>
           <ul>
-            <li><a href="../home-2/index.html">Home</a></li>
-            <li><a href="../home/index.html">Services</a></li>
-            <li><a href="../home-2/index.html">Solutions</a></li>
-            <li><a href="../home/index.html">Technology</a></li>
-            <li><a href="../home-2/index.html">Contact Us</a></li>
+            <li><a href="../home-2/index.html" className="slide-left">Home</a></li>
+            <li><a href="../home/index.html" className="slide-left">Services</a></li>
+            <li><a href="../home-2/index.html" className="slide-left">Solutions</a></li>
+            <li><a href="../home/index.html" className="slide-left">Technology</a></li>
+            <li><a href="../home-2/index.html" className="slide-left">Contact Us</a></li>
             {/* Add four more links here */}
           </ul>
         </div>
         <div className="footer__col">
           <h3>Resources</h3>
           <ul>
-            <li><a href="../home-2/index.html">Blog</a></li>
-            <li><a href="../home/index.html">Articles</a></li>
-            <li><a href="../home-2/index.html">Research Papers</a></li>
-            <li><a href="../home/index.html">Careers</a></li>
-            <li><a href="../home-2/index.html">Privacy & Policy</a></li>
+            <li><a href="../home-2/index.html" className="slide-left">Blog</a></li>
+            <li><a href="../home/index.html" className="slide-left">Articles</a></li>
+            <li><a href="../home-2/index.html" className="slide-left">Research Papers</a></li>
+            <li><a href="../home/index.html" className="slide-left">Careers</a></li>
+            <li><a href="../home-2/index.html" className="slide-left">Privacy & Policy</a></li>
             {/* Add four more links here */}
           </ul>
         </div>

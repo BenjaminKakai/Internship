@@ -9,7 +9,9 @@ import Blog from './Blog /Blog'; // Notice the space after "Blog"
 import Contact from './Contact/Contact';
 import Footer from './Footer/Footer';
 import Home from './Home/Home'; // Imported Home component
+
 import NavigationBar from './NavigationBar/NavigationBar';
+
 import './index.css';
 
 function App() {
@@ -35,15 +37,18 @@ function App() {
 
   return (
     <div>
-      <Header sticky={isNavbarSticky} />
-      <Home /> {/* Replaced Showcase with Home */}
-      <Services />
-      <Goal />
+    <Header sticky={isNavbarSticky} />
+   <Home /> 
+     <Services />
+     
+      <Goal /> 
       <Portfolio />
-      <Teams />
+     <Teams />
       <Blog />
       <Contact />
       <Footer />
+      
+     {/* <MainNavigationBar /> {/* Add this line */}
       {showScrollUpBtn && <button className="scroll-up-btn" onClick={scrollToTop}>Scroll Up</button>}
     </div>
   );

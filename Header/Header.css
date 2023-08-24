@@ -60,7 +60,7 @@
   position: fixed;
   justify-content: space-between;
   overflow: visible;
-  z-index: 2000; /* Higher value than the showcase content */
+  z-index: 9999;/* Higher value than the showcase content */
 }
 
 

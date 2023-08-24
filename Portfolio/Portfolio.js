@@ -20,11 +20,12 @@ const images = [
   return (
     <section id="portfolio" className="portfolio py-3">
      
-     <h3 className="text-center">
+<h3 className="text-center">
   <span className="industry-expertise">Industry Expertise </span>
   <span className="industry-query">Your industry is not here? That's not a problem! </span>
   <button className="lets-talk-btn">Let's talk</button>
 </h3>
+
       <div className="portfolio-content">
         <div className="image-section">
           <img src={`/${selectedImage.name}`} alt={selectedImage.label} />

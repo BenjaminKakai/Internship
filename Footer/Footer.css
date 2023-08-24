@@ -74,3 +74,35 @@
   height: 40px; /* Adjust to match the size of the text */
 }
 
+/* Existing CSS code */
+/* ... */
+
+/* Slide-left animation */
+.slide-left {
+  position: relative;
+  transition: left 0.3s ease-in-out;
+  display: inline-block;
+}
+
+.slide-left:hover {
+  left: -5px; /* Adjust the value to control the amount of slide */
+}
+
+.footer__col ul li a.slide-left::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -10px;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 2px;
+  background-color: #fff; /* Matching the original text color */
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+.footer__col ul li a.slide-left:hover::before {
+  opacity: 1;
+  left: -20px; /* Adjust the value for the space between text and arrow */
+}
+

@@ -10,7 +10,7 @@
   text-transform: uppercase;
   font-weight: 500;
   text-align: left; /* Left aligned */
-  padding-left: 200px; /* Added padding to align with the content */
+  padding-left: 150px; /* Added padding to align with the content */
 }
 
 .portfolio-content {
@@ -106,7 +106,7 @@
 
 .industry-expertise {
   font-size: 20px; /* Adjust size if needed */
-  margin-right: 500px; /* Provides spacing between the two parts */
+  margin-right: 150px; /* Provides spacing between the two parts */
 }
 
 .industry-query {
@@ -125,7 +125,6 @@
   border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
-  margin-left: 10px; /* Space between the text and the button */
   transition: background-color 0.3s ease;
 }
 
@@ -133,4 +132,5 @@
   background-color: #ADFF2F; /* Light green on hover */
   color: #006400; /* Green text on hover */
 }
+
 
