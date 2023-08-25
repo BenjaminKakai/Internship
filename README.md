@@ -36,6 +36,7 @@ Whether you're a newbie trying to get your hands dirty with some real-world fron
 
 
 **🚀 Getting Started**
+
 **1. Prerequisites**
 Ensure you have the following installed on your local machine:
 
