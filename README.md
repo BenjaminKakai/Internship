@@ -1,7 +1,6 @@
 **Internship - A ReactJS Frontend Project**
 **Netlify Status**
-
-Welcome to Internship! This project is designed as a stepping stone for beginners looking to hone their frontend skills. Built with the simplicity and power of ReactJS, it combines HTML, CSS, and JavaScript to provide an engaging experience for users and learners alike.
+This project is designed as a stepping stone for beginners looking to hone their frontend skills. Built with the simplicity and power of ReactJS, it combines HTML, CSS, and JavaScript to provide an engaging experience for users and learners alike.
 
 
 **Project Screenshot**
