@@ -2,7 +2,7 @@
 .showcase .navbar-top {
   width: 100%;
   display: flex;
-  padding: 10px 0; /* Adjust padding here to reduce the height of the strip */
+  padding: 5px 0; /* Adjust padding here to reduce the height of the strip */
   margin: 0 auto;
   justify-content: space-between;
   align-items: center;
@@ -53,7 +53,7 @@
 .showcase .navbar-bottom {
   width: 100%;
   background: transparent;
-  padding: 20px 10px;
+  padding: 10px 5px;
   align-items: center;
   margin: auto;
   display: flex;
@@ -497,4 +497,11 @@
     padding-right: 100px; 
 }
 
+
+.showcase .navbar-top .left a, 
+.showcase .navbar-top .left a:hover, 
+.showcase .navbar-top .left a:active, 
+.showcase .navbar-top .left a:visited {
+    text-decoration: none; /* Removes underline */
+}
 
