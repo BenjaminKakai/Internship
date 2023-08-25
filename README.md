@@ -35,7 +35,7 @@ This project is open-source. You're free to clone, modify, and distribute it as 
 Whether you're a newbie trying to get your hands dirty with some real-world frontend experience or a seasoned developer looking to contribute, remember - You got this!
 
 
-**🚀 Getting Started**
+**🚀 Getting Started**       
 
 **1. Prerequisites**
 Ensure you have the following installed on your local machine:
