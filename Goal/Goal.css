@@ -1,202 +1,122 @@
 #goal {
-  display: flex;
-  padding-top: 20px;
-  background: linear-gradient(to right, black 33%, #F5F5F5 33%);
-  align-items: center;  /* Vertically align the text and image */
-  min-height: 500px;  /* Set the minimum height. Adjust this value as needed */
+    display: flex;
+    padding-top: 20px;
+    background: linear-gradient(to right, black 33%, #F5F5F5 33%);
+    align-items: center;
+    min-height: 500px;
+}
+
+.content-container {
+    display: flex;
+    align-items: center;
+    margin-left: 45%;
 }
 
 #goal .goal-img {
-  flex: 1;
-  width: 50%;  /* You can adjust this as needed */
-  height: auto;
-  overflow: hidden;
-  margin-left: 15%;  /* Move the image to the right */
-  animation: slideInFromRight 3s forwards;
+    flex: 1;
+    width: 65%;  /* Increased from 50% to 65% */
+    height: auto;
+    overflow: hidden;
+    margin-left: 10%;  /* Adjusted the margin to 10% to account for increased width */
 }
 
 #goal .goal-img img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  border-radius: 10px;  /* Optional: for rounded corners */
-  position: relative;
-  left: -15%;  /* Shift the image back to the left, allowing more of it to appear in the black region */
-  animation: slideInFromRight 3s forwards;
+    width: 120%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    position: relative;
+    left: -15%;
 }
 
-
 #goal .goal-text {
-  flex: 2;
-  margin: 0 40px;
-  color: black;  /* Adjust the text color to make it visible against the black background */
-  animation: slideInFromRight 3s forwards;
+    flex: 2;
+    margin: 0 40px;  /* Adjusted margin from 60px to 40px to account for increased image width */
+    color: black;
 }
 
 #goal .goal-text h2 {
-  margin-bottom: 20px;
-}
-
-
-.read-more-btn {
-  padding: 10px 20px;
-  border: 2px solid lightgreen;
-  background-color: transparent;
-  color: black;
-  cursor: pointer;
-  transition: 0.3s;
-  border-radius: 5px;
-  margin-top: 15px;
-  position: absolute; /* Set the button to an absolute position within its relative parent */
-  right: 150px;       /* Place the button 150px from the right edge of its parent */
-  font-weight: bold;
-}
-
-.read-more-btn:hover {
-  background-color: lightgreen;
-  color: black;
-}
-
-.goal-container {
-  position: relative;
-  /* ... other existing styles ... */
-  overflow: hidden;  /* Ensures that the sliding content doesn't overflow */
-}
-
-.slides-container {
-  display: flex;
-  transition: transform 1s ease-out; /* Animate the position change */
-  width: 400%; /* 4 slides, each of 100% width */
-}
-
-.goal {
-  flex: 0 0 25%; /* Since there are 4 slides, each slide should occupy 25% of the .slides-container width */
-  /* ... other existing styles ... */
-}
-
-.customer-stories {
-  position: absolute; /* Position this over the static background */
-  top: 10px; /* Adjust as needed */
-  left: 10px; /* Adjust as needed */
-  z-index: 2; /* Ensure it stays on top */
-}
-
-
-
-#goal {
-  display: flex;
-  padding-top: 20px;
-  background: linear-gradient(to right, black 33%, #F5F5F5 33%);
-  align-items: center;
-  min-height: 500px;
-}
-
-#goal .goal-img {
-  flex: 1;
-  width: 50%;
-  height: auto;
-  overflow: hidden;
-  margin-left: 15%;
-  animation: slideInFromRight 3s forwards;
-}
-
-#goal .goal-img img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  border-radius: 10px;
-  position: relative;
-  left: -15%;
-  animation: slideInFromRight 3s forwards;
-}
-
-#goal .goal-text {
-  flex: 2;
-  margin: 0 40px;
-  color: black;
-  animation: slideInFromRight 3s forwards;
+    margin-bottom: 20px;
 }
 
 .read-more-btn {
-  padding: 10px 20px;
-  border: 2px solid lightgreen;
-  background-color: transparent;
-  color: black;
-  cursor: pointer;
-  transition: 0.3s;
-  border-radius: 5px;
-  margin-top: 15px;
-  position: absolute;
-  right: 150px;
-  font-weight: bold;
+    padding: 10px 20px;
+    border: 2px solid lightgreen;
+    background-color: transparent;
+    color: black;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 5px;
+    margin-top: 15px;
+    position: absolute;
+    right: 150px;
+    font-weight: bold;
 }
 
 .read-more-btn:hover {
-  background-color: lightgreen;
-  color: black;
+    background-color: lightgreen;
+    color: black;
 }
 
 .goal-container {
-  position: relative;
-  overflow: hidden;
+    position: relative;
+    overflow: hidden;
 }
 
 .slides-container {
-  display: flex;
-  width: 400%;  /* 4 slides, each of 100% width */
-  animation: slideCarousel 20s infinite;  /* 3s per slide * 4 slides */
+    display: flex;
 }
 
 .goal {
-  flex: 0 0 25%; /* Each slide takes up 25% of the width */
+    flex: 1;
 }
 
 .customer-stories {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  z-index: 2;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 2;
 }
-
-@keyframes slideInFromRight {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideCarousel {
-  0%, 20% {
-    transform: translateX(0);
-  }
-  30%, 50% {
-    transform: translateX(-25%);
-  }
-  60%, 80% {
-    transform: translateX(-50%);
-  }
-  90%, 100% {
-    transform: translateX(-75%);
-  }
-}
-
 
 .nav-arrows {
-  display: flex;
-  justify-content: center; /* Center the arrows horizontally */
-  margin-top: 10px; /* Space above the arrows. Adjust as needed. */
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
 }
 
 .arrow {
-  font-size: 24px; /* Adjust as needed */
-  color: blue;
-  margin: 0 10px; /* Space between the arrows. Adjust as needed. */
-  cursor: pointer; /* Make it look clickable */
+    font-size: 24px;
+    color: blue;
+    margin: 0 10px;
+    cursor: pointer;
 }
 
 .arrow:hover {
-  opacity: 0.7; /* Add a hover effect */
+    opacity: 0.7;
+}
+
+@keyframes slideInAndFadeOut {
+    0% {
+        transform: translateX(100%);
+        opacity: 1;
+    }
+    50% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    80% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 0;
+    }
+}
+
+.content-container {
+    display: flex;
+    align-items: center;
+    animation: slideInAndFadeOut 20s forwards; /* 10s for slide-in + 10s for staying visible */
 }
 

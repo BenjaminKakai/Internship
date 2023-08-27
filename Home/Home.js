@@ -1902,8 +1902,8 @@ const numberOfDuplicates = 1000;
     <div className="home-slider" id="home">
     
         <video className="background-video" id="background-video" autoPlay loop muted>
-          <source src={homeVideo} type="video/mp4" />
-        </video>
+       <source src={homeVideo} type="video/mp4" />
+   </video>
         <div className="home-content">
           <h1>
             Driving changes through <br />AI &amp; Data Solutions 
@@ -1918,7 +1918,7 @@ const numberOfDuplicates = 1000;
 
           <div style={{ 
               width: '130%', 
-              height: '250px', 
+              height: '200px', 
               display: 'flex', 
               marginTop: '20px', 
               marginLeft: '-10%', 
@@ -1976,7 +1976,7 @@ const numberOfDuplicates = 1000;
 <div
         style={{
           width: '100vw',
-          height: '100px',
+          height: '120px',
           marginLeft: '-10%',
           backgroundColor: 'white',
           display: 'flex',
