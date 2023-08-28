@@ -1,71 +1,121 @@
 import React from 'react';
 import './Footer.css';
-import EmailIcon from '../icons/EmailIcon.svg'; // Import the EmailIcon SVG as a component
-import PhoneIcon from '../icons/PhoneIcon.svg'; // Import the PhoneIcon SVG as a component
+import EmailIcon from '../icons/EmailIcon.svg';
+import TwitterIcon from '../icons/TwitterIcon.svg';
+import LinkedInIcon from '../icons/LinkedInIcon.svg';
+import FacebookIcon from '../icons/FacebookIcon.svg';
 
 function Footer() {
-  return (
-    <footer className="footer">
-      <div className="footer__container">
-        <div className="footer__col">
-          <h3>
-            <img src="/images/intelliverse_white-removebg-preview-e1683667756213.png" alt="Resources" className="resources-image" />
-          </h3>
-          <h4>
-            <span className="icon-wrapper"><img src={EmailIcon} alt="Email Icon" /></span>
-            <span className="text-wrapper">Email us:</span>
-          </h4>
-          <a href="mailto:info@intelliverseai.com">info@intelliverseai.com</a>
-          <h4>
-            <span className="icon-wrapper"><img src={PhoneIcon} alt="Phone Icon" /></span>
-            <span className="text-wrapper">Call us:</span>
-          </h4>
-          <a href="tel:012-345-6789">+254746026037</a>
-          {/* Add three more rows here if needed */}
+    return (
+        <footer className="footer">
+            <div className="footer__container">
+                
+                <div className="footer__left-section">
+                    {/* Services Columns */}
+                    <div className="footer__col">
+                        <h3>Services</h3>
+                        <div className="footer__subcol">
+                            <ul>
+                                <li>Artificial Intelligence & ML</li>
+                                <li>AI Consulting</li>
+                                <li>MLOps Consulting</li>
+                                <li>Machine Learning Consulting</li>
+                                <li>Data Annotation Services</li>
+                            </ul>
+                        </div>
+                        <div className="footer__subcol">
+                            <ul>
+                                <li>Data Engineering</li>
+                                <li>Data Engineering Services</li>
+                                <li>Databricks Deployment Services</li>
+                                <li>Big Data Consulting</li>
+                                <li>Data Analytics Consulting Services</li>
+                                <li>Business Intelligence Services</li>
+                            </ul>
+                        </div>
+                        <div className="footer__subcol">
+                            <ul>
+                                <li>Generative AI</li>
+                                <li>Generative AI Development Company</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    {/* Contact Box */}
+<div className="footer__contact-box">
+    <div className="contact-box__left">
+        <h4>Upper Hill - HQ</h4>
+        <p>Nairobi</p>
+        <p>00100 Nairobi</p>
+        <p>Nairobi, Kenya</p>
+    </div>
+
+    <div className="contact-box__right">
+        <div className="footer__email-section">
+            <img src={EmailIcon} alt="Email Icon" />
+            <a href="mailto:hi@intelliverse.com">Intelliverse@gmail.com</a>
         </div>
-        <div className="footer__col">
-          <h3>Quick Links</h3>
-          <ul>
-            <li><a href="../home-2/index.html" className="slide-left">Home</a></li>
-            <li><a href="../home/index.html" className="slide-left">Services</a></li>
-            <li><a href="../home-2/index.html" className="slide-left">Solutions</a></li>
-            <li><a href="../home/index.html" className="slide-left">Technology</a></li>
-            <li><a href="../home-2/index.html" className="slide-left">Contact Us</a></li>
-            {/* Add four more links here */}
-          </ul>
-        </div>
-        <div className="footer__col">
-          <h3>Resources</h3>
-          <ul>
-            <li><a href="../home-2/index.html" className="slide-left">Blog</a></li>
-            <li><a href="../home/index.html" className="slide-left">Articles</a></li>
-            <li><a href="../home-2/index.html" className="slide-left">Research Papers</a></li>
-            <li><a href="../home/index.html" className="slide-left">Careers</a></li>
-            <li><a href="../home-2/index.html" className="slide-left">Privacy & Policy</a></li>
-            {/* Add four more links here */}
-          </ul>
-        </div>
-        <div className="footer__col">
-          <h3>Newsletter</h3>
-          <p>Register now to get the latest updates, promotions, and coupons</p>
-          <form action="#">
-            <div className="footer__subscribe-input-8">
-              <input
-                size="40"
-                className="wpcf7-form-control wpcf7-email wpcf7-text wpcf7-validates-as-email"
-                aria-invalid="false"
-                placeholder="Your email"
-                value=""
-                type="email"
-                name="email-975"
-              />
-              <button type="submit">Subscribe</button>
+    </div>
+    
+    <a href="#" className="more-offices-link">more offices</a>
+</div>
+
+                </div>
+
+               {/* Solutions Column */}
+<div className="footer__col">
+    <h3>Solutions</h3>
+    <ul>
+        {/* Technologies subheading */}
+        <li>Technologies</li>
+        <li>Computer Vision Solutions</li>
+        <li>NLP Solutions</li>
+        <br />
+        
+        {/* Industries subheading */}
+        <li>Industries</li>
+        <li>Manufacturing</li>
+        <li>Retail</li>
+        <li>Finance & Insurance</li>
+        <li>Logistics</li>
+        <li>Aviation</li>
+        <li>Technology companies</li>
+    </ul>
+</div>
+
+
+                {/* Menu Column */}
+                <div className="footer__col">
+                    <h3>Menu</h3>
+                    <ul>
+                        <li>About</li>
+                        <li>Resources</li>
+                        <li>Webinars</li>
+                        <li>Blog</li>
+                        <li>Career</li>
+                        <li>Meet us</li>
+                        <li>Case studies</li>
+                        <li><button className="lets-talk-button">Let's talk</button></li>
+                    </ul>
+                </div>
             </div>
-          </form>
-        </div>
-      </div>
-    </footer>
-  );
+
+            {/* Footer Bottom */}
+            <div className="footer__bottom">
+                <div className="footer__bottom-text">
+                    <p>© Intelliverse.com. All rights reserved.</p>
+                    <a href="#">Terms and Conditions</a>
+                    <a href="#">Policy privacy</a>
+                    <a href="#">Cookies policy</a>
+                </div>
+                <div className="footer__social-icons">
+                    <a href="#"><img src={TwitterIcon} alt="Twitter" /></a>
+                    <a href="#"><img src={LinkedInIcon} alt="LinkedIn" /></a>
+                    <a href="#"><img src={FacebookIcon} alt="Facebook" /></a>
+                </div>
+            </div>
+        </footer>
+    );
 }
 
 export default Footer;

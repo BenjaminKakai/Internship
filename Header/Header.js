@@ -318,8 +318,9 @@ function Header() {
 <div className="navbar-wrapper">
     <li className="contact-us-button">
         <div className="dropdown">
-            <button 
-                className="dropbtn" 
+            <Link 
+                to="/contact" 
+                className="dropbtn"
                 style={{ 
                     backgroundColor: 'green',  // Start with a green background
                     color: 'black',
@@ -327,7 +328,7 @@ function Header() {
                     transition: 'background-color 0.3s',
                     whiteSpace: 'nowrap',
                     height: '30px',
-                    paddingTop: '5px',
+                    paddingTop: '20px',
                     paddingBottom: '5px',
                     paddingLeft: '10px',
                     paddingRight: '10px'
@@ -336,7 +337,7 @@ function Header() {
                 onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'green'}  // Transition back to green when not hovered
             >
                 Contact Us
-            </button>
+            </Link>
             <div className="dropdown-content">
                 <div className="submenu-link" style={{ cursor: 'pointer' }}>
                     Use This Form <span className="arrow">&gt;</span>
@@ -345,6 +346,9 @@ function Header() {
         </div>
     </li>
 </div> {/* Closing div tag for navbar-wrapper */}
+
+
+
 
 
 </ul>

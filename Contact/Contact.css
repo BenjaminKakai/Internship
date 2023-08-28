@@ -1,46 +1,60 @@
-/* Contact Section Styling */
-#contact {
-  color: #fff;
-  background: #0A2940;
-  text-align: center;
-  padding: 50px 0;
+.contact-container {
+    display: flex;
+    width: 75vw;
+    margin: auto;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 100px; /* Adjust based on your navbar's height */
 }
-#contact h2 {
-  font-size: 40px;
-  font-weight: 600;
-  color: #fff;
-  margin-bottom: 10px;
+
+.left-section {
+    flex: 1;
+    background-color: black;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-#contact p {
-  color: #fff;
-  line-height: 1.6;
-  margin-bottom: 50px;
+
+.profile-pic {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 20px 0;
 }
-#contact .wrapper form {
-  display: flex;
-  flex-direction: column;
-  max-width: 550px;
-  margin: 0 auto;
+
+.right-section {
+    flex: 2;
+    background-color: #f5f5f5;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
-#contact .wrapper form input,
-#contact .wrapper form button {
-  padding: 8px;
-  border: #ddd 1px solid;
-  outline: none;
-  border-radius: 5px;
-  margin: 15px 0;
-  color: #333;
+
+.right-section input, .right-section textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
-#contact .wrapper form button {
-  background: #0A2940;
-  color: #fff;
-  font-size: 14px;
-  font-weight: 600;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
+
+.right-section textarea {
+    height: 100px;
+    resize: none;
 }
-#contact .wrapper form button:hover {
-  background: #1A1B1E;
-  color: #fff;
+
+.right-section button {
+    align-self: flex-end;
+    padding: 10px 20px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
+
+.right-section button:hover {
+    background-color: lightgreen;
+}
+

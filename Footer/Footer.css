@@ -1,6 +1,6 @@
 .footer {
-  background-color: #0A2940; /* You can change this to your preferred background color */
-  color: #fff;
+  background-color: #F5F5F5; 
+  color: #333;
   padding: 20px;
 }
 
@@ -13,96 +13,152 @@
 .footer__col {
   flex: 1;
   padding: 20px;
+  display: flex; /* Added to make the sub columns align in a row */
+  flex-direction: row; /* Ensures the sub-columns are arranged in a row */
 }
 
-.footer__col h3,
-.footer__col h4 {
-  margin-bottom: 10px;
+.footer__col h3 {
+  margin-bottom: 0px;  /* Adjust margin-bottom to 0 */
+  margin-top: 5px;    /* You can adjust this value to increase or decrease the top margin */
+  padding-left: 0px; /* Adjust as needed */
 }
 
 .footer__col ul {
   list-style: none;
   padding: 0;
+  margin-top: 60px;  /* Adjust margin-top to set space between heading and the list */
+}
+
+
+
+.footer__col ul li {
+  margin-bottom: 8px;
 }
 
 .footer__col ul li a {
-  color: #fff;
+  color: #555;
   text-decoration: none;
 }
 
-.footer__subscribe-input-8 {
-  display: flex;
-}
-
-.footer__subscribe-input-8 input {
+.footer__subcol {
   flex: 1;
-  padding: 10px;
-  margin-right: 10px;
-  border: none;
+  padding-left: -5px; /* Adjust as needed */
 }
 
-.footer__subscribe-input-8 button {
-  padding: 10px 20px;
-  background-color: #55BA53;
-  border: none;
-  color: #fff;
-  cursor: pointer;
+.footer__contact-box {
+    background-color: #e0e0e0; 
+    padding: 15px;
+    margin-top: 20px;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    position: relative; 
 }
 
-.footer-bottom {
-  background-color: #f6f6f6; /* This color is for the copyright section */
-  color: #0A2940;
-  padding: 10px 0;
-  text-align: center;
-}
-
-/* You can add more styling as per your requirements */
 
 .icon-wrapper {
   display: inline-block;
-  width: 24px; /* Adjust the width as needed */
+  width: 24px;
   text-align: center;
 }
 
-.text-wrapper {
-  display: inline-block;
-  vertical-align: middle;
+.footer__email-section {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
 }
 
-.resources-image {
-  width: auto; /* Adjust as needed */
-  height: 40px; /* Adjust to match the size of the text */
+.footer__email-section img {
+  margin-right: 10px;
 }
 
-/* Existing CSS code */
-/* ... */
-
-/* Slide-left animation */
-.slide-left {
-  position: relative;
-  transition: left 0.3s ease-in-out;
-  display: inline-block;
+.footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
 }
 
-.slide-left:hover {
-  left: -5px; /* Adjust the value to control the amount of slide */
+.footer__bottom-text {
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
 
-.footer__col ul li a.slide-left::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: -10px;
-  transform: translateY(-50%);
-  width: 10px;
-  height: 2px;
-  background-color: #fff; /* Matching the original text color */
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out, left 0.3s ease-in-out;
+.footer__social-icons {
+  display: flex;
+  gap: 10px;
 }
 
-.footer__col ul li a.slide-left:hover::before {
-  opacity: 1;
-  left: -20px; /* Adjust the value for the space between text and arrow */
+.footer__social-icons a img {
+  width: 24px;
+  height: 24px;
 }
+
+
+.lets-talk-button {
+    background-color: #4CAF50; /* Light green background */
+    color: white; /* White text */
+    padding: 10px 20px; /* Padding around the text */
+    border: none; /* Remove default border */
+    border-radius: 25px; /* Rounded corners */
+    cursor: pointer; /* Hand cursor on hover */
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.lets-talk-button:hover {
+    background-color: #45a049; /* Slightly darker green on hover */
+}
+
+.footer__left-section {
+    flex: 3; /* This ensures that the left section takes up the same amount of space as the services column */
+    display: flex;
+    flex-direction: column;
+}
+
+
+.contact-box__info {
+    flex: 3;
+}
+
+.contact-box__email {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.more-offices-link {
+    position: absolute; 
+    bottom: 10px; 
+    right: 10px; 
+    color: #4CAF50; 
+    text-decoration: none;
+    transition: color 0.3s; 
+}
+
+.more-offices-link:hover {
+    color: #45a049; 
+}
+
+.footer__col h3 {
+    color: grey;
+}
+
+
+.footer__col ul li a:hover,
+.footer__col ul li:hover {
+    color: #4CAF50;
+}
+
+.footer__col ul li:nth-child(1) {
+    color: grey;
+}
+
+
+.footer__col ul li:not(:nth-child(1)):hover {
+    color: #4CAF50;
+}
+
+
 
