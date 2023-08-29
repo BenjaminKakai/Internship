@@ -61,19 +61,21 @@ function Footer() {
 </div>
 
                 </div>
-
-               {/* Solutions Column */}
+                
+                
+                
+{/* Solutions Column */}
 <div className="footer__col">
     <h3>Solutions</h3>
     <ul>
         {/* Technologies subheading */}
-        <li>Technologies</li>
+        <li className="sub-heading">Technologies</li>
         <li>Computer Vision Solutions</li>
         <li>NLP Solutions</li>
         <br />
         
         {/* Industries subheading */}
-        <li>Industries</li>
+        <li className="sub-heading">Industries</li>
         <li>Manufacturing</li>
         <li>Retail</li>
         <li>Finance & Insurance</li>
