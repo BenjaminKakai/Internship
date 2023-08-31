@@ -67,6 +67,7 @@ const Home = () => {
   }, []);
 
   return (
+   <div className="container">
     <div className="home-slider" id="home">
       <video className="background-video" id="background-video" autoPlay loop muted>
         <source src={homeVideo} type="video/mp4" />
@@ -154,25 +155,55 @@ const Home = () => {
           overflow: 'hidden'
         }}
       >
-        <span style={{ color: 'black', zIndex: 2 }}>Our Clients</span>
-        <div className="client-logos">
-          <div className="logo-slider">
-            {duplicatedImages.map((image, index) => (
-              <img
-                key={index}
-                src={image}
-                alt="client logo"
-                className="client-logo"
-                style={{
-                  animationDelay: `${(timeGap * index)}s`,
-                }}
-              />
-        
-    ))}
+      <span style={{ color: 'black', zIndex: 2 }}>Our Clients</span>
+<div className="client-logos">
+  <div className="logo-slider">
+    {duplicatedImages.map((image, index) => {
+      let companyLink = "#"; // Placeholder link
+      switch (image) {
+        case "/images/IBMlogo.jpg":
+          companyLink = "https://www.ibm.com/about";
+          break;
+        case "/images/Jumialogo.jpg":
+          companyLink = "https://group.jumia.com/";
+          break;
+        case "/images/ciscologo.jpg":
+          companyLink = "https://www.cisco.com";
+          break;
+        case "/images/googlelogo.jpg":
+          companyLink = "https://about.google/";
+          break;
+        case "/images/amazonlogo.jpg":
+          companyLink = "https://www.amazon.com/s?k=a+mazon+com&adgrpid=127260490003&hvadid=548017362226&hvdev=c&hvlocphy=9076838&hvnetw=g&hvqmt=b&hvrand=16207537358557689955&hvtargid=kwd-321362582074&hydadcr=27983_11498193&tag=hydglogoo-20&ref=pd_sl_6g4xlojujf_b";
+          break;
+        case "/images/Nielsenlogo.jpg":
+          companyLink = "https://www.nielsen.com/";
+          break;
+        case "/images/microsoftlogo.jpg":
+          companyLink = "https://www.microsoft.com/en-us/";
+          break;
+        case "/images/donebydonelogo.jpg":
+          companyLink = "https://www.crunchbase.com/organization/donebynone";
+          break;
+        default:
+          companyLink = "#";
+          break;
+      }
+      return (
+        <a href={companyLink} target="_blank" rel="noopener noreferrer" key={index}>
+          <img
+            src={image}
+            alt="client logo"
+            className="client-logo"
+            style={{
+              animationDelay: `${(index % 5) * 2}s`,
+            }}
+          />
+        </a>
+      );
+    })}
   </div>
 </div>
-
-
 
 
 
@@ -181,6 +212,7 @@ const Home = () => {
       </div>
     </div>
     </div>
+   </div>
   );
 };
 

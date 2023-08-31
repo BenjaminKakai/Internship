@@ -24,6 +24,7 @@
   height: auto;
   z-index: -1000;
   overflow: hidden;
+  object-fit: cover;
 }
 
 .home-content {
@@ -39,6 +40,7 @@
   color: #55BA53;
   font-size: 40px;
   margin: 0;
+  font-size: calc(20px + 1.5vw);
 }
 
 .home-content span {
@@ -185,14 +187,21 @@
   margin: auto 0;
 }
 
+
+
 @keyframes slide {
   0% {
     transform: translateX(0);
   }
+  50% {
+    transform: translateX(-5%);
+  }
   100% {
-    transform: translateX(calc(-100% * 9));
+    transform: translateX(-10%);
   }
 }
+
+
 
 .client-logos {
   width: 100vw;
@@ -211,13 +220,64 @@
   z-index: 2;
 }
 
+
 .logo-slider {
   display: flex;
-  animation: slide 24000s linear infinite;
+  animation: slide 10000s linear infinite; /* Adjust the time as needed */
 }
 
 .client-logo {
   width: 80px;
   height: 60px;
   margin-left: 50px;
+   animation: slide 10s linear infinite; 
+    position: relative;
+    width: calc(60px + 1.5vw);  /* responsive width */
+  height: calc(40px + 1.5vh); /* responsive height */
 }
+
+
+.client-logo::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px solid transparent; /* Initially transparent border */
+  box-sizing: border-box; /* To include border in element's total width and height */
+  transition: all 0.1s ease; /* for smooth transition */
+}
+
+
+.client-logo:hover {
+  transform: scale(1.2); /* Increase the size */
+  z-index: 10;  /* Bring it to the front */
+  box-shadow: 10px 10px 10px 10px red; /* Smoky shadow */
+}
+
+
+.client-logo:hover::before {
+  border-color: red; /* Red border on hover */
+  z-index: -1;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+
+.dropdown-menu, .chat-dialogue {
+  left: calc(5% + 1vw);
+}
+
+.chat-dialogue, .dropdown-menu {
+    left: 5%;
+    
+  }
+  }

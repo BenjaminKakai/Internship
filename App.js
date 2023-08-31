@@ -55,12 +55,12 @@ function AppContent() {
         <Route path="/contact" element={<Contact isVisible={isContactVisible} onGoBack={handleGoBack} />} />
       </Routes>
       <Home />
-      <Services />
+      {/*<Services />
       <Goal />
       <Portfolio />
       <Teams />
       <Blog />
-      <Footer />
+      <Footer /> */}
       
       {showScrollUpBtn && <button className="scroll-up-btn" onClick={scrollToTop}>Scroll Up</button>}
     </div>
