@@ -87,7 +87,7 @@ const Home = () => {
           
 
           <div style={{ 
-              width: '130%', 
+              width: '60%', 
               height: '200px', 
               display: 'flex', 
               marginTop: '20px', 
@@ -144,18 +144,20 @@ const Home = () => {
 
 
 <div
-        style={{
-          width: '100vw',
-          height: '120px',
-          marginLeft: '-10%',
-          backgroundColor: 'white',
-          display: 'flex',
-          alignItems: 'center',
-          paddingLeft: '270px',
-          overflow: 'hidden'
-        }}
-      >
-      <span style={{ color: 'black', zIndex: 2 }}>Our Clients</span>
+  style={{
+    width: '100vw',
+    height: '100px',
+    marginLeft: '-10%',
+    backgroundColor: 'white',
+    display: 'flex',
+    alignItems: 'center',
+    paddingLeft: '270px',
+    zIndex: '200000', // Fix the z-index property here
+    overflow: 'hidden'
+  }}
+>
+  <span style={{ color: 'black', zIndex: 2 }}>Our Clients</span>
+
 <div className="client-logos">
   <div className="logo-slider">
     {duplicatedImages.map((image, index) => {
