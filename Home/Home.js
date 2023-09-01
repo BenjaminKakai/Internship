@@ -56,6 +56,9 @@ const Home = () => {
         setMessageSent(false);
       }, 5000);
     }
+    
+    
+    
     return () => clearTimeout(timer);
   }, [messageSent]);
 
@@ -241,3 +244,20 @@ const Home = () => {
 };
 
 export default Home;
+
+
+// Add event listener for dropdown menus
+document.addEventListener('DOMContentLoaded', function() {
+  if (window.innerWidth <= 832) {
+    const dropdownMenus = document.querySelectorAll('.dropdown-menu');
+    
+    dropdownMenus.forEach(menu => {
+      const button = menu.querySelector('.dropdown-button');
+      const content = menu.querySelector('.dropdown-content');
+      
+      button.addEventListener('click', function() {
+        content.classList.toggle('show');
+      });
+    });
+  }
+});

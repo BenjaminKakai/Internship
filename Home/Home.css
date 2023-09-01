@@ -333,3 +333,49 @@
 }
 
 
+
+/* Home.css */
+
+/* Normal styles for larger screens can go here */
+
+/* Hide top-nav and navy blue strip for small screens */
+@media only screen and (max-width: 832px) {
+  .top-navbar, .navy-blue-strip {
+    display: none;
+  }
+  .bottom-navbar-item {
+    border-radius: 50%;
+    /* Your other styling here */
+  }
+  .dropdown-content {
+    display: none;
+    flex-direction: column;
+    /* Your other styling here */
+  }
+  .dropdown-content.show {
+    display: flex;
+  }
+}
+
+
+/* Additional modifications */
+@media only screen and (max-width: 832px) {
+  /* Hide top-nav and navy blue strip for small screens */
+  .top-navbar, .navy-blue-strip {
+    display: none;
+  }
+  /* Transform the bottom navigation into round buttons */
+  .bottom-navbar-item {
+    border-radius: 50%;
+    /* Additional styling here */
+  }
+  /* Implement dropdown menus */
+  .dropdown-content {
+    display: none;
+    flex-direction: column;
+    /* Additional styling here */
+  }
+  .dropdown-content.show {
+    display: flex;
+  }
+}
