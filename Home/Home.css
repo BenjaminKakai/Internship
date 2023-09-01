@@ -261,18 +261,75 @@
   flex-direction: row;
 }
 
+
+
+/* Information about the monitor based on xrandr output:
+- Screen 0: This is the primary screen (monitor).
+- Minimum and Maximum Resolutions: The screen supports a minimum of 16x16 pixels and a maximum of 32767x32767 pixels.
+- Current Resolution: The current screen resolution is 1680x1050 pixels.
+- Physical Size: The physical size of the monitor appears to be 470mm x 300mm.
+*/
+
 @media (max-width: 768px) {
   .container {
     flex-direction: column;
   }
 
+  .dropdown-menu, .chat-dialogue {
+    left: calc(5% + 1vw);
+  }
 
-.dropdown-menu, .chat-dialogue {
-  left: calc(5% + 1vw);
+  .chat-dialogue, .dropdown-menu {
+    left: 5%;
+  }
 }
 
-.chat-dialogue, .dropdown-menu {
-    left: 5%;
-    
+/* For screens larger than 11 inches but smaller than 768px */
+@media (min-width: 800px) {
+  .home-slider {
+    min-height: 300px;
+    height: 80vh;
   }
+}
+
+/* Small laptops */
+@media (min-width: 768px) {
+  .home-slider {
+    min-height: 400px;
+    height: 85vh;
   }
+}
+
+/* Medium laptops */
+@media (min-width: 992px) {
+  .home-slider {
+    min-height: 500px;
+    height: 85vh;
+  }
+}
+
+/* Large laptops */
+@media (min-width: 1200px) {
+  .home-slider {
+    min-height: 800px;
+    height: 95vh;
+  }
+}
+
+/* Extra large screens */
+@media (min-width: 1600px) {
+  .home-slider {
+    min-height: 800px;
+    height: 95vh;
+  }
+}
+
+/* For very large screens */
+@media (min-width: 1920px) {
+  .home-slider {
+    min-height: 800px;
+    height: 95vh;
+  }
+}
+
+

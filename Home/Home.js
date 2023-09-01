@@ -25,8 +25,8 @@ const Home = () => {
   const inputRef = useRef(null);
   const imageContainerRef = useRef(null);
 
- const animationDuration = 30; 
-  const timeGap = animationDuration / duplicatedImages.length; 
+  const animationDuration = 30;
+  const timeGap = animationDuration / duplicatedImages.length;
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);
@@ -66,17 +66,38 @@ const Home = () => {
     return () => clearInterval(carouselTimer);
   }, []);
 
+  // Add a useEffect to handle screen resizing
+  useEffect(() => {
+    function handleResize() {
+      const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
+      const homeSlider = document.querySelector('.home-slider');
+      if (homeSlider) {
+        if (vh > 600) {  // Adjust this value based on your specific needs
+          homeSlider.style.height = '85vh';
+        } else {
+          homeSlider.style.height = '600px';  // or your specific size
+        }
+      }
+    }
+
+    window.addEventListener('resize', handleResize);
+    handleResize();  // Initialize
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
-   <div className="container">
-    <div className="home-slider" id="home">
-      <video className="background-video" id="background-video" autoPlay loop muted>
-        <source src={homeVideo} type="video/mp4" />
-      </video>
-      
-      
+    <div className="container">
+      <div className="home-slider" id="home">
+        <video className="background-video" id="background-video" autoPlay loop muted>
+          <source src={homeVideo} type="video/mp4" />
+        </video>
+
         <div className="home-content">
           <h1>
-            Driving changes through <br />AI &amp; Data Solutions 
+            Driving changes through <br />AI &amp; Data Solutions
           </h1>
           <button className="btn btn-case-studies" onClick={toggleMenu}>
             Read Case Studies
@@ -84,6 +105,7 @@ const Home = () => {
           <button className="btn btn-secondary" onClick={toggleChat}>
             Let's talk
           </button>
+          
           
 
           <div style={{ 
