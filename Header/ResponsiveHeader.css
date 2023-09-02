@@ -30,6 +30,25 @@
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
+/* New styles for a simple vertical list */
+.simple-dropdown-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.simple-dropdown-list li {
+  display: block;
+}
+
+.simple-dropdown-list li a {
+  display: block;
+  text-decoration: none;
+  color: black;
+}
+
 /* Hide bottom navigation bar for small screens */
 @media screen and (max-width: 1300px) {
   .navbar-bottom .menu-right {
@@ -41,6 +60,14 @@
 @media screen and (max-width: 1300px) {
   .navbar-wrapper {
     display: none !important;
+  }
+}
+
+
+/* Add this media query */
+@media screen and (max-width: 1300px) {
+  .brand-logo {
+    margin-left: 5px;  /* or any value you prefer */
   }
 }
 

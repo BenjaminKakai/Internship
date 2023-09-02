@@ -1,13 +1,35 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { Link } from 'react-router-dom'; 
+import { Link } from 'react-router-dom';
 import '../boxicons-2.0.9/css/boxicons.min.css';
 import './Header.css';
-import './headerservices.css'; 
-import './ResponsiveHeader.css';  
+import './headerservices.css';
+import './ResponsiveHeader.css';
 
 function Header() {
   const logoPath = '/images/logo.png';
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+  // Declare isDropdownVisible and its toggle function only once
+  const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+  const dropdownRef = useRef(null);
+
+  const toggleDropdown = () => {
+    setIsDropdownVisible(!isDropdownVisible);
+  };
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsDropdownVisible(false);
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,11 +50,6 @@ function Header() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-
-  const [isSmallScreen, setIsSmallScreen] = useState(false);
-  const [isDropdownVisible, setIsDropdownVisible] = useState(false);
-
-  const toggleDropdown = () => setIsDropdownVisible(!isDropdownVisible);
 
   const handleMouseEnter = (contentType) => {
     if (activeDropdown) {
@@ -76,9 +93,9 @@ function Header() {
       setActiveDropdown(null);
     }
   };
-  
+
   const [showMobileMenu, setShowMobileMenu] = useState(false);
-  
+
   const toggleMobileMenu = () => {
     setShowMobileMenu(!showMobileMenu);
   };
@@ -373,54 +390,25 @@ function Header() {
 
 
 
-{isSmallScreen && (
-  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
-    <button className="responsive-button" onClick={toggleDropdown} style={{ marginTop: '20px' }}>
-      ☰
-    </button>
-    {isDropdownVisible && (
-      <div className="responsive-dropdown dropdown-box">
-        <div className="navbar-wrapper">
-          <li>
-            <div className="dropdown services-dropdown">
-              <button 
-                className="dropbtn" 
-                style={{ fontWeight: 'bold', backgroundColor: '', color: 'black' }}
-              >
-                Services
-              </button>
-              <div
-                className="dropdown-content services-content extended-dropdown"
-                style={{
-                  display: isDropdownVisible ? 'grid' : 'none',  // Changed this line
-                  gridTemplateColumns: '1fr 1fr 1fr',
-                }}
-              >
-                <div className="column" style={{ display: 'flex', flexDirection: 'column' }}>
-                  <h3>Artificial Intelligence & ML</h3>
-                  <a href="#" className="submenu-link slide-left">AI Consulting</a>
-                  <a href="#" className="submenu-link slide-left">MLOps Consulting</a>
-                </div>
-                <div className="column" style={{ display: 'flex', flexDirection: 'column' }}>
-                  <h3>Data Engineering</h3>
-                  <a href="#" className="submenu-link slide-left">Data Engineering Services</a>
-                  <a href="#" className="submenu-link slide-left">Big Data Consulting</a>
-                </div>
-                <div className="column" style={{ display: 'flex', flexDirection: 'column' }}>
-                  <h3>Generative AI</h3>
-                  <a href="#" className="submenu-link slide-left">Generative AI Development <br />Company</a>
-                </div>
-              </div>
-              <div className="extended-dropdown" style={{ display: 'none' }}>
-                {/* ... Extended Content ... */}
-              </div>
+<div>
+      {/* ... other components */}
+      {isSmallScreen && (
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }} ref={dropdownRef}>
+          <button className="responsive-button" onClick={toggleDropdown} style={{ marginTop: '20px' }}>
+            {isDropdownVisible ? '✕' : '☰'}
+          </button>
+          {isDropdownVisible && (
+            <div className="responsive-dropdown dropdown-box">
+              <ul className="simple-dropdown-list">
+                <li><a href="#">Item 1</a></li>
+                <li><a href="#">Item 2</a></li>
+                <li><a href="#">Item 3</a></li>
+              </ul>
             </div>
-          </li>
+          )}
         </div>
+      )}
       </div>
-    )}
-  </div>
-)}
 
     
 
@@ -431,6 +419,7 @@ function Header() {
 </div>
 );
 }
+
 export default Header;
 
 
