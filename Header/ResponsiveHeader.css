@@ -1,0 +1,46 @@
+/* Round button with light green border */
+.responsive-button {
+  position: fixed;
+  top: 40px;  /* Moved a bit lower */
+  right: 40px;  /* Moved a bit inside */
+  background-color: transparent;
+  border: 2px solid lightgreen;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10001;  /* To make it clickable */
+  width: 60px;  /* Set width */
+  height: 60px;  /* Set height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Vertical dropdown */
+.responsive-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  width: 30%;
+  z-index: 10000;
+}
+
+.dropdown-box {
+  padding: 20px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+/* Hide bottom navigation bar for small screens */
+@media screen and (max-width: 1300px) {
+  .navbar-bottom .menu-right {
+    display: none;
+  }
+}
+
+/* Hide bottom navigation bar for small screens */
+@media screen and (max-width: 1300px) {
+  .navbar-wrapper {
+    display: none !important;
+  }
+}
+

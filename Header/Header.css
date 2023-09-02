@@ -502,3 +502,39 @@
     text-decoration: none; /* Removes underline */
 }
 
+
+
+
+/* Round button with light green border */
+.responsive-button {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  border: 2px solid lightgreen;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Vertical dropdown */
+.responsive-dropdown {
+  position: fixed;
+  top: 50px;
+  right: 10px;
+  background-color: white;
+  width: 250px;
+  border: 1px solid lightgray;
+  z-index: 10000;
+  flex-direction: column;
+}
+
+
+/* Hide bottom navigation bar for small screens */
+@media screen and (max-width: 1300px) {
+  .navbar-bottom .menu-right {
+    display: none;
+  }
+}
+
+
+

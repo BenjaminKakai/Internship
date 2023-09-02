@@ -1,10 +1,10 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { Link } from 'react-router-dom'; 
 import '../boxicons-2.0.9/css/boxicons.min.css';
 import './Header.css';
 import './headerservices.css'; 
+import './ResponsiveHeader.css';  
 
-// Rest of the code...
 function Header() {
   const logoPath = '/images/logo.png';
   const [activeDropdown, setActiveDropdown] = useState(null);
@@ -12,9 +12,9 @@ function Header() {
   useEffect(() => {
     const handleScroll = () => {
       const navbarBottom = document.querySelector('.navbar-bottom');
-      const navbarTop = document.querySelector('.navbar-top');  // Select the top navbar
+      const navbarTop = document.querySelector('.navbar-top');
 
-      navbarTop.style.backgroundColor = '#ffffff';  // Always set top navbar's background to white
+      navbarTop.style.backgroundColor = '#ffffff';
 
       if (window.scrollY > 0) {
         navbarBottom.style.backgroundColor = '#ffffff';
@@ -29,8 +29,12 @@ function Header() {
     };
   }, []);
 
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+  const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+
+  const toggleDropdown = () => setIsDropdownVisible(!isDropdownVisible);
+
   const handleMouseEnter = (contentType) => {
-    // Hide previously active dropdown
     if (activeDropdown) {
       document.querySelector(`.${activeDropdown}-content`).style.display = 'none';
     }
@@ -54,10 +58,10 @@ function Header() {
     }
 
     if (dropdownContent) {
-      dropdownContent.style.display = 'grid'; // Show as grid
+      dropdownContent.style.display = 'grid';
     }
 
-    setActiveDropdown(contentType); // Set the new active dropdown
+    setActiveDropdown(contentType);
   };
 
   const handleMouseLeave = (e, contentType) => {
@@ -68,10 +72,30 @@ function Header() {
     if (activeDropdown) {
       document.querySelector(`.${activeDropdown}-content`).style.display = 'none';
       const navbarBottom = document.querySelector('.navbar-bottom');
-      navbarBottom.style.backgroundColor = 'transparent'; // Reset to transparent
-      setActiveDropdown(null); // Reset the active dropdown
+      navbarBottom.style.backgroundColor = 'transparent';
+      setActiveDropdown(null);
     }
   };
+  
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
+  
+  const toggleMobileMenu = () => {
+    setShowMobileMenu(!showMobileMenu);
+  };
+
+  useEffect(() => {
+    const updateScreenSize = () => {
+      setIsSmallScreen(window.innerWidth < 1300);
+    };
+
+    updateScreenSize();
+    window.addEventListener('resize', updateScreenSize);
+
+    return () => {
+      window.removeEventListener('resize', updateScreenSize);
+    };
+  }, []);
+
   
   
   return (
@@ -349,6 +373,56 @@ function Header() {
 
 
 
+{isSmallScreen && (
+  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
+    <button className="responsive-button" onClick={toggleDropdown} style={{ marginTop: '20px' }}>
+      ☰
+    </button>
+    {isDropdownVisible && (
+      <div className="responsive-dropdown dropdown-box">
+        <div className="navbar-wrapper">
+          <li>
+            <div className="dropdown services-dropdown">
+              <button 
+                className="dropbtn" 
+                style={{ fontWeight: 'bold', backgroundColor: '', color: 'black' }}
+              >
+                Services
+              </button>
+              <div
+                className="dropdown-content services-content extended-dropdown"
+                style={{
+                  display: isDropdownVisible ? 'grid' : 'none',  // Changed this line
+                  gridTemplateColumns: '1fr 1fr 1fr',
+                }}
+              >
+                <div className="column" style={{ display: 'flex', flexDirection: 'column' }}>
+                  <h3>Artificial Intelligence & ML</h3>
+                  <a href="#" className="submenu-link slide-left">AI Consulting</a>
+                  <a href="#" className="submenu-link slide-left">MLOps Consulting</a>
+                </div>
+                <div className="column" style={{ display: 'flex', flexDirection: 'column' }}>
+                  <h3>Data Engineering</h3>
+                  <a href="#" className="submenu-link slide-left">Data Engineering Services</a>
+                  <a href="#" className="submenu-link slide-left">Big Data Consulting</a>
+                </div>
+                <div className="column" style={{ display: 'flex', flexDirection: 'column' }}>
+                  <h3>Generative AI</h3>
+                  <a href="#" className="submenu-link slide-left">Generative AI Development <br />Company</a>
+                </div>
+              </div>
+              <div className="extended-dropdown" style={{ display: 'none' }}>
+                {/* ... Extended Content ... */}
+              </div>
+            </div>
+          </li>
+        </div>
+      </div>
+    )}
+  </div>
+)}
+
+    
 
 
 </ul>

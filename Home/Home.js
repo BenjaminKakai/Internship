@@ -110,37 +110,24 @@ const Home = () => {
           </button>
           
           
-
-          <div style={{ 
-              width: '60%', 
-              height: '200px', 
-              display: 'flex', 
-              marginTop: '20px', 
-              marginLeft: '-10%', 
-              background: 'linear-gradient(to right, #003c1e, #002414)', 
-              color: 'white', 
-              alignItems: 'center',
-          }}>
-            <div style={{ flex: 1 }}></div>
-            
-            <div style={{ width: '1px', backgroundColor: 'white', height: '80%', margin: 'auto 0' }}></div>
-            <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'flex-start', paddingLeft: '15px' }}>
-              <h2 style={{ fontWeight: 'bold' }}>Artificial Intelligence</h2>
-              <p>Building AI-powered solutions</p>
-            </div>
-            <div style={{ width: '1px', backgroundColor: 'white', height: '80%', margin: 'auto 0' }}></div>
-            <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'flex-start', paddingLeft: '15px' }}>
-              <h2 style={{ fontWeight: 'bold' }}>Advanced Analytics</h2>
-              <p>Drive insights from your data</p>
-            </div>
-            
-            <div style={{ width: '1px', backgroundColor: 'white', height: '80%', margin: 'auto 0' }}></div>
-            <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'flex-start', paddingLeft: '15px' }}>
-
-              <h2 style={{ fontWeight: 'bold' }}>Consulting</h2>
-              <p>Bringing capabilities and<br /> consultative approach</p>
-            </div>
-          </div>
+<div className="navy-blue-strip">
+  <div className="flex-1"></div>
+  <div className="divider"></div>
+  <div className="flex-content">
+    <h2 className="bold-text">Artificial Intelligence</h2>
+    <p>Building AI-powered solutions</p>
+  </div>
+  <div className="divider"></div>
+  <div className="flex-content">
+    <h2 className="bold-text">Advanced Analytics</h2>
+    <p>Drive insights from your data</p>
+  </div>
+  <div className="divider"></div>
+  <div className="flex-content">
+    <h2 className="bold-text">Consulting</h2>
+    <p>Bringing capabilities and<br /> consultative approach</p>
+  </div>
+</div>
 
           {showMenu && (
             <div className="dropdown-menu">
@@ -167,72 +154,59 @@ const Home = () => {
 
 
 
-
-<div
-  style={{
-    width: '100vw',
-    height: '100px',
-    marginLeft: '-10%',
-    backgroundColor: 'white',
-    display: 'flex',
-    alignItems: 'center',
-    paddingLeft: '270px',
-    zIndex: '200000', // Fix the z-index property here
-    overflow: 'hidden'
-  }}
->
-  <span style={{ color: 'black', zIndex: 2 }}>Our Clients</span>
-
-<div className="client-logos">
-  <div className="logo-slider">
-    {duplicatedImages.map((image, index) => {
-      let companyLink = "#"; // Placeholder link
-      switch (image) {
-        case "/images/IBMlogo.jpg":
-          companyLink = "https://www.ibm.com/about";
-          break;
-        case "/images/Jumialogo.jpg":
-          companyLink = "https://group.jumia.com/";
-          break;
-        case "/images/ciscologo.jpg":
-          companyLink = "https://www.cisco.com";
-          break;
-        case "/images/googlelogo.jpg":
-          companyLink = "https://about.google/";
-          break;
-        case "/images/amazonlogo.jpg":
-          companyLink = "https://www.amazon.com/s?k=a+mazon+com&adgrpid=127260490003&hvadid=548017362226&hvdev=c&hvlocphy=9076838&hvnetw=g&hvqmt=b&hvrand=16207537358557689955&hvtargid=kwd-321362582074&hydadcr=27983_11498193&tag=hydglogoo-20&ref=pd_sl_6g4xlojujf_b";
-          break;
-        case "/images/Nielsenlogo.jpg":
-          companyLink = "https://www.nielsen.com/";
-          break;
-        case "/images/microsoftlogo.jpg":
-          companyLink = "https://www.microsoft.com/en-us/";
-          break;
-        case "/images/donebydonelogo.jpg":
-          companyLink = "https://www.crunchbase.com/organization/donebynone";
-          break;
-        default:
-          companyLink = "#";
-          break;
-      }
-      return (
-        <a href={companyLink} target="_blank" rel="noopener noreferrer" key={index}>
-          <img
-            src={image}
-            alt="client logo"
-            className="client-logo"
-            style={{
-              animationDelay: `${(index % 5) * 2}s`,
-            }}
-          />
-        </a>
-      );
-    })}
+<div>
+<div className="white-strip">
+ <span style={{ color: 'black', zIndex: 2 }}>Our Clients</span>
+  <span className="our-clients">Our Clients</span>
+  <div className="client-logos">
+    <div className="logo-slider">
+      {duplicatedImages.map((image, index) => {
+        let companyLink = "#"; // Placeholder link
+        switch (image) {
+          case "/images/IBMlogo.jpg":
+            companyLink = "https://www.ibm.com/about";
+            break;
+          case "/images/Jumialogo.jpg":
+            companyLink = "https://group.jumia.com/";
+            break;
+          case "/images/ciscologo.jpg":
+            companyLink = "https://www.cisco.com";
+            break;
+          case "/images/googlelogo.jpg":
+            companyLink = "https://about.google/";
+            break;
+          case "/images/amazonlogo.jpg":
+            companyLink = "https://www.amazon.com";
+            break;
+          case "/images/Nielsenlogo.jpg":
+            companyLink = "https://www.nielsen.com/";
+            break;
+          case "/images/microsoftlogo.jpg":
+            companyLink = "https://www.microsoft.com/en-us/";
+            break;
+          case "/images/donebydonelogo.jpg":
+            companyLink = "https://www.crunchbase.com/organization/donebynone";
+            break;
+          default:
+            companyLink = "#";
+            break;
+        }
+        return (
+          <a href={companyLink} target="_blank" rel="noopener noreferrer" key={index}>
+            <img
+              src={image}
+              alt="client logo"
+              className="client-logo"
+              style={{
+                animationDelay: `${(index % 5) * 2}s`,
+              }}
+            />
+          </a>
+        );
+      })}
+    </div>
   </div>
-</div>
-
-
+  </div>
 
 
 
@@ -245,19 +219,3 @@ const Home = () => {
 
 export default Home;
 
-
-// Add event listener for dropdown menus
-document.addEventListener('DOMContentLoaded', function() {
-  if (window.innerWidth <= 832) {
-    const dropdownMenus = document.querySelectorAll('.dropdown-menu');
-    
-    dropdownMenus.forEach(menu => {
-      const button = menu.querySelector('.dropdown-button');
-      const content = menu.querySelector('.dropdown-content');
-      
-      button.addEventListener('click', function() {
-        content.classList.toggle('show');
-      });
-    });
-  }
-});
