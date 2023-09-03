@@ -1,15 +1,15 @@
 /* Round button with light green border */
 .responsive-button {
   position: fixed;
-  top: 40px;  /* Moved a bit lower */
-  right: 40px;  /* Moved a bit inside */
+  top: 50px;
+  right: 40px;
   background-color: transparent;
   border: 2px solid lightgreen;
   border-radius: 50%;
   cursor: pointer;
-  z-index: 10001;  /* To make it clickable */
-  width: 60px;  /* Set width */
-  height: 60px;  /* Set height */
+  z-index: 10001;
+  width: 60px;
+  height: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,57 +17,81 @@
 
 /* Vertical dropdown */
 .responsive-dropdown {
-  position: absolute;
-  top: 100%;
-  right: 0;
+  position: fixed;
+  top: 50px;
+  left: 0;
   background-color: white;
-  width: 30%;
-  z-index: 10000;
+  width: 100%;
+  height: calc(100vh - 50px);
+  border: 1px solid lightgray;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+/* Dropdown box */
 .dropdown-box {
   padding: 20px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
-/* New styles for a simple vertical list */
+/* Simple vertical list */
 .simple-dropdown-list {
   list-style-type: none;
   margin: 0;
-  padding: 0;
+  padding: 70px 0 0 0;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
+/* List items */
 .simple-dropdown-list li {
   display: block;
+  position: relative;
+  width: 100%;
+  text-align: center; /* Center align text */
 }
 
+/* Links */
 .simple-dropdown-list li a {
   display: block;
   text-decoration: none;
   color: black;
 }
 
-/* Hide bottom navigation bar for small screens */
+/* Active links */
+.active {
+  color: darkorange;
+}
+
+/* Sub-list */
+.sub-list {
+  display: none;
+  list-style-type: none;
+  margin-top: 0;
+  margin-left: 20px;
+  position: relative;
+  text-align: center; /* Center align text */
+}
+
+/* Show sub-list */
+.sub-list.show {
+  display: block;
+}
+
+/* Media queries */
 @media screen and (max-width: 1300px) {
   .navbar-bottom .menu-right {
     display: none;
   }
-}
-
-/* Hide bottom navigation bar for small screens */
-@media screen and (max-width: 1300px) {
   .navbar-wrapper {
     display: none !important;
   }
-}
-
-
-/* Add this media query */
-@media screen and (max-width: 1300px) {
   .brand-logo {
-    margin-left: 5px;  /* or any value you prefer */
+    margin-left: 5px;
   }
 }
 

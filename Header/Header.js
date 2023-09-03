@@ -9,10 +9,21 @@ function Header() {
   const logoPath = '/images/logo.png';
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
-
-  // Declare isDropdownVisible and its toggle function only once
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
   const dropdownRef = useRef(null);
+  const [clickedItem, setClickedItem] = useState(null);
+  
+  // Declare the showSubItems state
+  const [showSubItems, setShowSubItems] = useState({});
+
+  // Handle item click to toggle sub-items
+  const handleItemClick = (item) => {
+    setClickedItem(item);
+    setShowSubItems((prevShowSubItems) => ({
+      ...prevShowSubItems,
+      [item]: !prevShowSubItems[item],
+    }));
+  };
 
   const toggleDropdown = () => {
     setIsDropdownVisible(!isDropdownVisible);
@@ -112,6 +123,7 @@ function Header() {
       window.removeEventListener('resize', updateScreenSize);
     };
   }, []);
+
 
   
   
@@ -391,24 +403,124 @@ function Header() {
 
 
 <div>
-      {/* ... other components */}
-      {isSmallScreen && (
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }} ref={dropdownRef}>
-          <button className="responsive-button" onClick={toggleDropdown} style={{ marginTop: '20px' }}>
-            {isDropdownVisible ? '✕' : '☰'}
-          </button>
-          {isDropdownVisible && (
-            <div className="responsive-dropdown dropdown-box">
-              <ul className="simple-dropdown-list">
-                <li><a href="#">Item 1</a></li>
-                <li><a href="#">Item 2</a></li>
-                <li><a href="#">Item 3</a></li>
-              </ul>
-            </div>
-          )}
+  {/* ... other components */}
+  {isSmallScreen && (
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }} ref={dropdownRef}>
+      <button className="responsive-button" onClick={toggleDropdown} style={{ marginTop: '20px' }}>
+        {isDropdownVisible ? '✕' : '☰'}
+      </button>
+      {isDropdownVisible && (
+        <div className="responsive-dropdown dropdown-box">
+          <ul className="simple-dropdown-list">
+            <li>
+              <div onClick={(e) => { e.stopPropagation(); handleItemClick('services'); }}>
+                <a href="#" className={clickedItem === 'services' ? 'active' : ''}>Services</a>
+              </div>
+              {showSubItems['services'] && (
+                <ul className={`sub-list ${showSubItems['services'] ? 'show' : ''}`}>
+                  <li>
+                    <div onClick={(e) => { e.stopPropagation(); handleItemClick('item1'); }}>
+                      <a href="#" className={clickedItem === 'item1' ? 'active' : ''}>Item 1</a>
+                    </div>
+                    {showSubItems['item1'] && (
+                      <ul className="sub-list">
+                        <li>Sub-item 1</li>
+                        <li>Sub-item 2</li>
+                      </ul>
+                    )}
+                  </li>
+                  <li>
+                    <div onClick={(e) => { e.stopPropagation(); handleItemClick('item2'); }}>
+                      <a href="#" className={clickedItem === 'item2' ? 'active' : ''}>Item 2</a>
+                    </div>
+                    {showSubItems['item2'] && (
+                      <ul className="sub-list">
+                        <li>Sub-item 1</li>
+                        <li>Sub-item 2</li>
+                      </ul>
+                    )}
+                  </li>
+                  <li>
+                    <div onClick={(e) => { e.stopPropagation(); handleItemClick('item3'); }}>
+                      <a href="#" className={clickedItem === 'item3' ? 'active' : ''}>Item 3</a>
+                    </div>
+                    {showSubItems['item3'] && (
+                      <ul className="sub-list">
+                        <li>Sub-item 1</li>
+                        <li>Sub-item 2</li>
+                      </ul>
+                    )}
+                  </li>
+                </ul>
+              )}
+            </li>
+          </ul>
         </div>
       )}
-      </div>
+    </div>
+  )}
+</div>
+
+<div>
+  {/* ... other components */}
+  {isSmallScreen && (
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }} ref={dropdownRef}>
+      <button className="responsive-button" onClick={toggleDropdown} style={{ marginTop: '20px' }}>
+        {isDropdownVisible ? '✕' : '☰'}
+      </button>
+      {isDropdownVisible && (
+        <div className="responsive-dropdown dropdown-box">
+          <ul className="simple-dropdown-list">
+            <li>
+              <div onClick={() => handleItemClick('services')}>
+                <a href="#" className={clickedItem === 'services' ? 'active' : ''}>Services</a>
+              </div>
+              {showSubItems['services'] && (
+                <ul className={`sub-list ${showSubItems['services'] ? 'show' : ''}`}>
+                  <li>
+                    <div onClick={() => handleItemClick('item1')}>
+                      <a href="#" className={clickedItem === 'item1' ? 'active' : ''}>Item 1</a>
+                    </div>
+                    {showSubItems['item1'] && (
+                      <ul className="sub-list">
+                        <li>Sub-item 1</li>
+                        <li>Sub-item 2</li>
+                      </ul>
+                    )}
+                  </li>
+                  <li>
+                    <div onClick={() => handleItemClick('item2')}>
+                      <a href="#" className={clickedItem === 'item2' ? 'active' : ''}>Item 2</a>
+                    </div>
+                    {showSubItems['item2'] && (
+                      <ul className="sub-list">
+                        <li>Sub-item 1</li>
+                        <li>Sub-item 2</li>
+                      </ul>
+                    )}
+                  </li>
+                  <li>
+                    <div onClick={() => handleItemClick('item3')}>
+                      <a href="#" className={clickedItem === 'item3' ? 'active' : ''}>Item 3</a>
+                    </div>
+                    {showSubItems['item3'] && (
+                      <ul className="sub-list">
+                        <li>Sub-item 1</li>
+                        <li>Sub-item 2</li>
+                      </ul>
+                    )}
+                  </li>
+                </ul>
+              )}
+            </li>
+          </ul>
+        </div>
+      )}
+    </div>
+  )}
+</div>
+
+
 
     
 

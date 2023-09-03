@@ -119,6 +119,8 @@
   height: auto;
   width: 100px;
   margin-left: 100px;
+  z-index: 101;  /* Making sure it's above the dropdown */
+  position: relative; 
 }
 
 /* Common Dropdown Styles for all dropdowns */
