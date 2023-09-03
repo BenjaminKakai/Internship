@@ -12,22 +12,22 @@ function Header() {
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
   const dropdownRef = useRef(null);
   const [clickedItem, setClickedItem] = useState(null);
-  
+
   // Declare the showSubItems state
   const [showSubItems, setShowSubItems] = useState({});
 
   // Handle item click to toggle sub-items
   const handleItemClick = (item) => {
     setClickedItem(item);
-    setShowSubItems((prevShowSubItems) => ({
-      ...prevShowSubItems,
-      [item]: !prevShowSubItems[item],
-    }));
+    const newShowSubItems = { ...showSubItems };
+    newShowSubItems[item] = !newShowSubItems[item];
+    setShowSubItems(newShowSubItems);
   };
 
   const toggleDropdown = () => {
     setIsDropdownVisible(!isDropdownVisible);
   };
+
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -402,6 +402,7 @@ function Header() {
 
 
 
+
 <div>
   {/* ... other components */}
   {isSmallScreen && (
@@ -412,42 +413,204 @@ function Header() {
       {isDropdownVisible && (
         <div className="responsive-dropdown dropdown-box">
           <ul className="simple-dropdown-list">
+            {/* Services Dropdown */}
             <li>
-              <div onClick={(e) => { e.stopPropagation(); handleItemClick('services'); }}>
-                <a href="#" className={clickedItem === 'services' ? 'active' : ''}>Services</a>
+              <div onClick={() => handleItemClick('services')}>
+                <a href="#" className={clickedItem === 'services' ? 'active' : ''}>Services<span className="toggle-icon">{showSubItems['services'] ? '-' : '>'}</span></a>
               </div>
               {showSubItems['services'] && (
                 <ul className={`sub-list ${showSubItems['services'] ? 'show' : ''}`}>
+                  {/* Service 1 */}
                   <li>
-                    <div onClick={(e) => { e.stopPropagation(); handleItemClick('item1'); }}>
-                      <a href="#" className={clickedItem === 'item1' ? 'active' : ''}>Item 1</a>
+                    <div onClick={() => handleItemClick('service1')}>
+                      <a href="#" className={clickedItem === 'service1' ? 'active' : ''}>Service 1<span className="toggle-icon">{showSubItems['service1'] ? '-' : '>'}</span></a>
                     </div>
-                    {showSubItems['item1'] && (
-                      <ul className="sub-list">
-                        <li>Sub-item 1</li>
-                        <li>Sub-item 2</li>
+                    {showSubItems['service1'] && (
+                      <ul className={`sub-list ${showSubItems['service1'] ? 'show' : ''}`}>
+                        <li><a href="#">Sub-service 1</a></li>
+                        <li><a href="#">Sub-service 2</a></li>
                       </ul>
                     )}
                   </li>
+                  {/* Service 2 */}
                   <li>
-                    <div onClick={(e) => { e.stopPropagation(); handleItemClick('item2'); }}>
-                      <a href="#" className={clickedItem === 'item2' ? 'active' : ''}>Item 2</a>
+                    <div onClick={() => handleItemClick('service2')}>
+                      <a href="#" className={clickedItem === 'service2' ? 'active' : ''}>Service 2<span className="toggle-icon">{showSubItems['service2'] ? '-' : '>'}</span></a>
                     </div>
-                    {showSubItems['item2'] && (
-                      <ul className="sub-list">
-                        <li>Sub-item 1</li>
-                        <li>Sub-item 2</li>
+                    {showSubItems['service2'] && (
+                      <ul className={`sub-list ${showSubItems['service2'] ? 'show' : ''}`}>
+                        <li><a href="#">Sub-service 1</a></li>
+                        <li><a href="#">Sub-service 2</a></li>
                       </ul>
                     )}
                   </li>
+                </ul>
+              )}
+            </li>
+            {/* Portfolio Dropdown */}
+            <li>
+              <div onClick={() => handleItemClick('portfolio')}>
+                <a href="#" className={clickedItem === 'portfolio' ? 'active' : ''}>Portfolio<span className="toggle-icon">{showSubItems['portfolio'] ? '-' : '>'}</span></a>
+              </div>
+              {showSubItems['portfolio'] && (
+                <ul className={`sub-list ${showSubItems['portfolio'] ? 'show' : ''}`}>
+                  {/* Portfolio 1 */}
                   <li>
-                    <div onClick={(e) => { e.stopPropagation(); handleItemClick('item3'); }}>
-                      <a href="#" className={clickedItem === 'item3' ? 'active' : ''}>Item 3</a>
+                    <div onClick={() => handleItemClick('portfolio1')}>
+                      <a href="#" className={clickedItem === 'portfolio1' ? 'active' : ''}>Portfolio 1<span className="toggle-icon">{showSubItems['portfolio1'] ? '-' : '>'}</span></a>
                     </div>
-                    {showSubItems['item3'] && (
-                      <ul className="sub-list">
-                        <li>Sub-item 1</li>
-                        <li>Sub-item 2</li>
+                    {showSubItems['portfolio1'] && (
+                      <ul className={`sub-list ${showSubItems['portfolio1'] ? 'show' : ''}`}>
+                        <li><a href="#">Sub-portfolio 1</a></li>
+                        <li><a href="#">Sub-portfolio 2</a></li>
+                      </ul>
+                    )}
+                  </li>
+                  {/* Portfolio 2 */}
+                  <li>
+                    <div onClick={() => handleItemClick('portfolio2')}>
+                      <a href="#" className={clickedItem === 'portfolio2' ? 'active' : ''}>Portfolio 2<span className="toggle-icon">{showSubItems['portfolio2'] ? '-' : '>'}</span></a>
+                    </div>
+                    {showSubItems['portfolio2'] && (
+                      <ul className={`sub-list ${showSubItems['portfolio2'] ? 'show' : ''}`}>
+                        <li><a href="#">Sub-portfolio 1</a></li>
+                        <li><a href="#">Sub-portfolio 2</a></li>
+                      </ul>
+                    )}
+                  </li>
+                </ul>
+              )}
+            </li>
+            {/* Resources Dropdown */}
+            <li>
+              <div onClick={() => handleItemClick('resources')}>
+                <a href="#" className={clickedItem === 'resources' ? 'active' : ''}>Resources<span className="toggle-icon">{showSubItems['resources'] ? '-' : '>'}</span></a>
+              </div>
+              {showSubItems['resources'] && (
+                <ul className={`sub-list ${showSubItems['resources'] ? 'show' : ''}`}>
+                  {/* Resource 1 */}
+                  <li>
+                    <div onClick={() => handleItemClick('resource1')}>
+                      <a href="#" className={clickedItem === 'resource1' ? 'active' : ''}>Resource 1<span className="toggle-icon">{showSubItems['resource1'] ? '-' : '>'}</span></a>
+                    </div>
+                    {showSubItems['resource1'] && (
+                      <ul className={`sub-list ${showSubItems['resource1'] ? 'show' : ''}`}>
+                        <li><a href="#">Sub-resource 1</a></li>
+                        <li><a href="#">Sub-resource 2</a></li>
+                      </ul>
+                    )}
+                  </li>
+                  {/* Resource 2 */}
+                  <li>
+                    <div onClick={() => handleItemClick('resource2')}>
+                      <a href="#" className={clickedItem === 'resource2' ? 'active' : ''}>Resource 2<span className="toggle-icon">{showSubItems['resource2'] ? '-' : '>'}</span></a>
+                    </div>
+                    {showSubItems['resource2'] && (
+                      <ul className={`sub-list ${showSubItems['resource2'] ? 'show' : ''}`}>
+                        <li><a href="#">Sub-resource 1</a></li>
+                        <li><a href="#">Sub-resource 2</a></li>
+                      </ul>
+                    )}
+                  </li>
+                </ul>
+              )}
+            </li>
+            {/* Blog Dropdown */}
+            <li>
+              <div onClick={() => handleItemClick('blog')}>
+                <a href="#" className={clickedItem === 'blog' ? 'active' : ''}>Blog<span className="toggle-icon">{showSubItems['blog'] ? '-' : '>'}</span></a>
+              </div>
+              {showSubItems['blog'] && (
+                <ul className={`sub-list ${showSubItems['blog'] ? 'show' : ''}`}>
+                  {/* Blog 1 */}
+                  <li>
+                    <div onClick={() => handleItemClick('blog1')}>
+                      <a href="#" className={clickedItem === 'blog1' ? 'active' : ''}>Blog 1<span className="toggle-icon">{showSubItems['blog1'] ? '-' : '>'}</span></a>
+                    </div>
+                    {showSubItems['blog1'] && (
+                      <ul className={`sub-list ${showSubItems['blog1'] ? 'show' : ''}`}>
+                        <li><a href="#">Sub-blog 1</a></li>
+                        <li><a href="#">Sub-blog 2</a></li>
+                      </ul>
+                    )}
+                  </li>
+                  {/* Blog 2 */}
+                  <li>
+                    <div onClick={() => handleItemClick('blog2')}>
+                      <a href="#" className={clickedItem === 'blog2' ? 'active' : ''}>Blog 2<span className="toggle-icon">{showSubItems['blog2'] ? '-' : '>'}</span></a>
+                    </div>
+                    {showSubItems['blog2'] && (
+                      <ul className={`sub-list ${showSubItems['blog2'] ? 'show' : ''}`}>
+                        <li><a href="#">Sub-blog 1</a></li>
+                        <li><a href="#">Sub-blog 2</a></li>
+                      </ul>
+                    )}
+                  </li>
+                </ul>
+              )}
+            </li>
+            {/* Teams Dropdown */}
+            <li>
+              <div onClick={() => handleItemClick('teams')}>
+                <a href="#" className={clickedItem === 'teams' ? 'active' : ''}>Teams<span className="toggle-icon">{showSubItems['teams'] ? '-' : '>'}</span></a>
+              </div>
+              {showSubItems['teams'] && (
+                <ul className={`sub-list ${showSubItems['teams'] ? 'show' : ''}`}>
+                  {/* Team 1 */}
+                  <li>
+                    <div onClick={() => handleItemClick('team1')}>
+                      <a href="#" className={clickedItem === 'team1' ? 'active' : ''}>Team 1<span className="toggle-icon">{showSubItems['team1'] ? '-' : '>'}</span></a>
+                    </div>
+                    {showSubItems['team1'] && (
+                      <ul className={`sub-list ${showSubItems['team1'] ? 'show' : ''}`}>
+                        <li><a href="#">Sub-team 1</a></li>
+                        <li><a href="#">Sub-team 2</a></li>
+                      </ul>
+                    )}
+                  </li>
+                  {/* Team 2 */}
+                  <li>
+                    <div onClick={() => handleItemClick('team2')}>
+                      <a href="#" className={clickedItem === 'team2' ? 'active' : ''}>Team 2<span className="toggle-icon">{showSubItems['team2'] ? '-' : '>'}</span></a>
+                    </div>
+                    {showSubItems['team2'] && (
+                      <ul className={`sub-list ${showSubItems['team2'] ? 'show' : ''}`}>
+                        <li><a href="#">Sub-team 1</a></li>
+                        <li><a href="#">Sub-team 2</a></li>
+                      </ul>
+                    )}
+                  </li>
+                </ul>
+              )}
+            </li>
+            {/* Contact Us Dropdown */}
+            <li>
+              <div onClick={() => handleItemClick('contactUs')}>
+                <a href="#" className={clickedItem === 'contactUs' ? 'active' : ''}>Contact Us<span className="toggle-icon">{showSubItems['contactUs'] ? '-' : '>'}</span></a>
+              </div>
+              {showSubItems['contactUs'] && (
+                <ul className={`sub-list ${showSubItems['contactUs'] ? 'show' : ''}`}>
+                  {/* Contact 1 */}
+                  <li>
+                    <div onClick={() => handleItemClick('contact1')}>
+                      <a href="#" className={clickedItem === 'contact1' ? 'active' : ''}>Contact 1<span className="toggle-icon">{showSubItems['contact1'] ? '-' : '>'}</span></a>
+                    </div>
+                    {showSubItems['contact1'] && (
+                      <ul className={`sub-list ${showSubItems['contact1'] ? 'show' : ''}`}>
+                        <li><a href="#">Sub-contact 1</a></li>
+                        <li><a href="#">Sub-contact 2</a></li>
+                      </ul>
+                    )}
+                  </li>
+                  {/* Contact 2 */}
+                  <li>
+                    <div onClick={() => handleItemClick('contact2')}>
+                      <a href="#" className={clickedItem === 'contact2' ? 'active' : ''}>Contact 2<span className="toggle-icon">{showSubItems['contact2'] ? '-' : '>'}</span></a>
+                    </div>
+                    {showSubItems['contact2'] && (
+                      <ul className={`sub-list ${showSubItems['contact2'] ? 'show' : ''}`}>
+                        <li><a href="#">Sub-contact 1</a></li>
+                        <li><a href="#">Sub-contact 2</a></li>
                       </ul>
                     )}
                   </li>
@@ -461,64 +624,12 @@ function Header() {
   )}
 </div>
 
-<div>
-  {/* ... other components */}
-  {isSmallScreen && (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }} ref={dropdownRef}>
-      <button className="responsive-button" onClick={toggleDropdown} style={{ marginTop: '20px' }}>
-        {isDropdownVisible ? '✕' : '☰'}
-      </button>
-      {isDropdownVisible && (
-        <div className="responsive-dropdown dropdown-box">
-          <ul className="simple-dropdown-list">
-            <li>
-              <div onClick={() => handleItemClick('services')}>
-                <a href="#" className={clickedItem === 'services' ? 'active' : ''}>Services</a>
-              </div>
-              {showSubItems['services'] && (
-                <ul className={`sub-list ${showSubItems['services'] ? 'show' : ''}`}>
-                  <li>
-                    <div onClick={() => handleItemClick('item1')}>
-                      <a href="#" className={clickedItem === 'item1' ? 'active' : ''}>Item 1</a>
-                    </div>
-                    {showSubItems['item1'] && (
-                      <ul className="sub-list">
-                        <li>Sub-item 1</li>
-                        <li>Sub-item 2</li>
-                      </ul>
-                    )}
-                  </li>
-                  <li>
-                    <div onClick={() => handleItemClick('item2')}>
-                      <a href="#" className={clickedItem === 'item2' ? 'active' : ''}>Item 2</a>
-                    </div>
-                    {showSubItems['item2'] && (
-                      <ul className="sub-list">
-                        <li>Sub-item 1</li>
-                        <li>Sub-item 2</li>
-                      </ul>
-                    )}
-                  </li>
-                  <li>
-                    <div onClick={() => handleItemClick('item3')}>
-                      <a href="#" className={clickedItem === 'item3' ? 'active' : ''}>Item 3</a>
-                    </div>
-                    {showSubItems['item3'] && (
-                      <ul className="sub-list">
-                        <li>Sub-item 1</li>
-                        <li>Sub-item 2</li>
-                      </ul>
-                    )}
-                  </li>
-                </ul>
-              )}
-            </li>
-          </ul>
-        </div>
-      )}
-    </div>
-  )}
-</div>
+
+
+
+
+
+
 
 
 
@@ -533,5 +644,3 @@ function Header() {
 }
 
 export default Header;
-
-

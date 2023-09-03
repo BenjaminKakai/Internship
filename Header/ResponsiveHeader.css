@@ -95,3 +95,31 @@
   }
 }
 
+
+
+/* Different font sizes */
+.simple-dropdown-list li a {
+  font-size: 24px;
+}
+.sub-list li a {
+  font-size: 18px;
+}
+.sub-list .sub-list li a {
+  font-size: 14px;
+}
+
+/* Clicked sub-items */
+.sub-list li a.clicked-sub-item {
+  color: darkorange;
+}
+
+/* Clicked items */
+.sub-list li a.clicked-item {
+  color: grey;
+}
+
+/* Toggle icon */
+.toggle-icon {
+  margin-left: 10px;
+}
+
