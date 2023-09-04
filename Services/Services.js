@@ -10,10 +10,21 @@ function Services() {
         fontSize: '10px'
     };
 
-    return (
+    
+    // Function to handle cookie acceptance
+    const handleAcceptCookies = () => {
+        document.getElementById("cookie-popup").style.display = "none";
+    };
+return (
         <section id="services" className="bg-light py-3">
             <div className="wrapper">
                 <div className="grid-container">
+                    {/* Cookie Popup */}
+                    <div className="cookie-popup" id="cookie-popup">
+                        <p>We use cookies to enhance your experience.</p>
+                        <button id="accept-cookies" onClick={handleAcceptCookies}>Accept</button>
+                    </div>
+
                     <div className="hover-container">
                         <div className="item">
                             <div className="text-content">
