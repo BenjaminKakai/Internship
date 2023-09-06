@@ -1,6 +1,6 @@
 #goal {
     display: flex;
-    padding-top: 20px;
+    padding-top: 30px;
     background: linear-gradient(to right, black 33%, #F5F5F5 33%);
     align-items: center;
     min-height: 500px;
@@ -118,5 +118,37 @@
     display: flex;
     align-items: center;
     animation: slideInAndFadeOut 20s forwards; /* 10s for slide-in + 10s for staying visible */
+}
+
+
+@media only screen and (max-width: 1280px) {
+    #goal {
+        flex-direction: column;
+        align-items: center;
+    }
+    #goal .goal-img {
+        width: 150%;  /* Increase container width */
+        margin-left: 0;  /* Reset left margin */
+    }
+    #goal .goal-img img {
+        width: 100%;  /* Set image width to match container */
+        left: 0;  /* Reset left positioning */
+    }
+    #goal .goal-text {
+        margin: 20px 0;  /* Adjust text container margin */
+    }
+}
+
+
+@media only screen and (max-width: 1280px) {
+    #goal .goal-img {
+        width: 100%;  /* Change to 100% */
+        margin-left: 0;
+    }
+    #goal .goal-img img {
+        width: 100%;
+        left: 0;
+    }
+    /* ... rest of your code */
 }
 

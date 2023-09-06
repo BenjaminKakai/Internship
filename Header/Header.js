@@ -12,6 +12,8 @@ function Header() {
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
   const dropdownRef = useRef(null);
   const [clickedItem, setClickedItem] = useState(null);
+  
+const [showContactForm, setShowContactForm] = useState(false);  // Declare state variable
 
   // Declare the showSubItems state
   const [showSubItems, setShowSubItems] = useState({});
@@ -369,36 +371,43 @@ function Header() {
     
 
 <div className="navbar-wrapper">
-    <li className="contact-us-button">
-        <div className="dropdown">
-            <Link 
-                to="/contact" 
-                className="dropbtn"
-                style={{ 
-                    backgroundColor: 'green',  // Start with a green background
-                    color: 'black',
-                    borderRadius: '10px',
-                    transition: 'background-color 0.3s',
-                    whiteSpace: 'nowrap',
-                    height: '30px',
-                    paddingTop: '20px',
-                    paddingBottom: '5px',
-                    paddingLeft: '10px',
-                    paddingRight: '10px'
-                }}
-                onMouseOver={(e) => e.currentTarget.style.backgroundColor = 'lightgreen'}  // Transition to light green when hovered
-                onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'green'}  // Transition back to green when not hovered
-            >
-                Contact Us
-            </Link>
-            <div className="dropdown-content">
-                <div className="submenu-link" style={{ cursor: 'pointer' }}>
-                    Use This Form <span className="arrow">&gt;</span>
-                </div>
-            </div>
+  <li className="contact-us-button">
+    <div className="dropdown">
+      <Link 
+        to="/contact" 
+        className="dropbtn"
+        onClick={() => setShowContactForm(!showContactForm)}  // Toggle the visibility of the Contact Us form
+        style={{ 
+          backgroundColor: 'green',  // Start with a green background
+          color: 'black',
+          borderRadius: '10px',
+          transition: 'background-color 0.3s',
+          whiteSpace: 'nowrap',
+          height: '30px',
+          paddingTop: '20px',
+          paddingBottom: '5px',
+          paddingLeft: '10px',
+          paddingRight: '10px'
+        }}
+        onMouseOver={(e) => e.currentTarget.style.backgroundColor = 'lightgreen'}  // Transition to light green when hovered
+        onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'green'}  // Transition back to green when not hovered
+      >
+        Contact Us
+      </Link>
+      {showContactForm && (
+        <div className="dropdown-content">
+          <div className="submenu-link" style={{ cursor: 'pointer' }}>
+            Use This Form <span className="arrow">&gt;</span>
+          </div>
         </div>
-    </li>
-</div> {/* Closing div tag for navbar-wrapper */}
+      )}
+    </div>
+  </li>
+</div>  {/* Closing div tag for navbar-wrapper */}
+
+
+    
+    
 
 
 

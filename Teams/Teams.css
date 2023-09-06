@@ -114,3 +114,70 @@
   background-color: darkgreen;
 }
 
+
+/* ... (other CSS rules remain unchanged) */
+
+/* Two columns layout by default */
+#teams .wrapper .card-items-row {
+  display: flex;
+  margin: 20px 0;
+  justify-content: space-evenly;
+  flex-wrap: nowrap;
+}
+
+#teams .wrapper .card {
+  flex: 0 0 calc(50% - 40px);
+  margin: 20px;
+}
+
+/* Switch to a single column layout for screens less than 10 inches (960 pixels) */
+@media (max-width: 960px) {
+  #teams .wrapper .card-items-row {
+    flex-wrap: wrap;
+  }
+
+  #teams .wrapper .card {
+    flex: 0 0 100%;
+    margin: 10px 0;
+  }
+}
+
+/* ... (other CSS rules remain unchanged) */
+
+
+
+/* Existing Styles */
+/* ... */
+
+.lets-talk-btn {
+  background-color: lightgreen;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-left: auto;  /* Changed from 1200px to auto */
+  transition: background-color 0.3s ease;
+}
+
+/* Media Queries */
+@media (max-width: 960px) {
+  #teams .wrapper .card-items-row {
+    flex-wrap: wrap;
+    justify-content: center; /* Center the cards */
+  }
+
+  #teams .wrapper .card {
+    flex: 0 0 100%;
+    margin: 10px 0;
+  }
+
+  .d-flex.align-items-center {
+    flex-direction: column; /* Stack the title and button vertically */
+    align-items: flex-start;
+  }
+
+  .lets-talk-btn {
+    margin-left: 0; /* Reset the margin */
+  }
+}
+

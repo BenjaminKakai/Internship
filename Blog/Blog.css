@@ -178,3 +178,46 @@
     width: calc(75% - 10px);  /* Adjusted from 66.66% to 75% */
 }
 
+
+
+
+
+/* Default mobile-first styling */
+#blog {
+    background: #000; /* Black background */
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+}
+
+/* Styling for screens wider than 1280 pixels */
+@media screen and (min-width: 1281px) {
+    #blog {
+        background: linear-gradient(to right, #000 33%, #F5F5F5 33%, #F5F5F5 100%);  /* Original background */
+    }
+
+    .wrapper {
+        flex-direction: row;  /* Lay children out horizontally */
+    }
+}
+
+/* Adjustments for smaller screens */
+@media screen and (max-width: 1280px) {
+    .blog-card {
+        margin-top: 80px;  /* Add top margin to move the entire card down */
+    }
+
+    .blog-card .card {
+        height: auto;  /* Change to auto, as percentage might not work as expected */
+        width: calc(100% - 20px);  /* Increase width */
+    }
+
+    .blog-card .card .card-header img {
+        height: 150px;  /* Reduce image height */
+    }
+}
+
+
+

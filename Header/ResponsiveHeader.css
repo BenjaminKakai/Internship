@@ -1,13 +1,13 @@
 /* Round button with light green border */
 .responsive-button {
   position: fixed;
-  top: 50px;
+  top: 70px;
   right: 40px;
   background-color: transparent;
   border: 2px solid lightgreen;
   border-radius: 50%;
   cursor: pointer;
-  z-index: 10001;
+  z-index: 1000001;
   width: 60px;
   height: 60px;
   display: flex;
@@ -92,6 +92,7 @@
   }
   .brand-logo {
     margin-left: 5px;
+    top: 30px;
   }
 }
 

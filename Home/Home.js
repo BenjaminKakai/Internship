@@ -7,6 +7,8 @@ const Home = () => {
   const [showChat, setShowChat] = useState(false);
   const [messageSent, setMessageSent] = useState(false);
   const [currentImage, setCurrentImage] = useState(0);
+  const [showContactForm, setShowContactForm] = useState(false);
+
 
   const images = [
     "/images/IBMlogo.jpg",
@@ -56,9 +58,7 @@ const Home = () => {
         setMessageSent(false);
       }, 5000);
     }
-    
-    
-    
+
     return () => clearTimeout(timer);
   }, [messageSent]);
 
@@ -69,27 +69,50 @@ const Home = () => {
     return () => clearInterval(carouselTimer);
   }, []);
 
-  // Add a useEffect to handle screen resizing
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const whiteStrip = document.querySelector('.white-strip');
+      const navyBlueStrip = document.querySelector('.navy-blue-strip');
+
+      if (scrollPosition > 100) {
+        whiteStrip.style.position = 'static';
+        navyBlueStrip.style.position = 'static';
+      } else {
+        whiteStrip.style.position = 'fixed';
+        navyBlueStrip.style.position = 'fixed';
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   useEffect(() => {
     function handleResize() {
       const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
       const homeSlider = document.querySelector('.home-slider');
       if (homeSlider) {
-        if (vh > 600) {  // Adjust this value based on your specific needs
+        if (vh > 600) {
           homeSlider.style.height = '85vh';
         } else {
-          homeSlider.style.height = '600px';  // or your specific size
+          homeSlider.style.height = '600px';
         }
       }
     }
 
     window.addEventListener('resize', handleResize);
-    handleResize();  // Initialize
+    handleResize();
 
     return () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+
+  
 
   return (
     <div className="container">

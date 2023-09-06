@@ -18,7 +18,7 @@ function Blog() {
 
     return (
         <section id="blog" className="blog py-3">
-            <div className="wrapper">
+            <div className="wrapper" style={{ flexDirection: 'column' }}>
                 <div className="header">
                     <span></span>
                 </div>
