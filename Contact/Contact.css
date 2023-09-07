@@ -58,3 +58,21 @@
     background-color: lightgreen;
 }
 
+
+/* Responsive Design for 8 inches and below */
+@media only screen and (max-width: 768px) {
+    .contact-form {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 1rem;
+    }
+
+    .contact-form .input-field,
+    .contact-form .message-field {
+        width: 45%; /* Adjust this as per your preference */
+    }
+
+    .contact-form .message-field textarea {
+        height: 100px; /* Adjust this as per your preference */
+    }
+}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom'; // Added useLocation
+import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 
 import Header from './Header/Header';
 import Services from './Services/Services';
@@ -20,7 +20,7 @@ function AppContent() {
   const [showScrollUpBtn, setShowScrollUpBtn] = useState(false);
   const [isContactVisible, setContactVisible] = useState(false);
   
-  const location = useLocation(); // Get the current path
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,7 +35,6 @@ function AppContent() {
     };
   }, []);
 
-  // Listen for route changes
   useEffect(() => {
     setContactVisible(location.pathname === '/contact');
   }, [location.pathname]);
@@ -50,17 +49,16 @@ function AppContent() {
 
   return (
     <div>
-      <Header sticky={isNavbarSticky} />
-      <Routes>
-        <Route path="/contact" element={<Contact isVisible={isContactVisible} onGoBack={handleGoBack} />} />
-      </Routes>
+      <Header sticky={isNavbarSticky} onContactClick={() => setContactVisible(true)} />
+      {/*<Contact isVisible={isContactVisible} onGoBack={() => setContactVisible(false)} />*/}
+      <Contact />
       <Home />
-      {/*<Services />
+      <Services />
       <Goal />
       <Portfolio />
       <Teams />
       <Blog />
-      <Footer /> */}
+      <Footer /> 
       
       {showScrollUpBtn && <button className="scroll-up-btn" onClick={scrollToTop}>Scroll Up</button>}
     </div>

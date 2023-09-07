@@ -30,8 +30,9 @@ function Blog() {
                     <div className="resources">
                         <a className="resource" href="#">Resources</a>
                         <a className="resource" href="#">Articles</a>
+                        <a href="https://intelliverseai.com/blog/" className="white-link view-all-inline">view all</a> {/* New inline View All button */}
                     </div>
-                    <a href="https://intelliverseai.com/blog/" className="white-link view-all-button">view all</a>
+                    
                 </div>
                 <div className="blog-card">
                     {currentCard === 1 && (

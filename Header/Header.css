@@ -105,7 +105,7 @@
 .showcase .navbar-bottom .menu-right a {
   text-decoration: none;
   display: inline-block;
-  padding: 20 20px;
+  padding: 20 30px;
   color: #1A1B1E;
   transition: all 1s ease;
   
@@ -539,4 +539,7 @@
 }
 
 
+.contact-us-button {
+    margin-left: auto;
+}
 

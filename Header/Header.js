@@ -4,6 +4,9 @@ import '../boxicons-2.0.9/css/boxicons.min.css';
 import './Header.css';
 import './headerservices.css';
 import './ResponsiveHeader.css';
+import Contact from '../Contact/Contact';
+
+
 
 function Header() {
   const logoPath = '/images/logo.png';
@@ -384,7 +387,7 @@ const [showContactForm, setShowContactForm] = useState(false);  // Declare state
           transition: 'background-color 0.3s',
           whiteSpace: 'nowrap',
           height: '30px',
-          paddingTop: '20px',
+          paddingTop: '5px',
           paddingBottom: '5px',
           paddingLeft: '10px',
           paddingRight: '10px'
@@ -635,7 +638,7 @@ const [showContactForm, setShowContactForm] = useState(false);  // Declare state
             
   {/* Contact Us Dropdown */}
   <li>
-    <div onClick={() => handleItemClick('contactUs')}>
+    <div onClick={() => setShowContactForm(true)}>
       <a href="#" className={clickedItem === 'contactUs' ? 'active' : ''}>Contact Us</a>
     </div>
     {showSubItems['contactUs'] && (
@@ -671,7 +674,8 @@ const [showContactForm, setShowContactForm] = useState(false);  // Declare state
 </ul>
 </div>
 </div>
-</div>
+
+{showContactForm && <Contact isVisible={true} onGoBack={() => setShowContactForm(false)} />}</div>
 );
 }
 

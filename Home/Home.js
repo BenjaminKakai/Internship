@@ -1,13 +1,16 @@
+
 import React, { useState, useEffect, useRef } from "react";
 import homeVideo from "../home video.mp4";
 import './Home.css';
+import Contact from '../Contact/Contact';
 
 const Home = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [showChat, setShowChat] = useState(false);
+  const [showContactForm, setShowContactForm] = useState(false);
   const [messageSent, setMessageSent] = useState(false);
   const [currentImage, setCurrentImage] = useState(0);
-  const [showContactForm, setShowContactForm] = useState(false);
+  
 
 
   const images = [
@@ -125,10 +128,10 @@ const Home = () => {
           <h1>
             Driving changes through <br />AI &amp; Data Solutions
           </h1>
-          <button className="btn btn-case-studies" onClick={toggleMenu}>
-            Read Case Studies
-          </button>
-          <button className="btn btn-secondary" onClick={toggleChat}>
+          <button className="btn btn-case-studies" onClick={() => window.open("https://intelliverseai.com/blog/", "_blank")}>
+    Read Case Studies
+</button>
+          <button className="btn btn-secondary" onClick={() => setShowContactForm(true)}>
             Let's talk
           </button>
           
@@ -160,7 +163,7 @@ const Home = () => {
               <a href="#portfolio">Portfolio</a>
               <a href="#teams">Teams</a>
               <a href="#blog">Blog</a>
-              <a href="#contact">Contact</a>
+              
             </div>
           )}
 
@@ -236,9 +239,9 @@ const Home = () => {
       </div>
     </div>
     </div>
-   </div>
+   
+{showContactForm && <Contact isVisible={true} onGoBack={() => setShowContactForm(false)} />}</div>
   );
 };
 
 export default Home;
-
