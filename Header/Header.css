@@ -48,7 +48,8 @@
 /* Bottom Navbar */
 
 .showcase .navbar-bottom {
-  width: 100%;
+  Top: 20px;
+  width: 120%;
   background: transparent;
   padding: 15px 5px;
   align-items: center;
