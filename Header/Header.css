@@ -10,7 +10,7 @@
   top: 0;
   left: 0;
   position: fixed;
-  z-index: 11000; /* Higher value than the showcase content */
+  z-index: 110000; /* Higher value than the showcase content */
   justify-content: center;
 }
 
