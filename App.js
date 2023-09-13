@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, useLocation } from 'react-router-dom';
 
 import Header from './Header/Header';
 import Services from './Services/Services';
@@ -35,10 +35,6 @@ function AppContent() {
     };
   }, []);
 
-  useEffect(() => {
-    setContactVisible(location.pathname === '/contact');
-  }, [location.pathname]);
-
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -49,16 +45,22 @@ function AppContent() {
 
   return (
     <div>
+      {/*<NavigationBar />*/}
       <Header sticky={isNavbarSticky} onContactClick={() => setContactVisible(true)} />
-      {/*<Contact isVisible={isContactVisible} onGoBack={() => setContactVisible(false)} />*/}
-      <Contact />
-      <Home />
-      <Services />
-      <Goal />
-      <Portfolio />
-      <Teams />
-      <Blog />
-      <Footer /> 
+      
+      {isContactVisible ? (
+        <Contact isVisible={isContactVisible} onGoBack={handleGoBack} />
+      ) : (
+        <>
+          <Home />
+          <Services />
+          <Goal />
+          <Portfolio />
+          <Teams />
+          <Blog />
+          <Footer />
+        </>
+      )}
       
       {showScrollUpBtn && <button className="scroll-up-btn" onClick={scrollToTop}>Scroll Up</button>}
     </div>

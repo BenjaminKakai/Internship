@@ -10,12 +10,12 @@ function Services() {
         fontSize: '10px'
     };
 
-    
     // Function to handle cookie acceptance
     const handleAcceptCookies = () => {
         document.getElementById("cookie-popup").style.display = "none";
     };
-return (
+
+    return (
         <section id="services" className="bg-light py-3">
             <div className="wrapper">
                 <div className="grid-container">
@@ -36,7 +36,7 @@ return (
                         <div className="item"></div>
                     </div>
                     <div className="hover-container">
-                        <div className="item hoverable">
+                        <div className="item hoverable light-grey-bg">
                             <div className="text-content">
                                 <h3>Generative AI</h3>
                                 <p>Crafting virtual worlds with AI magic.</p>
@@ -49,9 +49,9 @@ return (
                         <div className="item"></div>
                     </div>
                     <div className="hover-container">
-                        <div className="item hoverable">
+                        <div className="item hoverable light-grey-bg">
                             <div className="text-content">
-                                <h3>Computer Vision Solutions</h3>
+                                <h3>Computer Vision <br /> Solutions</h3>
                                 <p>Empowering machines to see and understand.</p>
                             </div>
                             <BoxIcon iconName="building" style={boxIconStyles} />
@@ -61,7 +61,7 @@ return (
                     <div className="hover-container">
                         <div className="item hoverable">
                             <div className="text-content">
-                                <h3>Data Engineering Services</h3>
+                                <h3>Data Engineering <br /> Services</h3>
                                 <p>Building robust data infrastructures for AI.</p>
                             </div>
                             <BoxIcon iconName="badge-dollar" style={boxIconStyles} />
@@ -69,7 +69,7 @@ return (
                         </div>
                     </div>
                     <div className="hover-container">
-                        <div className="item hoverable">
+                        <div className="item hoverable light-grey-bg">
                             <div className="text-content">
                                 <h3>AI Consulting</h3>
                                 <p>Guiding businesses into the AI era.</p>
@@ -84,7 +84,7 @@ return (
                                 <h3>NLP Solutions</h3>
                                 <p>Machines that understand human language.</p>
                             </div>
-                            <BoxIcon iconName="plane" style={boxIconStyles} />
+                            <BoxIcon iconName="bxs-nlp" style={boxIconStyles} />
                             <span className="check">Check</span>
                         </div>
                     </div>
@@ -94,7 +94,7 @@ return (
                                 <h3>MLOps</h3>
                                 <p>Deploying and managing AI at scale.</p>
                             </div>
-                            <BoxIcon iconName="plane" style={boxIconStyles} />
+                            <BoxIcon iconName="bxs-mlops" style={boxIconStyles} />
                             <span className="check">Check</span>
                         </div>
                     </div>

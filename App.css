@@ -1,3 +1,4 @@
+/* Existing Styles */
 .App {
   text-align: center;
 }
@@ -44,4 +45,26 @@ body {
 .app-container {
   overflow-x: auto;
 }
+
+/* New Responsive Styles */
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+body {
+  scroll-behavior: auto;
+}
+
 
