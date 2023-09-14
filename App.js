@@ -11,6 +11,8 @@ import Contact from './Contact/Contact';
 import Footer from './Footer/Footer';
 import Home from './Home/Home';
 
+import StripsComponent from './StripsComponent/StripsComponent';  // New component import
+
 import NavigationBar from './NavigationBar/NavigationBar';
 
 import './index.css';
@@ -45,7 +47,6 @@ function AppContent() {
 
   return (
     <div>
-      {/*<NavigationBar />*/}
       <Header sticky={isNavbarSticky} onContactClick={() => setContactVisible(true)} />
       
       {isContactVisible ? (
@@ -53,6 +54,7 @@ function AppContent() {
       ) : (
         <>
           <Home />
+          <StripsComponent />  
           <Services />
           <Goal />
           <Portfolio />
