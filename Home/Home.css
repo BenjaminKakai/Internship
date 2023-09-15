@@ -9,7 +9,7 @@
 .video-container {
   position: relative;
   width: 100%;
-  height: 80%;
+  height: 0%;
 }
 
 .background-video {
@@ -17,7 +17,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 86.8%;
+  height: 100%;
   z-index: -1000;
   object-fit: cover;
 }
@@ -26,8 +26,7 @@
   position: absolute;
   top: 33%;  
   left: 5%;
-  z-index: 1;
-  
+  z-index: 1;  
 }
 
 .home-content h1 {
@@ -80,8 +79,7 @@
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
   border-radius: 10px;
-  animation: slideInFromBottom 0.3s ease-out;
-  
+  animation: slideInFromBottom 0.3s ease-out;  
 }
 
 .dropdown-menu a {
@@ -160,116 +158,10 @@
   margin-top: 20px;
 }
 
-.strip-container {
-  /*position: fixed;*/
-  bottom: 0;
-  width: 60%;
-  height: 200px;
-  background-color: grey;
-  display: flex;
-  margin-left: 0;
-}
-
-
-.section {
-  flex: 1;
-  height: 100%;
-}
-
-.section-divider {
-  width: 1px;
-  background-color: white;
-  height: 80%;
-  margin: auto 0;
-}
-
-
-
-@keyframes slide {
-  0% {
-    transform: translateX(0);
-  }
-  50% {
-    transform: translateX(-5%);
-  }
-  100% {
-    transform: translateX(-10%);
-  }
-}
-
-
-
-.client-logos {
-  width: 100vw;
-  height: 100px;
-  background-color: white;
-  display: flex;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-  margin-top: 20px;  /* Adjusted to provide space from the strip-container */
-}
-
-.client-logos span {
-  padding-left: 270px;
-  position: absolute;
-  z-index: 2;
-}
-
-
-.logo-slider {
-  display: flex;
-  animation: slide 10000s linear infinite; /* Adjust the time as needed */
-}
-
-.client-logo {
-  width: 80px;
-  height: 60px;
-  margin-left: 50px;
-   animation: slide 10s linear infinite; 
-    position: relative;
-    width: calc(60px + 1.5vw);  /* responsive width */
-  height: calc(40px + 1.5vh); /* responsive height */
-}
-
-
-.client-logo::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border: 2px solid transparent; /* Initially transparent border */
-  box-sizing: border-box; /* To include border in element's total width and height */
-  transition: all 0.1s ease; /* for smooth transition */
-}
-
-
-.client-logo:hover {
-  transform: scale(1.2); /* Increase the size */
-  z-index: 10;  /* Bring it to the front */
-  box-shadow: 10px 10px 10px 10px red; /* Smoky shadow */
-}
-
-
-.client-logo:hover::before {
-  border-color: red; /* Red border on hover */
-  z-index: -1;
-}
 .container {
   display: flex;
   flex-direction: row;
 }
-
-
-
-/* Information about the monitor based on xrandr output:
-- Screen 0: This is the primary screen (monitor).
-- Minimum and Maximum Resolutions: The screen supports a minimum of 16x16 pixels and a maximum of 32767x32767 pixels.
-- Current Resolution: The current screen resolution is 1680x1050 pixels.
-- Physical Size: The physical size of the monitor appears to be 470mm x 300mm.
-*/
 
 @media (max-width: 768px) {
   .container {
@@ -333,141 +225,58 @@
   }
 }
 
-
-
 /* Home.css */
-
 /* Normal styles for larger screens can go here */
 
-/* Hide top-nav and navy blue strip for small screens */
+/* Hide top-nav for small screens */
 @media only screen and (max-width: 832px) {
-  .top-navbar, .navy-blue-strip {
+  .top-navbar {
     display: none;
   }
   .bottom-navbar-item {
     border-radius: 50%;
-    /* Your other styling here */
   }
   .dropdown-content {
     display: none;
     flex-direction: column;
-    /* Your other styling here */
   }
   .dropdown-content.show {
     display: flex;
   }
 }
 
-
 /* Additional modifications */
 @media only screen and (max-width: 832px) {
-  /* Hide top-nav and navy blue strip for small screens */
-  .top-navbar, .navy-blue-strip {
+  /* Hide top-nav for small screens */
+  .top-navbar {
     display: none;
   }
   /* Transform the bottom navigation into round buttons */
   .bottom-navbar-item {
     border-radius: 50%;
-    /* Additional styling here */
   }
   /* Implement dropdown menus */
   .dropdown-content {
     display: none;
     flex-direction: column;
-    /* Additional styling here */
   }
   .dropdown-content.show {
     display: flex;
   }
 }
 
-
-.navy-blue-strip {
-  width: 90%;
-  height: 210px;
-  display: flex;
-  margin-left: -20%;
-  background: linear-gradient(to right, #003c1e, #002414);
-  color: white;
-  align-items: center;
-  position: fixed;  /* Stick the strip to the viewport */
-  bottom: 100px;  /* Height of the white strip */
-  z-index: 199999;  /* One less than the white strip to keep it behind */
-}
-
-.flex-1 {
-  flex: 1;
-}
-
-.divider {
-  width: 1px;
-  background-color: white;
-  height: 80%;
-  margin: auto 0;
-}
-
-.flex-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding-left: 15px;
-}
-
-.bold-text {
-  font-weight: bold;
-}
-
-@media only screen and (max-width: 832px) {
-  .navy-blue-strip {
-    display: none;
-  }
-}
-
-.white-strip {
-  width: 100vw;
-  height: 100px;
-  margin-left: -20%;
-  background-color: white;
-  display: flex;
-  align-items: center; 
-  padding-left: 270px;
-  z-index: 200000;
-  overflow: hidden;
-  position: fixed;  
-  bottom: 0;  
-}
-
-.our-clients {
-  color: black;
-  z-index: 2;
-  align-self: center;  
-}
-
-.client-logos {
-  align-self: flex-end;  
-}
-
-@media only screen and (max-width: 832px) { 
-  .white-strip {
-    padding-left: 150px;  
-  }
-
-  .logo-slider {
-    margin-left: -50px;  
-  }
-}
-
-
 .sticky-container {
   position: sticky;
   top: 0;
+  z-index: 100;
 }
 
 
+overflow-x: hidden;
+overflow-y: auto;
 
-.sticky-container {
-    position: sticky;
-    top: 0;
-    z-index: 100;
+html {
+   scroll-behavior: smooth;
 }
+
+
