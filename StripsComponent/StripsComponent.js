@@ -1,8 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './Strips.css';
 
 const StripsComponent = () => {
-
     const images = [
         "/images/IBMlogo.jpg",
         "/images/Jumialogo.jpg",
@@ -16,28 +15,6 @@ const StripsComponent = () => {
 
     const numberOfDuplicates = 10;
     const duplicatedImages = Array.from({ length: numberOfDuplicates }, () => [...images]).flat();
-
-    useEffect(() => {
-        const handleScroll = () => {
-            const scrollPosition = window.scrollY;
-            const whiteStrip = document.querySelector('.white-strip');
-            const navyBlueStrip = document.querySelector('.navy-blue-strip');
-
-            if (scrollPosition > 100) {
-                whiteStrip.style.position = 'static';
-                navyBlueStrip.style.position = 'static';
-            } else {
-                whiteStrip.style.position = 'fixed';
-                navyBlueStrip.style.position = 'fixed';
-            }
-        };
-
-        window.addEventListener('scroll', handleScroll);
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
 
     return (
         <div className="strip-container">
