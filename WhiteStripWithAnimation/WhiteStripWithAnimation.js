@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './WhiteStripWithAnimation.css';
 
 const WhiteStripWithAnimation = () => {
@@ -28,9 +28,35 @@ const WhiteStripWithAnimation = () => {
     const duplicatedImages = Array.from({ length: numberOfDuplicates }, () => [...images]).flat();
     const duplicatedCompanyLinks = Array.from({ length: numberOfDuplicates }, () => [...companyLinks]).flat();
 
+    const [scrollPosition, setScrollPosition] = useState(0);
+    const whiteStripRef = useRef(null);
+    const rafRef = useRef(null);
+
+    const handleScroll = () => {
+        cancelAnimationFrame(rafRef.current);
+        rafRef.current = requestAnimationFrame(() => {
+            setScrollPosition(window.scrollY);
+        });
+    };
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            cancelAnimationFrame(rafRef.current);
+        };
+    }, []);
+
+    useEffect(() => {
+        if (whiteStripRef.current) {
+            whiteStripRef.current.style.bottom = `${scrollPosition}px`;
+        }
+    }, [scrollPosition]);
+
     return (
         <div className="container"> 
-            <div className="white-strip">
+            <div className="white-strip" ref={whiteStripRef}>
                 <span style={{ color: 'black', zIndex: 2 }}>Our Clients</span>
                 <div className="client-logos">
                     <div className="logo-slider">
