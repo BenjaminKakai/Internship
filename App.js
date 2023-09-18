@@ -6,12 +6,13 @@ import Services from './Services/Services';
 import Goal from './Goal/Goal';
 import Portfolio from './Portfolio/Portfolio';
 import Teams from './Teams/Teams';
-import Blog from './Blog /Blog';  // Kept the space after "Blog" as you mentioned
+import Blog from './Blog /Blog';  // Note: Ensure the space is intentional after "Blog"
 import Contact from './Contact/Contact';
 import Footer from './Footer/Footer';
 import Home from './Home/Home';
 
-import StripsComponent from './StripsComponent/StripsComponent';  // New component import
+import NavyBlueStrip from './NavyBlueStrip/NavyBlueStrip';  // New component import
+import WhiteStripWithAnimation from './WhiteStripWithAnimation/WhiteStripWithAnimation';  // New component import
 
 import NavigationBar from './NavigationBar/NavigationBar';
 
@@ -54,7 +55,8 @@ function AppContent() {
       ) : (
         <>
           <Home />
-          <StripsComponent />  
+          <NavyBlueStrip />
+          <WhiteStripWithAnimation />
           <Services />
           <Goal />
           <Portfolio />
