@@ -17,7 +17,7 @@ function Services() {
     return (
         <section id="services" className="bg-light py-3">
             <div className="wrapper">
-                <h3>Our Core Capabilities</h3>
+                <h3>Our Core <br /> Capabilities</h3>
                 
                 <div className="container">
                     <div className="column">
@@ -27,7 +27,7 @@ function Services() {
                                 <p>Guiding businesses into the AI era.</p>
                             </div>
                             <BoxIcon iconName="plane" style={boxIconStyles} />
-                            <span className="check">Check</span>
+                            <a href="#your-link-here" className="check">Check</a>
                         </div>
                     </div>
                     <div className="column">
@@ -37,15 +37,15 @@ function Services() {
                                 <p>Empowering machines to see and understand.</p>
                             </div>
                             <BoxIcon iconName="building" style={boxIconStyles} />
-                            <span className="check">Check</span>
+                            <a href="#your-link-here" className="check">Check</a>
                         </div>
-                        <div className="box">
+                        <div className="box nlp-box">
                             <div className="text-content">
                                 <h3>NLP Solutions</h3>
                                 <p>Machines that understand human language.</p>
                             </div>
                             <BoxIcon iconName="bxs-nlp" style={boxIconStyles} />
-                            <span className="check">Check</span>
+                            <a href="#your-link-here" className="check">Check</a>
                         </div>
                     </div>
                     <div className="column">
@@ -55,15 +55,15 @@ function Services() {
                                 <p>Crafting virtual worlds with AI magic.</p>
                             </div>
                             <BoxIcon iconName="credit-card" style={boxIconStyles} />
-                            <span className="check">Check</span>
+                            <a href="#your-link-here" className="check">Check</a>
                         </div>
-                        <div className="box">
+                        <div className="box data-engineering-box">
                             <div className="text-content">
                                 <h3>Data Engineering <br /> Services</h3>
                                 <p>Building robust data infrastructures for AI.</p>
                             </div>
                             <BoxIcon iconName="badge-dollar" style={boxIconStyles} />
-                            <span className="check">Check</span>
+                            <a href="#your-link-here" className="check">Check</a>
                         </div>
                         <div className="box">
                             <div className="text-content">
@@ -71,7 +71,7 @@ function Services() {
                                 <p>Deploying and managing AI at scale.</p>
                             </div>
                             <BoxIcon iconName="bxs-mlops" style={boxIconStyles} />
-                            <span className="check">Check</span>
+                            <a href="#your-link-here" className="check">Check</a>
                         </div>
                     </div>
                 </div>
